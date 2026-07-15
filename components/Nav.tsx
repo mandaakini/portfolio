@@ -61,11 +61,21 @@ export default function Nav() {
       <div className="mx-auto flex h-20 max-w-8xl items-center justify-between px-6 sm:px-8 lg:px-12">
         <a
           href="#home"
-          className="font-display text-xl font-semibold tracking-tight text-ink"
-          aria-label="Mandaakini — Home"
+          className="group inline-flex items-center gap-3 text-ink"
+          aria-label="Mandaakini Raghuraman — Home"
         >
-          Mandaakini
+          <span
+            aria-hidden="true"
+            className="grid size-10 place-items-center rounded-full border border-rose-deep/30 bg-blush/40 font-display text-sm font-semibold text-rose-deep transition-colors group-hover:bg-rose-deep group-hover:text-cream"
+          >
+            MR
+          </span>
+
+          <span className="font-display text-lg font-semibold tracking-tight sm:text-xl">
+            Mandaakini Raghuraman
+          </span>
         </a>
+       
 
         <nav
           className="hidden items-center gap-8 lg:flex"
@@ -138,9 +148,19 @@ export default function Nav() {
               <a
                 href="#home"
                 onClick={() => setOpen(false)}
-                className="font-display text-xl font-semibold text-ink"
+                className="inline-flex items-center gap-3 text-ink"
+                aria-label="Mandaakini Raghuraman — Home"
               >
-                Mandaakini
+                <span
+                  aria-hidden="true"
+                  className="grid size-10 place-items-center rounded-full border border-rose-deep/30 bg-blush/40 font-display text-sm font-semibold text-rose-deep"
+                >
+                  MR
+                </span>
+
+                <span className="font-display text-[17px] font-semibold tracking-tight sm:text-xl">
+                  Mandaakini Raghuraman
+                </span>
               </a>
 
               <button
