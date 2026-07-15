@@ -48,9 +48,11 @@ export default function Hero() {
           variants={fadeUp}
           className="text-balance font-display text-[13vw] font-semibold leading-[1.02] text-ink sm:text-6xl md:text-7xl lg:text-8xl"
         >
-          My name is
+          
           <br />
-          <span className="italic text-rose-deep">Mandaakini.</span>
+          <span className="text-rose-deep">Mandaakini</span>
+          <span className="text-rose-deep">Raghuraman</span>
+
         </motion.h1>
 
         <motion.p
