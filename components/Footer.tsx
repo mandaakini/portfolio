@@ -6,7 +6,7 @@ export default function Footer() {
           Designed with curiosity, creativity, and coffee.
         </p>
         <p className="font-mono text-[11px] tracking-wide text-charcoal/40">
-          © {new Date().getFullYear()} Mandaakini. All rights reserved.
+          © {new Date().getFullYear()} Mandaakini Raghuraman. All rights reserved.
         </p>
       </div>
     </footer>
