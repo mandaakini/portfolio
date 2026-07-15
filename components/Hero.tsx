@@ -26,7 +26,8 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] items-center pb-20 pt-28 sm:pt-32"
+      className="relative flex min-h-[100svh] items-center bg-gradient-to-br from-blush/60 via-cream to-lilac/50 pb-20 pt-28 sm:pt-32"
+      
     >
       <BackgroundBlobs />
 
@@ -38,7 +39,7 @@ export default function Hero() {
           variants={fadeUp}
           className="mb-6 font-mono text-[11px] uppercase tracking-[0.25em] text-rose-deep sm:text-xs"
         >
-          Business Analytics · Consumer Insights · Product Strategy · Music
+          Business Analytics · Consumer Insights · Product Strategy · Market Research · Music
         </motion.p>
 
         <motion.h1
