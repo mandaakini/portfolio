@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import SectionHeading from "./SectionHeading";
 
 const focusAreas = [
   "Product Management",
@@ -17,8 +17,9 @@ export default function About() {
       <div className="mx-auto max-w-8xl px-6 sm:px-8 lg:px-12">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-start">
           <div className="lg:col-span-5">
-            <SectionHeading eyebrow="01 — About" title="I read people the way most people read numbers." />
-
+            <p className="font-mono text-xs uppercase tracking-[0.24em] text-rose-deep">
+              01 — About
+            </p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -26,15 +27,20 @@ export default function About() {
               transition={{ duration: 0.7, delay: 0.15 }}
               className="mt-10 relative mx-auto lg:mx-0 max-w-sm"
             >
-              <div className="aspect-[4/5] rounded-4xl bg-gradient-to-br from-blush via-cream to-sage shadow-soft overflow-hidden relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-display italic text-3xl text-ink/30">
-                    portrait
-                  </span>
-                </div>
-                <div className="absolute -bottom-5 -right-5 h-24 w-24 rounded-full bg-sage-deep/20 blur-2xl" />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-4xl bg-blush shadow-soft">
+                <Image
+                  src="/images/about-photo.jpg"
+                  alt="Portrait of Mandaakini Raghuraman"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 384px"
+                  className="object-cover object-center"
+                />
+
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-ink/10 via-transparent to-transparent"
+                />
               </div>
-              <div className="absolute -top-5 -left-5 h-16 w-16 rounded-2xl bg-rose/30 -z-10 rotate-6" />
             </motion.div>
           </div>
 
