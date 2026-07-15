@@ -95,7 +95,7 @@ export default function Music() {
                 </p>
 
                 <p className="mt-1 font-display text-lg">
-                  Mandaakini&apos;s Playlist
+                  Mandaakini&apos;s Recent Listens
                 </p>
               </div>
 
@@ -120,14 +120,14 @@ export default function Music() {
                 ))}
               </div>
             </div>
-
             <iframe
-              title="Mandaakini's Spotify playlist"
-              src="https://open.spotify.com/embed/playlist/4EMwcuCioKUZkoaJ5XGqrA"
+              title="Mandaakini's Recent Listens"
+              src="https://open.spotify.com/embed/playlist/4EMwcuCioKUZkoaJ5XGqrA?utm_source=generator&theme=0"
               width="100%"
               height="352"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
+              allowFullScreen
               className="rounded-[20px] border-0"
             />
           </motion.div>
