@@ -127,12 +127,14 @@ export default function Nav() {
         {open && (
           <motion.div
             id="mobile-navigation"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-cream lg:hidden"
+            initial={{ y: "-100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-100%" }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-[100] min-h-[100dvh] overflow-y-auto overscroll-contain bg-[#fbf8f4] lg:hidden"
+            style={{ backgroundColor: "#fbf8f4" }}
           >
-            <div className="flex h-20 items-center justify-between px-6">
+            <div className="flex h-20 items-center justify-between bg-[#fbf8f4] px-6">
               <a
                 href="#home"
                 onClick={() => setOpen(false)}
@@ -152,7 +154,7 @@ export default function Nav() {
             </div>
 
             <nav
-              className="flex flex-col gap-1 px-6 pt-4"
+              className="flex min-h-[calc(100dvh-5rem)] flex-col gap-1 bg-[#fbf8f4] px-6 pt-4"
               aria-label="Mobile navigation"
             >
               {nav.map((item, index) => (
