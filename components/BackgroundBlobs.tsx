@@ -11,7 +11,7 @@ export default function BackgroundBlobs() {
       <div className="absolute -right-16 top-1/3 h-64 w-64 rounded-full bg-lilac opacity-60 blur-3xl animate-floatSlower sm:h-80 sm:w-80" />
 
       {/* Orchid pink: bottom */}
-      <div className="absolute bottom-0 left-1/4 h-56 w-56 rounded-full bg-orchid/30 opacity-60 blur-3xl animate-floatSlowest sm:h-72 sm:w-72" />
+      <div className="absolute bottom-0 left-1/4 h-56 w-56 rounded-full bg-blush/30 opacity-60 blur-3xl animate-floatSlowest sm:h-72 sm:w-72" />
     </div>
   );
 }
