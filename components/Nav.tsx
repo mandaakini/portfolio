@@ -60,19 +60,12 @@ export default function Nav() {
     >
       <div className="mx-auto flex h-20 max-w-8xl items-center justify-between px-6 sm:px-8 lg:px-12">
         <a
-          href="#home"
-          className="group inline-flex items-center gap-3 text-ink"
-          aria-label="Mandaakini Raghuraman — Home"
         >
           <span
             aria-hidden="true"
             className="grid size-10 place-items-center rounded-full border border-rose-deep/30 bg-blush/40 font-display text-sm font-semibold text-rose-deep transition-colors group-hover:bg-rose-deep group-hover:text-cream"
           >
             MR
-          </span>
-
-          <span className="font-display text-lg font-semibold tracking-tight sm:text-xl">
-            Mandaakini Raghuraman
           </span>
         </a>
        
@@ -146,10 +139,7 @@ export default function Nav() {
           >
             <div className="flex h-20 items-center justify-between bg-[#fbf8f4] px-6">
               <a
-                href="#home"
-                onClick={() => setOpen(false)}
-                className="inline-flex items-center gap-3 text-ink"
-                aria-label="Mandaakini Raghuraman — Home"
+
               >
                 <span
                   aria-hidden="true"
