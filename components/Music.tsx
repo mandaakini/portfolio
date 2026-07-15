@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Mic2, Piano, Sliders } from "lucide-react";
 
-import SectionHeading from "./SectionHeading";
 
 const pillars = [
   {
@@ -40,11 +39,17 @@ export default function Music() {
       />
 
       <div className="relative mx-auto max-w-8xl px-6 sm:px-8 lg:px-12">
-        <SectionHeading
-          eyebrow="06 — Music"
-          title="If we understood the world, we would realize that there is a logic of harmony underlying its manifold apparent dissonances."
-          light
-        />
+        <div>
+          <p className="font-mono text-xs uppercase tracking-[0.24em] text-cream/45">
+            06 — Music
+          </p>
+
+          <h2 className="mt-6 max-w-5xl font-display text-3xl font-semibold leading-[1.08] text-cream sm:text-4xl lg:text-5xl">
+            If we understood the world, we would realize that there is a logic of
+            harmony underlying its manifold apparent dissonances.
+                  ~ Jean Sibelius
+          </h2>
+        </div>
 
         <div className="mt-16 grid items-center gap-16 lg:grid-cols-2">
           <div className="space-y-8">
