@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Mic2, Piano, Sliders } from "lucide-react";
+
 import SectionHeading from "./SectionHeading";
-import { Piano, Mic2, Sliders } from "lucide-react";
 
 const pillars = [
   {
@@ -13,7 +14,7 @@ const pillars = [
   {
     icon: Sliders,
     title: "Production",
-    body: "Learning the other side of the glass — arrangement, mixing, and the small decisions that make a track feel finished.",
+    body: "Learning the other side of the glass—arrangement, mixing, and the small decisions that make a track feel finished.",
   },
   {
     icon: Mic2,
@@ -24,9 +25,12 @@ const pillars = [
 
 export default function Music() {
   return (
-    <section id="music" className="relative py-24 sm:py-32 bg-ink text-cream overflow-hidden">
+    <section
+      id="music"
+      className="relative overflow-hidden bg-ink py-24 text-cream sm:py-32"
+    >
       <div
-        aria-hidden
+        aria-hidden="true"
         className="absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage:
@@ -36,32 +40,45 @@ export default function Music() {
       />
 
       <div className="relative mx-auto max-w-8xl px-6 sm:px-8 lg:px-12">
-        <SectionHeading eyebrow="06 — Music" title="The part of me that thinks in melody." light />
+        <SectionHeading
+          eyebrow="06 — Music"
+          title="The part of me that thinks in melody."
+          light
+        />
 
-        <div className="mt-16 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="mt-16 grid items-center gap-16 lg:grid-cols-2">
           <div className="space-y-8">
-            {pillars.map((p, i) => (
-              <motion.div
-                key={p.title}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="flex gap-5"
-              >
-                <span className="shrink-0 h-11 w-11 rounded-full bg-cream/10 flex items-center justify-center text-rose">
-                  <p.icon size={20} />
-                </span>
-                <div>
-                  <h3 className="font-display text-xl font-semibold mb-1.5">
-                    {p.title}
-                  </h3>
-                  <p className="text-cream/65 leading-relaxed text-sm sm:text-base">
-                    {p.body}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+            {pillars.map((pillar, index) => {
+              const Icon = pillar.icon;
+
+              return (
+                <motion.div
+                  key={pillar.title}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.1,
+                  }}
+                  className="flex gap-5"
+                >
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cream/10 text-rose">
+                    <Icon size={20} aria-hidden="true" />
+                  </span>
+
+                  <div>
+                    <h3 className="mb-1.5 font-display text-xl font-semibold">
+                      {pillar.title}
+                    </h3>
+
+                    <p className="text-sm leading-relaxed text-cream/65 sm:text-base">
+                      {pillar.body}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
 
           <motion.div
@@ -69,53 +86,53 @@ export default function Music() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7 }}
-            className="rounded-4xl bg-cream/[0.06] border border-cream/10 p-6 sm:p-8"
+            className="rounded-4xl border border-cream/10 bg-cream/[0.06] p-6 sm:p-8"
           >
-            <div className="flex items-center justify-between mb-6">
+            <div className="mb-6 flex items-center justify-between">
               <div>
-                <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-cream/40">
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-cream/40">
                   Now Playing
                 </p>
-                <p className="font-display text-lg mt-1">Mandaakini's Playlist</p>
+
+                <p className="mt-1 font-display text-lg">
+                  Mandaakini&apos;s Playlist
+                </p>
               </div>
-              <div className="flex items-end gap-1 h-8" aria-hidden>
-                {[0, 1, 2, 3, 4].map((i) => (
+
+              <div
+                className="flex h-8 items-end gap-1"
+                aria-hidden="true"
+              >
+                {[0, 1, 2, 3, 4].map((index) => (
                   <motion.span
-                    key={i}
+                    key={index}
                     className="w-1 rounded-full bg-rose"
-                    animate={{ height: ["30%", "100%", "50%", "80%", "30%"] }}
+                    animate={{
+                      height: ["30%", "100%", "50%", "80%", "30%"],
+                    }}
                     transition={{
-                      duration: 1.8 + i * 0.2,
+                      duration: 1.8 + index * 0.2,
                       repeat: Infinity,
                       ease: "easeInOut",
-                      delay: i * 0.15,
+                      delay: index * 0.15,
                     }}
                   />
                 ))}
               </div>
             </div>
 
-            {/*
-              Replace the div below with a real Spotify embed, e.g.:
-              <iframe
-                style={{ borderRadius: "20px" }}
-                src="https://open.spotify.com/embed/playlist/YOUR_PLAYLIST_ID?utm_source=generator"
-                width="100%" height="352" frameBorder="0"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-              />
-            */}
-            <div className="rounded-3xl bg-cream/[0.04] border border-dashed border-cream/15 aspect-[16/10] flex flex-col items-center justify-center gap-3 text-cream/40">
-              <span className="font-mono text-xs tracking-widest uppercase">
-                Spotify Embed
-              </span>
-              <span className="text-sm text-cream/30 px-6 text-center">
-                Drop your playlist embed code here
-              </span>
-            </div>
+            <iframe
+              title="Mandaakini's Spotify playlist"
+              src="https://open.spotify.com/embed/playlist/4EMwcuCioKUZkoaJ5XGqrA"
+              width="100%"
+              height="352"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              className="rounded-[20px] border-0"
+            />
           </motion.div>
         </div>
       </div>
     </section>
   );
-} 
+}
