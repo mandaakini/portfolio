@@ -26,7 +26,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] items-center bg-gradient-to-br from-blush/60 via-cream to-lilac/50 pb-20 pt-28 sm:pt-32"
+      className="relative flex min-h-[100svh] items-center bg-lilac pb-20 pt-28 sm:pt-32"
       
     >
       <BackgroundBlobs />
