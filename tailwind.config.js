@@ -7,13 +7,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        cream: "#FAF8F5",
-        blush: "#F8EDEE",
+        cream: "#F5EEE4",
+        blush: "#F7DFE9",
+        lilac: "#F4E5FF"
         sage: "#DCE5DC",
         "sage-deep": "#7C9473",
         charcoal: "#2B2A28",
         ink: "#1F1E1C",
         rose: "#C98A94",
+        orchid: "#B06BAD"
         "rose-deep": "#B06B77",
       },
       fontFamily: {
