@@ -42,7 +42,7 @@ export default function Music() {
       <div className="relative mx-auto max-w-8xl px-6 sm:px-8 lg:px-12">
         <SectionHeading
           eyebrow="06 — Music"
-          title="The part of me that thinks in melody."
+          title="If we understood the world, we would realize that there is a logic of harmony underlying its manifold apparent dissonances."
           light
         />
 
