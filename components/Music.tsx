@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Mic2, Piano, Sliders } from "lucide-react";
 
-
 const pillars = [
   {
     icon: Piano,
@@ -26,7 +25,7 @@ export default function Music() {
   return (
     <section
       id="music"
-      className="relative overflow-hidden bg-ink py-24 text-cream sm:py-32"
+      className="relative overflow-hidden bg-ink py-20 text-cream sm:py-24"
     >
       <div
         aria-hidden="true"
@@ -44,14 +43,19 @@ export default function Music() {
             06 — Music
           </p>
 
-          <h2 className="mt-6 max-w-5xl font-display text-3xl font-semibold leading-[1.08] text-cream sm:text-4xl lg:text-5xl">
-            If we understood the world, we would realize that there is a logic of
-            harmony underlying its manifold apparent dissonances.
-                  ~ Jean Sibelius
-          </h2>
+          <blockquote className="mt-5 max-w-6xl">
+            <p className="font-display text-3xl font-semibold leading-[1.05] text-cream sm:text-4xl lg:text-5xl">
+              If we understood the world, we would realize that there is a logic
+              of harmony underlying its manifold apparent dissonances.
+            </p>
+
+            <footer className="mt-4 font-display text-lg italic text-rose sm:text-xl">
+              — Jean Sibelius
+            </footer>
+          </blockquote>
         </div>
 
-        <div className="mt-16 grid items-center gap-16 lg:grid-cols-2">
+        <div className="mt-10 grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="space-y-8">
             {pillars.map((pillar, index) => {
               const Icon = pillar.icon;
@@ -125,8 +129,9 @@ export default function Music() {
                 ))}
               </div>
             </div>
+
             <iframe
-              title="Mandaakini's Recent Listens"
+              title="Mandaakini's Spotify playlist"
               src="https://open.spotify.com/embed/playlist/4EMwcuCioKUZkoaJ5XGqrA?utm_source=generator&theme=0"
               width="100%"
               height="352"
