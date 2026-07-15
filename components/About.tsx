@@ -44,7 +44,7 @@ export default function About() {
             </motion.div>
           </div>
 
-          <div className="lg:col-span-7 lg:pt-32">
+          <div className="lg:col-span-7 lg:pt-8">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
