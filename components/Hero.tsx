@@ -48,10 +48,9 @@ export default function Hero() {
           variants={fadeUp}
           className="text-balance font-display text-[13vw] font-semibold leading-[1.02] text-ink sm:text-6xl md:text-7xl lg:text-8xl"
         >
-  
-          Mandaakini 
-          Raghuraman 
+          Mandaakini
           <br />
+          <span>Raghuraman</span>
         </motion.h1>
 
         <motion.p
@@ -81,7 +80,7 @@ export default function Hero() {
           </a>
 
           <a
-            href="https://linkedin.com/in/mandaakini"
+            href="https://www.linkedin.com/in/mandaakini-raghuraman/" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-charcoal/20 px-7 py-3.5 text-sm font-medium text-ink transition-colors duration-300 hover:border-rose-deep hover:text-rose-deep"
