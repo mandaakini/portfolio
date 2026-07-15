@@ -39,7 +39,7 @@ export default function Loader() {
             ))}
           </div>
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-charcoal/50">
-            Mandaakini
+            Mandaakini Raghuraman
           </p>
         </motion.div>
       )}
