@@ -95,7 +95,7 @@ export default function Music() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7 }}
-            className="rounded-4xl border border-cream/10 bg-cream/[0.06] p-6 sm:p-8"
+            className="rounded-4xl border border-cream/10 bg-cream/[0.06] p-6 sm:p-8 lg:-mt-12"
           >
             <div className="mb-6 flex items-center justify-between">
               <div>
