@@ -2,20 +2,26 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, Mail } from "lucide-react";
-import {
-  FaGithub,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa6";
+import { FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 
 import SectionHeading from "./SectionHeading";
-import { socials } from "../lib/data";
 
 const links = [
-  { icon: FaLinkedinIn, label: "LinkedIn", href: socials.linkedin },
-  { icon: Mail, label: "Email", href: socials.email },
-  { icon: FaGithub, label: "GitHub", href: socials.github },
-  { icon: FaInstagram, label: "Instagram", href: socials.instagram },
+  {
+    icon: FaLinkedinIn,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/mandaakini-raghuraman/",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    href: "mailto:mandaakini@gmail.com",
+  },
+  {
+    icon: FaInstagram,
+    label: "Instagram",
+    href: "https://www.instagram.com/mandaakini/",
+  },
 ];
 
 export default function Contact() {
@@ -45,7 +51,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="mx-auto mt-14 grid max-w-2xl grid-cols-2 gap-4 sm:flex sm:justify-center sm:gap-5">
+        <div className="mx-auto mt-14 grid max-w-xl grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
           {links.map((link, index) => {
             const Icon = link.icon;
             const isEmail = link.label === "Email";
@@ -64,7 +70,10 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.08,
+                }}
                 whileHover={{ y: -4 }}
                 className="group flex flex-col items-center gap-3 rounded-3xl bg-cream px-6 py-7 shadow-softer transition-shadow duration-300 hover:shadow-soft"
               >
@@ -74,6 +83,7 @@ export default function Contact() {
 
                 <span className="flex items-center gap-1 text-sm font-medium text-ink">
                   {link.label}
+
                   {!isEmail && (
                     <ArrowUpRight
                       size={13}
@@ -89,4 +99,4 @@ export default function Contact() {
       </div>
     </section>
   );
-} 
+}
