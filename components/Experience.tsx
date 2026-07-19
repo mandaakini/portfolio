@@ -40,7 +40,7 @@ const timeline = [
   },
   {
     id: 2,
-    role: "Business and Strategy Analyst Consultant",
+    role: "Co-Founder, VP, Lead Product Manager",
     org: "Oregon Software Consulting Group",
     period: "June 2024 — June 2026",
     type: "Experience",
@@ -71,7 +71,7 @@ const timeline = [
   },
   {
     id: 4,
-    role: "Market Research Analyst",
+    role: "Market Research and Strategy Analyst",
     org: "Oregon State University Alumni Association",
     period: "April 2025 — June 2025",
     type: "Experience",
@@ -210,13 +210,14 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative overflow-hidden bg-blush/40 py-24 sm:py-32"
+      className="relative overflow-hidden bg-ink py-24 text-cream sm:py-32"
     >
       <div className="mx-auto max-w-8xl px-6 sm:px-8 lg:px-12">
         <div className="flex items-end justify-between gap-6">
           <SectionHeading
             eyebrow="02 — Experience"
             title="Where experience, leadership, and curiosity meet."
+            light
           />
 
           <div className="hidden shrink-0 items-center gap-3 sm:flex">
@@ -347,14 +348,14 @@ export default function Experience() {
                   aria-label={`View ${item.role} at ${item.org}`}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
                     index === currentIndex
-                      ? "w-8 bg-rose-deep"
-                      : "w-2.5 bg-charcoal/20 hover:bg-charcoal/40"
+                      ? "w-8 bg-rose"
+                      : "w-2.5 bg-cream/25 hover:bg-cream/50"
                   }`}
                 />
               ))}
             </div>
 
-            <p className="hidden font-mono text-[10px] uppercase tracking-widest text-charcoal/40 sm:block">
+            <p className="hidden font-mono text-[10px] uppercase tracking-widest text-cream/40 sm:block">
               Swipe or use arrows
             </p>
           </div>
