@@ -69,7 +69,7 @@ export default function Resume() {
             </p>
 
             <a
-              href="/images/MandaakiniRaghuraman_Resume.pdf?v=2"
+              href="/images/MandaakiniRaghuraman_Resume.pdf"
               download
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-cream transition-transform duration-300 hover:-translate-y-0.5"
             >
