@@ -2,48 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-ivory: #f7f1e8;
+  --color-porcelain: #fcf8f3;
+  --color-rose-mist: #f3e4e5;
+  --color-antique-rose: #b97882;
+  --color-rosewood: #875761;
+  --color-sage-mist: #e5e8de;
+  --color-eucalyptus: #9ba58f;
+  --color-plum: #5e4a5c;
+  --color-plum-mist: #eee7ed;
+  --color-espresso: #24211f;
+  --color-deep-espresso: #211f1d;
+  --color-taupe: #6f6762;
+}
+
 html {
   scroll-behavior: smooth;
+  background-color: var(--color-ivory);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-ivory);
+  color: var(--color-espresso);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: rgba(185, 120, 130, 0.3);
+  color: var(--color-espresso);
+}
+
+/* Slim, quiet scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-ivory);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-eucalyptus);
+  border: 2px solid var(--color-ivory);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-rosewood);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-color: var(--color-eucalyptus) var(--color-ivory);
+  scrollbar-width: thin;
+}
+
+/* Visible keyboard focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-antique-rose);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Improve anchor scrolling beneath the fixed navigation */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Prevent images and embedded media from exceeding their containers */
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+/* Balanced editorial headings */
+.text-balance {
+  text-wrap: balance;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-::selection {
-  background-color: rgba(201, 138, 148, 0.28);
-  color: #1F1E1C;
-}
-
-/* Slim, quiet scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #FAF8F5;
-}
-::-webkit-scrollbar-thumb {
-  background: #DCE5DC;
-  border-radius: 999px;
-  border: 2px solid #FAF8F5;
-}
-
-/* Visible keyboard focus, everywhere */
-a:focus-visible,
-button:focus-visible,
-[tabindex]:focus-visible {
-  outline: 2px solid #C98A94;
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-.text-balance {
-  text-wrap: balance;
 }

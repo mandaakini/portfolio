@@ -10,6 +10,7 @@ const fadeUp: Variants = {
     opacity: 0,
     y: 28,
   },
+
   show: (index: number) => ({
     opacity: 1,
     y: 0,
@@ -25,7 +26,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] items-center bg-gradient-to-br from-blush/60 via-cream to-blush/50 pb-20 pt-28 sm:pt-32"
+      className="relative flex min-h-[100svh] items-center overflow-hidden bg-cream pb-20 pt-28 sm:pt-32"
     >
       <BackgroundBlobs />
 
@@ -35,7 +36,7 @@ export default function Hero() {
           initial="hidden"
           animate="show"
           variants={fadeUp}
-          className="mb-6 font-mono text-[11px] uppercase tracking-[0.25em] text-rose-deep sm:text-xs"
+          className="mb-6 max-w-4xl font-mono text-[11px] uppercase tracking-[0.25em] text-rose sm:text-xs"
         >
           Business Analytics · Consumer Insights · Product Strategy · Market
           Research · Music
@@ -58,7 +59,7 @@ export default function Hero() {
           initial="hidden"
           animate="show"
           variants={fadeUp}
-          className="mt-8 max-w-xl text-base leading-relaxed text-charcoal/75 sm:text-lg"
+          className="mt-8 max-w-xl text-base leading-relaxed text-charcoal sm:text-lg"
         >
           I explore the intersection of data, creativity, and human behavior to
           build products and experiences people genuinely connect with.
@@ -73,17 +74,20 @@ export default function Hero() {
         >
           <a
             href="#contact"
-            className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-cream transition-transform duration-300 hover:-translate-y-0.5"
+            className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-deep-espresso px-7 py-3.5 text-sm font-medium text-cream shadow-softer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-soft"
           >
-            <span className="absolute inset-0 translate-y-full bg-rose-deep transition-transform duration-300 ease-out group-hover:translate-y-0" />
-            <span className="relative">Let&apos;s Connect</span>
+            <span className="absolute inset-0 translate-y-full bg-rosewood transition-transform duration-300 ease-out group-hover:translate-y-0" />
+
+            <span className="relative">
+              Let&apos;s Connect
+            </span>
           </a>
 
           <a
             href="/images/MandaakiniRaghuraman_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-charcoal/20 px-7 py-3.5 text-sm font-medium text-ink transition-colors duration-300 hover:border-rose-deep hover:text-rose-deep"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-rosewood/25 bg-porcelain/70 px-7 py-3.5 text-sm font-medium text-ink shadow-softer transition-all duration-300 hover:-translate-y-0.5 hover:border-rosewood hover:text-rosewood hover:shadow-soft"
           >
             <FileText size={16} aria-hidden="true" />
             View Resume
@@ -102,7 +106,7 @@ export default function Hero() {
           {[0, 1, 2, 3, 4, 5, 6].map((index) => (
             <motion.span
               key={index}
-              className="w-1.5 rounded-full bg-sage-deep/50"
+              className="w-1.5 rounded-full bg-eucalyptus/75"
               animate={{
                 height: ["30%", "100%", "50%", "80%", "30%"],
               }}
@@ -120,17 +124,25 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 1 }}
+        transition={{
+          delay: 1.4,
+          duration: 1,
+        }}
         aria-hidden="true"
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-charcoal/40 sm:flex"
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-charcoal/60 sm:flex"
       >
         <span className="font-mono text-[10px] uppercase tracking-[0.2em]">
           Scroll
         </span>
 
         <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity }}
+          animate={{
+            y: [0, 6, 0],
+          }}
+          transition={{
+            duration: 1.6,
+            repeat: Infinity,
+          }}
         >
           <ArrowDown size={16} />
         </motion.div>

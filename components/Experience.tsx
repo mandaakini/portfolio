@@ -167,10 +167,12 @@ const slideVariants: Variants = {
     opacity: 0,
     x: direction > 0 ? 80 : -80,
   }),
+
   center: {
     opacity: 1,
     x: 0,
   },
+
   exit: (direction: number) => ({
     opacity: 0,
     x: direction > 0 ? -80 : 80,
@@ -182,6 +184,7 @@ export default function Experience() {
 
   const currentItem = timeline[currentIndex];
   const Icon = currentItem.icon;
+  const isLeadership = currentItem.type === "Leadership";
 
   const changeExperience = (nextIndex: number) => {
     if (nextIndex < 0 || nextIndex >= timeline.length) {
@@ -210,9 +213,29 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative overflow-hidden bg-ink py-24 text-cream sm:py-32"
+      className="relative overflow-hidden bg-deep-espresso py-24 text-cream sm:py-32"
     >
-      <div className="mx-auto max-w-8xl px-6 sm:px-8 lg:px-12">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 opacity-[0.045]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, #F7F1E8 1px, transparent 0)",
+          backgroundSize: "28px 28px",
+        }}
+      />
+
+      <div
+        aria-hidden="true"
+        className="absolute -left-32 top-1/3 h-72 w-72 rounded-full bg-rosewood/10 blur-3xl"
+      />
+
+      <div
+        aria-hidden="true"
+        className="absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-plum/10 blur-3xl"
+      />
+
+      <div className="relative mx-auto max-w-8xl px-6 sm:px-8 lg:px-12">
         <div className="flex items-end justify-between gap-6">
           <SectionHeading
             eyebrow="02 — Experience"
@@ -226,7 +249,7 @@ export default function Experience() {
               onClick={() => changeExperience(currentIndex - 1)}
               disabled={currentIndex === 0}
               aria-label="View previous experience"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-charcoal/15 bg-cream text-ink shadow-softer transition-colors hover:border-rose-deep hover:text-rose-deep disabled:cursor-not-allowed disabled:opacity-30"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-cream/15 bg-porcelain text-ink shadow-softer transition-all duration-300 hover:-translate-y-0.5 hover:border-rose hover:text-rosewood disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:translate-y-0"
             >
               <ArrowLeft size={19} aria-hidden="true" />
             </button>
@@ -236,7 +259,7 @@ export default function Experience() {
               onClick={() => changeExperience(currentIndex + 1)}
               disabled={currentIndex === timeline.length - 1}
               aria-label="View next experience"
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-ink text-cream shadow-softer transition-colors hover:bg-rose-deep disabled:cursor-not-allowed disabled:opacity-30"
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-rosewood text-cream shadow-softer transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:translate-y-0"
             >
               <ArrowRight size={19} aria-hidden="true" />
             </button>
@@ -264,27 +287,33 @@ export default function Experience() {
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.15}
               onDragEnd={handleDragEnd}
-              className="cursor-grab rounded-5xl bg-cream p-7 shadow-soft active:cursor-grabbing sm:p-10 lg:p-12"
+              className="cursor-grab select-none rounded-5xl border border-cream/10 bg-cream p-7 text-ink shadow-lift active:cursor-grabbing sm:p-10 lg:p-12"
             >
               <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
                 <div className="lg:col-span-5">
-                  <div className="mb-7 flex items-center justify-between">
+                  <div className="mb-7 flex items-center justify-between gap-4">
                     <span
-                      className={`rounded-full px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] ${
-                        currentItem.type === "Leadership"
-                          ? "bg-rose/20 text-rose-deep"
-                          : "bg-sage/50 text-sage-deep"
+                      className={`rounded-full border px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] ${
+                        isLeadership
+                          ? "border-plum/15 bg-plum-mist text-plum"
+                          : "border-eucalyptus/20 bg-sage-mist text-sage-deep"
                       }`}
                     >
                       {currentItem.type}
                     </span>
 
-                    <span className="font-mono text-xs uppercase tracking-widest text-charcoal/40">
+                    <span className="font-mono text-xs uppercase tracking-widest text-charcoal/60">
                       {currentIndex + 1} / {timeline.length}
                     </span>
                   </div>
 
-                  <span className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-blush text-rose-deep">
+                  <span
+                    className={`mb-6 flex h-12 w-12 items-center justify-center rounded-full ${
+                      isLeadership
+                        ? "bg-plum-mist text-plum"
+                        : "bg-rose-mist text-rosewood"
+                    }`}
+                  >
                     <Icon size={21} aria-hidden="true" />
                   </span>
 
@@ -292,15 +321,15 @@ export default function Experience() {
                     {currentItem.role}
                   </h3>
 
-                  <p className="mt-3 font-medium text-rose-deep">
+                  <p className="mt-3 font-medium text-rosewood">
                     {currentItem.org}
                   </p>
 
-                  <p className="mt-2 font-mono text-xs uppercase tracking-widest text-charcoal/50">
+                  <p className="mt-2 font-mono text-xs uppercase tracking-widest text-charcoal/75">
                     {currentItem.period}
                   </p>
 
-                  <p className="mt-7 leading-relaxed text-charcoal/75">
+                  <p className="mt-7 leading-relaxed text-charcoal">
                     {currentItem.summary}
                   </p>
                 </div>
@@ -313,21 +342,27 @@ export default function Experience() {
                     return (
                       <motion.div
                         key={point}
-                        initial={{ opacity: 0, y: 15 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        initial={{
+                          opacity: 0,
+                          y: 15,
+                        }}
+                        animate={{
+                          opacity: 1,
+                          y: 0,
+                        }}
                         transition={{
                           delay: 0.12 + index * 0.07,
                         }}
-                        className="rounded-3xl bg-blush/45 p-5"
+                        className="rounded-3xl border border-rose/10 bg-rose-mist p-5"
                       >
-                        <span className="mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-rose/20 text-rose-deep">
+                        <span className="mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-rose/15 text-rosewood">
                           <PointIcon
                             size={16}
                             aria-hidden="true"
                           />
                         </span>
 
-                        <p className="text-sm leading-relaxed text-charcoal/80">
+                        <p className="text-sm leading-relaxed text-charcoal">
                           {point}
                         </p>
                       </motion.div>
@@ -346,6 +381,9 @@ export default function Experience() {
                   type="button"
                   onClick={() => changeExperience(index)}
                   aria-label={`View ${item.role} at ${item.org}`}
+                  aria-current={
+                    index === currentIndex ? "true" : undefined
+                  }
                   className={`h-2.5 rounded-full transition-all duration-300 ${
                     index === currentIndex
                       ? "w-8 bg-rose"
@@ -356,6 +394,7 @@ export default function Experience() {
             </div>
 
             <p className="hidden font-mono text-[10px] uppercase tracking-widest text-cream/40 sm:block">
+              Swipe or use arrows
             </p>
           </div>
 
@@ -365,7 +404,7 @@ export default function Experience() {
               onClick={() => changeExperience(currentIndex - 1)}
               disabled={currentIndex === 0}
               aria-label="View previous experience"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-charcoal/15 bg-cream text-ink disabled:opacity-30"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-cream/15 bg-porcelain text-ink shadow-softer disabled:cursor-not-allowed disabled:opacity-30"
             >
               <ArrowLeft size={18} aria-hidden="true" />
             </button>
@@ -375,7 +414,7 @@ export default function Experience() {
               onClick={() => changeExperience(currentIndex + 1)}
               disabled={currentIndex === timeline.length - 1}
               aria-label="View next experience"
-              className="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-cream disabled:opacity-30"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-rosewood text-cream shadow-softer disabled:cursor-not-allowed disabled:opacity-30"
             >
               <ArrowRight size={18} aria-hidden="true" />
             </button>

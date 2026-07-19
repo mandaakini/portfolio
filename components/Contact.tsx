@@ -11,16 +11,28 @@ const links = [
     icon: FaLinkedinIn,
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/mandaakini-raghuraman/",
+    cardColors:
+      "border-eucalyptus/15 bg-sage-mist hover:border-eucalyptus/30",
+    iconColors:
+      "bg-porcelain/70 text-eucalyptus group-hover:bg-eucalyptus group-hover:text-porcelain",
   },
   {
     icon: Mail,
     label: "Email",
     href: "mailto:mandaakini@gmail.com",
+    cardColors:
+      "border-rosewood/10 bg-porcelain hover:border-rosewood/25",
+    iconColors:
+      "bg-rose-mist text-rosewood group-hover:bg-rosewood group-hover:text-porcelain",
   },
   {
     icon: FaInstagram,
     label: "Instagram",
     href: "https://www.instagram.com/mandaakini/",
+    cardColors:
+      "border-rose/15 bg-[#EBD8DB] hover:border-rose/30",
+    iconColors:
+      "bg-porcelain/65 text-rosewood group-hover:bg-rose group-hover:text-porcelain",
   },
 ];
 
@@ -28,30 +40,56 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      aria-labelledby="contact-heading"
-      className="relative bg-blush/40 py-24 sm:py-32"
+      className="relative overflow-hidden bg-rose-mist py-24 sm:py-32"
     >
-      <div className="mx-auto max-w-8xl px-6 text-center sm:px-8 lg:px-12">
+      <div
+        aria-hidden="true"
+        className="absolute -left-24 top-12 h-64 w-64 rounded-full bg-porcelain/60 blur-3xl"
+      />
+
+      <div
+        aria-hidden="true"
+        className="absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-plum-mist/60 blur-3xl"
+      />
+
+      <div
+        aria-hidden="true"
+        className="absolute left-[8%] top-[28%] h-11 w-11 rounded-full border border-rose/20"
+      />
+
+      <div className="relative mx-auto max-w-8xl px-6 text-center sm:px-8 lg:px-12">
         <SectionHeading
-          eyebrow="08 — Contact"
+          eyebrow="06 — Contact"
           title="Let's build something worth paying attention to."
           align="center"
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.3,
+          }}
+          transition={{
+            duration: 0.6,
+            delay: 0.15,
+          }}
           className="mt-6 flex justify-center"
         >
-          <p className="max-w-lg text-charcoal/70">
+          <p className="max-w-lg leading-relaxed text-charcoal">
             Open to product, analytics, and research conversations—and always
             happy to talk music.
           </p>
         </motion.div>
 
-        <div className="mx-auto mt-14 grid max-w-xl grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
+        <div className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
           {links.map((link, index) => {
             const Icon = link.icon;
             const isEmail = link.label === "Email";
@@ -67,28 +105,41 @@ export default function Contact() {
                     ? "Email Mandaakini"
                     : `Visit Mandaakini's ${link.label}`
                 }
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                  amount: 0.3,
+                }}
                 transition={{
                   duration: 0.5,
                   delay: index * 0.08,
                 }}
-                whileHover={{ y: -4 }}
-                className="group flex flex-col items-center gap-3 rounded-3xl bg-cream px-6 py-7 shadow-softer transition-shadow duration-300 hover:shadow-soft"
+                whileHover={{
+                  y: -5,
+                }}
+                className={`group flex min-h-56 flex-col items-center justify-center gap-5 rounded-3xl border px-6 py-8 shadow-softer transition-all duration-300 hover:shadow-soft ${link.cardColors}`}
               >
-                <span className="rounded-full bg-sage/50 p-3.5 text-sage-deep transition-colors duration-300 group-hover:bg-rose-deep group-hover:text-cream">
-                  <Icon size={20} aria-hidden="true" />
+                <span
+                  className={`flex h-14 w-14 items-center justify-center rounded-full transition-all duration-300 ${link.iconColors}`}
+                >
+                  <Icon size={21} aria-hidden="true" />
                 </span>
 
-                <span className="flex items-center gap-1 text-sm font-medium text-ink">
+                <span className="relative text-center text-sm font-medium text-ink">
                   {link.label}
 
                   {!isEmail && (
                     <ArrowUpRight
                       size={13}
                       aria-hidden="true"
-                      className="opacity-0 transition-opacity group-hover:opacity-100"
+                      className="absolute left-full top-1/2 ml-1 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                     />
                   )}
                 </span>

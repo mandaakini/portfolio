@@ -25,22 +25,32 @@ export default function Music() {
   return (
     <section
       id="music"
-      className="relative overflow-hidden bg-ink py-20 text-cream sm:py-24"
+      className="relative overflow-hidden bg-[#231F22] py-20 text-cream sm:py-24"
     >
       <div
         aria-hidden="true"
-        className="absolute inset-0 opacity-[0.06]"
+        className="absolute inset-0 opacity-[0.05]"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 1px 1px, #FAF8F5 1px, transparent 0)",
+            "radial-gradient(circle at 1px 1px, #F7F1E8 1px, transparent 0)",
           backgroundSize: "28px 28px",
         }}
+      />
+
+      <div
+        aria-hidden="true"
+        className="absolute -left-32 top-1/3 h-72 w-72 rounded-full bg-plum/15 blur-3xl"
+      />
+
+      <div
+        aria-hidden="true"
+        className="absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-rosewood/10 blur-3xl"
       />
 
       <div className="relative mx-auto max-w-8xl px-6 sm:px-8 lg:px-12">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.24em] text-cream/45">
-            06 — Music
+            04 — Music
           </p>
 
           <blockquote className="mt-5 max-w-6xl">
@@ -49,7 +59,7 @@ export default function Music() {
               of harmony underlying its manifold apparent dissonances.
             </p>
 
-            <footer className="mt-4 font-display text-lg italic text-rose sm:text-xl">
+            <footer className="mt-4 font-display text-lg italic text-[#C98E99] sm:text-xl">
               — Jean Sibelius
             </footer>
           </blockquote>
@@ -63,25 +73,34 @@ export default function Music() {
               return (
                 <motion.div
                   key={pillar.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
+                  initial={{
+                    opacity: 0,
+                    x: -20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    x: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                    margin: "-60px",
+                  }}
                   transition={{
                     duration: 0.6,
                     delay: index * 0.1,
                   }}
                   className="flex gap-5"
                 >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cream/10 text-rose">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-cream/5 bg-cream/[0.08] text-[#C98E99]">
                     <Icon size={20} aria-hidden="true" />
                   </span>
 
                   <div>
-                    <h3 className="mb-1.5 font-display text-xl font-semibold">
+                    <h3 className="mb-1.5 font-display text-xl font-semibold text-cream">
                       {pillar.title}
                     </h3>
 
-                    <p className="text-sm leading-relaxed text-cream/65 sm:text-base">
+                    <p className="text-sm leading-relaxed text-[#B9B0A9] sm:text-base">
                       {pillar.body}
                     </p>
                   </div>
@@ -91,19 +110,30 @@ export default function Music() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7 }}
-            className="rounded-4xl border border-cream/10 bg-cream/[0.06] p-6 sm:p-8 lg:-mt-12"
+            initial={{
+              opacity: 0,
+              y: 30,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+              margin: "-60px",
+            }}
+            transition={{
+              duration: 0.7,
+            }}
+            className="rounded-4xl border border-cream/10 bg-cream/[0.055] p-6 shadow-soft backdrop-blur-sm sm:p-8 lg:-mt-12"
           >
-            <div className="mb-6 flex items-center justify-between">
+            <div className="mb-6 flex items-center justify-between gap-5">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-cream/40">
                   Now Playing
                 </p>
 
-                <p className="mt-1 font-display text-lg">
+                <p className="mt-1 font-display text-lg text-cream">
                   Mandaakini&apos;s Recent Listens
                 </p>
               </div>
@@ -115,7 +145,7 @@ export default function Music() {
                 {[0, 1, 2, 3, 4].map((index) => (
                   <motion.span
                     key={index}
-                    className="w-1 rounded-full bg-rose"
+                    className="w-1 rounded-full bg-[#C98E99]"
                     animate={{
                       height: ["30%", "100%", "50%", "80%", "30%"],
                     }}
@@ -130,16 +160,18 @@ export default function Music() {
               </div>
             </div>
 
-            <iframe
-              title="Mandaakini's Spotify playlist"
-              src="https://open.spotify.com/embed/playlist/4EMwcuCioKUZkoaJ5XGqrA?utm_source=generator&theme=0"
-              width="100%"
-              height="352"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-              allowFullScreen
-              className="rounded-[20px] border-0"
-            />
+            <div className="overflow-hidden rounded-[20px] bg-deep-espresso shadow-soft">
+              <iframe
+                title="Mandaakini's Spotify playlist"
+                src="https://open.spotify.com/embed/playlist/4EMwcuCioKUZkoaJ5XGqrA?utm_source=generator&theme=0"
+                width="100%"
+                height="352"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                allowFullScreen
+                className="block border-0"
+              />
+            </div>
           </motion.div>
         </div>
       </div>
