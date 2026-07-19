@@ -356,7 +356,6 @@ export default function Experience() {
             </div>
 
             <p className="hidden font-mono text-[10px] uppercase tracking-widest text-cream/40 sm:block">
-              Swipe or use arrows
             </p>
           </div>
 
