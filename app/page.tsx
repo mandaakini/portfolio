@@ -5,7 +5,6 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
-import Leadership from "@/components/Leadership";
 import Skills from "@/components/Skills";
 import Music from "@/components/Music";
 import Resume from "@/components/Resume";
@@ -23,7 +22,6 @@ export default function Home() {
         <About />
         <Experience />
         <Projects />
-        <Leadership />
         <Skills />
         <Music />
         <Resume />

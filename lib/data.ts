@@ -3,17 +3,17 @@ export const nav = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
-  { label: "Leadership", href: "#leadership" },
   { label: "Music", href: "#music" },
   { label: "Resume", href: "#resume" },
   { label: "Contact", href: "#contact" },
 ];
 
 export const socials = {
-  linkedin: "https://linkedin.com/in/mandaakini",
-  email: "mailto:hello@mandaakini.com",
+  linkedin:
+    "https://www.linkedin.com/in/mandaakini-raghuraman/",
+  email: "mailto:mandaakini@gmail.com",
   github: "https://github.com/mandaakini",
-  instagram: "https://instagram.com/mandaakini",
+  instagram: "https://www.instagram.com/mandaakini/",
 };
 
 export type Project = {
@@ -161,39 +161,8 @@ export type ExperienceItem = {
   points: string[];
 };
 
-export const experience: ExperienceItem[] = [
-  {
-    id: "zinnia",
-    role: "Business Transformation Intern",
-    org: "Zinnia",
-    period: "Summer",
-    summary:
-      "Sat at the intersection of people analytics and business transformation — turning workforce and process data into recommendations executives actually acted on.",
-    points: [
-      "Analyzed people-analytics data to identify workflow inefficiencies across teams",
-      "Built executive-ready presentations translating raw data into clear business recommendations",
-      "Partnered with stakeholders across departments to align on transformation priorities",
-      "Supported change-management efforts during a company-wide process redesign",
-    ],
-  },
-];
 
-export const leadership: ExperienceItem[] = [
-  {
-    id: "isa-president",
-    role: "President",
-    org: "Indian Students Association (ISA)",
-    period: "1 Year Term",
-    summary:
-      "Led a student organization of 100+ members — the same instincts as product work, applied to community: understand what people want, then build the experience that delivers it.",
-    points: [
-      "Planned and executed 15+ cultural and social events with attendance in the hundreds",
-      "Built and led a cross-functional executive board across event planning, marketing, and finance",
-      "Grew organization engagement through a redesigned social media and marketing strategy",
-      "Managed budget, sponsorships, and vendor relationships for signature annual events",
-    ],
-  },
-];
+
 
 export const skills = [
   "Analytics",
