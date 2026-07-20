@@ -34,8 +34,10 @@ const timeline = [
     summary:
       "Supporting people analytics and business transformation initiatives through research, automation, and AI-enabled solutions.",
     points: [
-      "Compiled extensive research on best practices in people analytics to establish company standards.",
-      "Developed AI agents to streamline business transformation and enhance people analytics operations for management.",
+      "Conducted extensive research across industry reports and articles to identify leading practices and emerging trends in people analytics.",
+      "Synthesized research findings into a standardized people analytics framework to guide company-wide strategy and implementation.",
+      "Established best practices and standards to support data-driven workforce planning, organizational effectiveness, and management decision-making.",
+      "Developed AI agents to automate and streamline business transformation workflows, enhancing people analytics capabilities and operational efficiency.",
     ],
   },
   {
@@ -48,7 +50,7 @@ const timeline = [
     summary:
       "Led client-facing technology projects while coordinating cross-functional teams, stakeholder communication, and professional development programming.",
     points: [
-      "Led end-to-end delivery of five or more client-facing software solutions, acting as Project Manager for cross-functional teams.",
+      "Led end-to-end delivery of five+ client-facing software solutions, acting as Project Manager for cross-functional teams.",
       "Managed local business outreach and stakeholder communication, ensuring alignment on project expectations.",
       "Designed and facilitated technical workshops, enhancing student engagement and proficiency across various skill levels.",
       "Recruited guest speakers from major consulting firms, significantly boosting seminar attendance and industry connections.",
@@ -64,24 +66,26 @@ const timeline = [
     summary:
       "Supported early childhood education through engaging lessons, structured activities, and individualized encouragement.",
     points: [
-      "Supported lead teachers in delivering engaging lessons for children aged one through four, focusing on early childhood development.",
-      "Developed and implemented activities that promoted language, motor skills, and social-emotional growth.",
-      "Fostered a nurturing environment that encouraged exploration and learning, enhancing children's overall development.",
+      "Delivered engaging lessons for children ages one through four, emphasizing early childhood development.",
+      "Designed and implemented interactive activities to strengthen language, cognitive, and motor skills.",
+      "Facilitated group activities that encouraged social-emotional development, communication, and positive peer interactions.",
+      "Fostered a safe, nurturing learning environment that encouraged curiosity, exploration, and individual growth.",
     ],
   },
   {
     id: 4,
     role: "Market Research and Strategy Analyst",
-    org: "Oregon State University Alumni Association",
+    org: "University Affiliated Client - Confidential",
     period: "April 2025 — June 2025",
     type: "Experience",
     icon: Search,
     summary:
       "Used market research and data analysis to support alumni engagement, acquisition, and retention strategy.",
     points: [
-      "Conducted comprehensive market research and analysis for the Oregon State University Alumni Association.",
-      "Assisted in developing strategies for member retention and acquisition to enhance engagement.",
-      "Analyzed data trends to inform decision-making and improve alumni relations.",
+      "Conducted market research and analysis for a university-affiliated organization to evaluate audience engagement opportunities.",
+      "Analyzed quantitative and qualitative data to identify behavioral trends and generate actionable insights.",
+      "Supported the development of acquisition and retention strategies through data-driven research and analysis." ,
+      "Presented research findings and strategic recommendations to project stakeholders while maintaining confidentiality of proprietary information.",
     ],
   },
   {
@@ -94,9 +98,10 @@ const timeline = [
     summary:
       "Directed organizational strategy, cultural programming, community partnerships, and a large student leadership team.",
     points: [
-      "Spearheaded strategy and operations for the Indian Students Association at Oregon State University, serving more than 500 members.",
-      "Organized and executed India Night, OSU's largest cultural event, attracting more than 1,000 attendees.",
-      "Coordinated a team of more than 30 volunteers and managed a budget exceeding $10,000.",
+      "Spearheaded strategy and operations across finance, marketing, and event planning for Oregon State University’s largest and longest-standing cultural organization, representing 500+ students and faculty.",
+      "Led the planning and execution of India Night, OSU’s largest cultural event, attracting 1,000+ attendees and coordinating 30+ volunteers and 50+ participants from across the Pacific Northwest.",
+      "Managed a $10K+ event budget and coordinated sponsorships and donations to support large-scale programming and organizational initiatives.",
+      "Cultivated partnerships with student organizations and university administration to secure funding, venues, and resources for future ISA initiatives.", 
     ],
   },
   {
@@ -109,9 +114,10 @@ const timeline = [
     summary:
       "Introduced young students to piano fundamentals through individualized, encouraging instruction.",
     points: [
-      "Instructed children aged ten and younger in piano fundamentals, basics, and theory.",
-      "Fostered a love for music and piano playing through engaging lessons.",
-      "Developed individualized teaching methods to support each child's learning style.",
+      "Instructed children ages ten and younger in piano fundamentals, music theory, technique, and performance.",
+      "Developed individualized teaching approaches tailored to each student’s learning style, skill level, and progress.",
+      "Created structured lesson plans and practice exercises to help students progressively develop their musical skills and technical proficiency.",
+      "Guided students in building confidence, discipline, and musical expression through consistent practice and performance preparation.", 
     ],
   },
   {
@@ -124,9 +130,10 @@ const timeline = [
     summary:
       "Led community outreach and fundraising initiatives supporting UNICEF's global mission.",
     points: [
-      "Raised awareness and funds to support children's rights around the world.",
-      "Collaborated with local businesses in Corvallis to organize impactful fundraising events.",
-      "Spearheaded strategic initiatives to enhance community engagement and support UNICEF's mission.",
+      "Raised awareness and funds to advance UNICEF’s mission and support children’s rights and well-being worldwide.",
+      "Established partnerships with local Corvallis businesses to coordinate fundraising events and expand community involvement.",
+      "Spearheaded strategic initiatives and outreach efforts to increase student engagement and strengthen the organization’s presence on campus.",
+      "Led the planning and execution of fundraising and awareness campaigns, coordinating members and community partners to support organizational goals.",
     ],
   },
   {
@@ -139,9 +146,10 @@ const timeline = [
     summary:
       "Managed cultural event logistics, sponsorship outreach, programming, and promotional collaboration.",
     points: [
-      "Coordinated end-to-end event logistics, managing vendor contracts, catering, and entertainment for successful events.",
-      "Secured more than $3,000 in sponsorships, fostering long-term partnerships with local businesses.",
-      "Collaborated with financial treasurers and public relations teams to enhance event attendance through strategic marketing efforts.",
+      "Coordinated end-to-end event logistics, including vendor contracts, catering, entertainment, scheduling, and on-site execution.",
+      "Secured $3,000+ in sponsorships by building and maintaining partnerships with local businesses and community organizations.",
+      "Collaborated with finance and public relations teams to develop strategic marketing initiatives that increased event visibility and attendance.",
+      "Managed communication across vendors, sponsors, student organizations, and internal teams to ensure seamless execution of large-scale cultural events.",
     ],
   },
   {
