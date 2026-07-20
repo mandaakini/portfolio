@@ -30,7 +30,7 @@ const links = [
     label: "Instagram",
     href: "https://www.instagram.com/mandaakini/",
     cardColors:
-      "border-rose/15 bg-[#EBD8DB] hover:border-rose/30",
+      "border-orchid/15 bg-lilac hover:border-orchid/30",
     iconColors:
       "bg-porcelain/65 text-rosewood group-hover:bg-rose group-hover:text-porcelain",
   },
