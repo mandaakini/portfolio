@@ -3,7 +3,6 @@
 import { motion, type Variants } from "framer-motion";
 import { ArrowDown, FileText } from "lucide-react";
 
-import BackgroundBlobs from "./BackgroundBlobs";
 
 const fadeUp: Variants = {
   hidden: {
@@ -27,8 +26,9 @@ export default function Hero() {
     <section
       id="home"
       className="relative flex min-h-[100svh] items-center overflow-hidden bg-cream pb-20 pt-28 sm:pt-32"
+
+      
     >
-      <BackgroundBlobs />
 
       <div className="relative mx-auto w-full max-w-8xl px-6 sm:px-8 lg:px-12">
         <motion.p

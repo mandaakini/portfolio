@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --color-ivory: #f7f1e8;
+  --color-cream: #f7f1e8;
   --color-porcelain: #fcf8f3;
-  --color-rose-mist: #f3e4e5;
-  --color-antique-rose: #b97882;
-  --color-rosewood: #875761;
-  --color-sage-mist: #e5e8de;
-  --color-eucalyptus: #9ba58f;
-  --color-plum: #5e4a5c;
-  --color-plum-mist: #eee7ed;
+  --color-blush: #f3e3e4;
+  --color-dusty-rose: #c48791;
+  --color-rosewood: #925f68;
+  --color-mushroom: #d8d0c6;
+  --color-mushroom-deep: #8f8279;
+  --color-lilac: #d8cdd9;
+  --color-warm-brown: #4a352c;
   --color-espresso: #24211f;
   --color-deep-espresso: #211f1d;
   --color-taupe: #6f6762;
@@ -19,13 +19,13 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--color-ivory);
+  background-color: var(--color-cream);
 }
 
 body {
   min-height: 100vh;
   margin: 0;
-  background-color: var(--color-ivory);
+  background-color: var(--color-cream);
   color: var(--color-espresso);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -33,23 +33,23 @@ body {
 }
 
 ::selection {
-  background-color: rgba(185, 120, 130, 0.3);
+  background-color: rgba(196, 135, 145, 0.32);
   color: var(--color-espresso);
 }
 
-/* Slim, quiet scrollbar */
+/* Slim, neutral scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--color-ivory);
+  background-color: var(--color-cream);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-eucalyptus);
-  border: 2px solid var(--color-ivory);
+  background-color: var(--color-mushroom);
+  border: 2px solid var(--color-cream);
   border-radius: 999px;
 }
 
@@ -59,7 +59,7 @@ body {
 
 /* Firefox scrollbar */
 * {
-  scrollbar-color: var(--color-eucalyptus) var(--color-ivory);
+  scrollbar-color: var(--color-mushroom) var(--color-cream);
   scrollbar-width: thin;
 }
 
@@ -70,17 +70,17 @@ input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid var(--color-antique-rose);
+  outline: 2px solid var(--color-dusty-rose);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* Improve anchor scrolling beneath the fixed navigation */
+/* Keep anchored sections below the fixed navigation */
 section[id] {
   scroll-margin-top: 5rem;
 }
 
-/* Prevent images and embedded media from exceeding their containers */
+/* Keep media inside its container */
 img,
 svg,
 video,
@@ -89,7 +89,6 @@ iframe {
   max-width: 100%;
 }
 
-/* Balanced editorial headings */
 .text-balance {
   text-wrap: balance;
 }

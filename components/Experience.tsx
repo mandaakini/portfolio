@@ -213,7 +213,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative overflow-hidden bg-deep-espresso py-24 text-cream sm:py-32"
+      className="relative overflow-hidden bg-experience py-24 text-cream sm:py-32"
     >
       <div
         aria-hidden="true"
@@ -296,7 +296,7 @@ export default function Experience() {
                       className={`rounded-full border px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] ${
                         isLeadership
                           ? "border-plum/15 bg-plum-mist text-plum"
-                          : "border-eucalyptus/20 bg-sage-mist text-sage-deep"
+                          : "border-mushroom-deep/20 bg-mushroom text-mushroom-deep"
                       }`}
                     >
                       {currentItem.type}

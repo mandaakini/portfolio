@@ -8,36 +8,43 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Main neutral surfaces
+        // Primary surfaces
         cream: "#F7F1E8",
         porcelain: "#FCF8F3",
 
-        // Rose family
-        blush: "#F3E4E5",
-        "rose-mist": "#F3E4E5",
-        rose: "#B97882",
-        "rose-deep": "#875761",
-        rosewood: "#875761",
+        // Pink and rose
+        blush: "#F3E3E4",
+        "rose-mist": "#F3E3E4",
+        rose: "#C48791",
+        "rose-deep": "#925F68",
+        rosewood: "#925F68",
 
-        // Sage family
-        sage: "#E5E8DE",
-        "sage-mist": "#E5E8DE",
-        "sage-deep": "#9BA58F",
-        eucalyptus: "#9BA58F",
+        // Sophisticated neutral
+        mushroom: "#D8D0C6",
+        "mushroom-deep": "#8F8279",
 
-        // Plum family
-        lilac: "#EEE7ED",
-        orchid: "#5E4A5C",
-        plum: "#5E4A5C",
-        "plum-mist": "#EEE7ED",
+        // Existing sage names now map to mushroom.
+        // This updates older components without breaking them.
+        sage: "#D8D0C6",
+        "sage-mist": "#D8D0C6",
+        "sage-deep": "#8F8279",
+        eucalyptus: "#8F8279",
 
-        // Text and dark surfaces
+        // Rare creative accent
+        lilac: "#D8CDD9",
+        "plum-mist": "#D8CDD9",
+        plum: "#756474",
+        orchid: "#756474",
+
+        // Dark sections and text
+        experience: "#4A352C",
         ink: "#24211F",
         espresso: "#24211F",
         "deep-espresso": "#211F1D",
         charcoal: "#6F6762",
         taupe: "#6F6762",
-      },
+},
+  
 
       fontFamily: {
         display: ["var(--font-playfair)", "serif"],
