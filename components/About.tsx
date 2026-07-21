@@ -3,29 +3,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const focusAreas = [
-  {
-    label: "Product Management",
-    colors: "border-rose/20 bg-rose-mist text-rosewood",
-  },
-  {
-    label: "Consumer Research",
-    colors: "border-eucalyptus/25 bg-sage-mist text-sage-deep",
-  },
-  {
-    label: "Music Strategy",
-    colors: "border-plum/15 bg-plum-mist text-plum",
-  },
-  {
-    label: "Creator Economy",
-    colors: "border-rose/20 bg-rose-mist text-rosewood",
-  },
-  {
-    label: "Entertainment Tech",
-    colors: "border-eucalyptus/25 bg-sage-mist text-sage-deep",
-  },
-];
-
 export default function About() {
   return (
     <section
@@ -34,49 +11,51 @@ export default function About() {
     >
       <div
         aria-hidden="true"
-        className="absolute -right-24 top-20 h-64 w-64 rounded-full bg-sage/30 blur-3xl"
+        className="absolute -right-24 top-20 h-64 w-64 rounded-full bg-mushroom/30 blur-3xl"
       />
 
       <div className="relative mx-auto max-w-8xl px-6 sm:px-8 lg:px-12">
         <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-5">
-            <p className="font-mono text-xs uppercase tracking-[0.24em] text-rose">
-              01 — About
-            </p>
+            <div className="lg:sticky lg:top-28">
+              <p className="font-mono text-xs uppercase tracking-[0.24em] text-rose">
+                01 — About
+              </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, delay: 0.15 }}
-              className="relative mx-auto mt-10 max-w-sm lg:mx-0"
-            >
-              <div
-                aria-hidden="true"
-                className="absolute -left-5 -top-5 h-20 w-20 rotate-6 rounded-3xl bg-rose-mist"
-              />
-
-              <div
-                aria-hidden="true"
-                className="absolute -bottom-5 -right-5 h-24 w-24 rounded-full bg-sage-mist"
-              />
-
-              <div className="relative aspect-[4/5] overflow-hidden rounded-4xl border border-porcelain bg-porcelain shadow-soft">
-                <Image
-                  src="/images/about-photo.jpg"
-                  alt="Mandaakini Raghuraman"
-                  fill
-                  priority={false}
-                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 384px, 32vw"
-                  className="object-cover object-center"
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.7, delay: 0.15 }}
+                className="relative mx-auto mt-10 max-w-sm lg:mx-0"
+              >
+                <div
+                  aria-hidden="true"
+                  className="absolute -left-5 -top-5 h-20 w-20 rotate-6 rounded-3xl bg-rose-mist"
                 />
 
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-deep-espresso/15 via-transparent to-transparent"
+                  className="absolute -bottom-5 -right-5 h-24 w-24 rounded-full bg-mushroom"
                 />
-              </div>
-            </motion.div>
+
+                <div className="relative aspect-[4/5] overflow-hidden rounded-4xl border border-porcelain bg-porcelain shadow-soft">
+                  <Image
+                    src="/images/about-photo.jpg"
+                    alt="Mandaakini Raghuraman"
+                    fill
+                    priority={false}
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 384px, 32vw"
+                    className="object-cover object-center"
+                  />
+
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-gradient-to-t from-deep-espresso/15 via-transparent to-transparent"
+                  />
+                </div>
+              </motion.div>
+            </div>
           </div>
 
           <div className="lg:col-span-7 lg:pt-8">
@@ -85,7 +64,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="max-w-2xl space-y-6 text-lg leading-relaxed text-charcoal"
+              className="max-w-2xl space-y-5 text-base leading-[1.8] text-charcoal sm:text-[17px]"
             >
               <p>
                 I&apos;m a{" "}
@@ -99,59 +78,66 @@ export default function About() {
                 , and a minor in{" "}
                 <strong className="font-semibold text-ink">
                   Music Performance
-                </strong>{" "}
-                — which sounds like two different people until you notice
+                </strong>
+                . This sounds like two different people until you notice
                 they&apos;re asking the same question. Both are about paying
                 close attention to what moves someone, and having the discipline
                 to prove it wasn&apos;t a coincidence.
               </p>
 
               <p>
-                Most of my favorite work has lived in that overlap: a spreadsheet
-                that explains why a customer left, a survey question rewritten
-                until it stops leading the witness, a chord change that lands
-                exactly where it should. I&apos;m drawn to the moment where a
-                dataset stops being numbers and starts being a person.
+                I&apos;ve always been interested in the patterns behind the way
+                people think, feel, and make decisions, especially the ones that
+                aren&apos;t immediately obvious. Analytics gives me a way to
+                look for those patterns in data, and music has taught me to
+                recognize them in a different language entirely. Whether
+                I&apos;m trying to understand the story behind a set of numbers
+                or why a particular chord progression resonates with someone,
+                I&apos;m drawn to the space between observation and
+                understanding — where information becomes insight, and insight
+                becomes something distinctly human.
               </p>
 
               <p>
-                Right now, that curiosity is pointed at{" "}
-                <span className="font-medium text-ink">
-                  product management
-                </span>
-                , where research actually gets built into something; at{" "}
-                <span className="font-medium text-ink">
-                  entertainment tech
-                </span>{" "}
-                and the{" "}
-                <span className="font-medium text-ink">
-                  creator economy
-                </span>
-                , where the &quot;customer&quot; is often an artist and an
-                audience at once; and at{" "}
-                <span className="font-medium text-ink">
-                  music strategy
-                </span>
-                , where I get to bring the analyst and the performer to the same
-                table.
+                That curiosity extends well beyond my work. I love exploring new
+                cities and places, discovering cafés and trying new foods,
+                reading books that leave me with more questions than answers,
+                learning new languages with a particular interest in literature
+                — I&apos;m currently learning my eighth — and spending time
+                cooking or baking.
               </p>
-            </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="mt-10 flex flex-wrap gap-3"
-            >
-              {focusAreas.map((area) => (
-                <span
-                  key={area.label}
-                  className={`rounded-full border px-4 py-2 text-sm font-medium ${area.colors}`}
-                >
-                  {area.label}
-                </span>
-              ))}
+              <p>
+                I&apos;ve also always loved teaching and sharing what I know
+                with others. I&apos;ve worked as a teacher at an early learning
+                school, and over the years, I&apos;ve taught everything from
+                algebra and piano to English literature, Sanskrit grammar and
+                literature, music theory, and singing.
+              </p>
+
+              <p>
+                Otherwise, you can find me outdoors in the PNW, floating on a
+                lake with my friends, or at home working on a 3,000-piece puzzle
+                with my family, a cup of coffee in hand and a movie playing in
+                the background.
+              </p>
+
+              <p>
+                Music has always been one of the biggest parts of my life.
+                I&apos;m classically trained in piano, with training in Carnatic
+                singing, Kuchipudi, and Bharatanatyam. Along the way, I&apos;ve
+                also learned to play the flute and guitar and found another
+                creative outlet in DJing. I&apos;m always looking for new ways
+                to create, perform, and connect with people through music — and
+                I&apos;m open to DJ bookings and opportunities to perform along
+                the way.
+              </p>
+
+              <p className="font-medium text-ink">
+                At the heart of it all, I&apos;m someone who likes to pay
+                attention — to people, to patterns, to places, and to the small
+                details that explain something bigger.
+              </p>
             </motion.div>
           </div>
         </div>
