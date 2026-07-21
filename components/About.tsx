@@ -104,7 +104,7 @@ export default function About() {
                 reading books that leave me with more questions than answers,
                 learning new languages with a particular interest in literature
                 (I&apos;m currently learning my eighth), playing songs that are 
-                stuck in my head on the piano, creating new recipes cooking or baking, 
+                stuck in my head on the piano, guitar, or flute, cooking and baking, 
                 and DJing. Otherwise, you can find me outdoors in the PNW, 
                 floating on a lake with my friends, or at home working on a 
                 3,000-piece puzzle with my family, a cup of coffee in hand and a 
