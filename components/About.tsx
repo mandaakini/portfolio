@@ -103,34 +103,13 @@ export default function About() {
                 cities and places, discovering cafés and trying new foods,
                 reading books that leave me with more questions than answers,
                 learning new languages with a particular interest in literature
-                — I&apos;m currently learning my eighth — and spending time
-                cooking or baking.
-              </p>
+                (I&apos;m currently learning my eighth), playing songs that are 
+                stuck in my head on the piano, creating new recipes cooking or baking, 
+                and DJing. Otherwise, you can find me outdoors in the PNW, 
+                floating on a lake with my friends, or at home working on a 
+                3,000-piece puzzle with my family, a cup of coffee in hand and a 
+                movie playing in the background.
 
-              <p>
-                I&apos;ve also always loved teaching and sharing what I know
-                with others. I&apos;ve worked as a teacher at an early learning
-                school, and over the years, I&apos;ve taught everything from
-                algebra and piano to English literature, Sanskrit grammar and
-                literature, music theory, and singing.
-              </p>
-
-              <p>
-                Otherwise, you can find me outdoors in the PNW, floating on a
-                lake with my friends, or at home working on a 3,000-piece puzzle
-                with my family, a cup of coffee in hand and a movie playing in
-                the background.
-              </p>
-
-              <p>
-                Music has always been one of the biggest parts of my life.
-                I&apos;m classically trained in piano, with training in Carnatic
-                singing, Kuchipudi, and Bharatanatyam. Along the way, I&apos;ve
-                also learned to play the flute and guitar and found another
-                creative outlet in DJing. I&apos;m always looking for new ways
-                to create, perform, and connect with people through music — and
-                I&apos;m open to DJ bookings and opportunities to perform along
-                the way.
               </p>
 
               <p className="font-medium text-ink">
