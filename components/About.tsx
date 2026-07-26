@@ -94,20 +94,19 @@ export default function About() {
                 I&apos;m trying to understand the story behind a set of numbers
                 or why a particular chord progression resonates with someone,
                 I&apos;m drawn to the space between observation and
-                understanding — where information becomes insight, and insight
-                becomes something distinctly human.
+                understanding.
               </p>
 
               <p>
                 That curiosity extends well beyond my work. I love exploring new
-                cities and places, discovering cafés and trying new foods,
+                cities and places, discovering cafés and restaurants,
                 reading books that leave me with more questions than answers,
                 learning new languages with a particular interest in literature
                 (I&apos;m currently learning my eighth), playing songs that are 
                 stuck in my head on the piano, guitar, or flute, cooking and baking, 
                 and DJing. Otherwise, you can find me outdoors in the PNW, 
                 floating on a lake with my friends, or at home working on a 
-                3,000-piece puzzle with my family, a cup of coffee in hand and a 
+                5,000-piece puzzle with my family with a cup of coffee and a
                 movie playing in the background.
 
               </p>
