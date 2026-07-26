@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, FileText, Mail } from "lucide-react";
-import { FaInstagram, FaLinkedinIn } from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa6";
 
 import SectionHeading from "./SectionHeading";
 
@@ -22,18 +22,11 @@ const links = [
     color: "bg-porcelain",
   },
   {
-    icon: FaInstagram,
-    label: "Instagram",
-    href: "https://www.instagram.com/mandaakini/",
-    external: true,
-    color: "bg-lilac",
-  },
-  {
     icon: FileText,
     label: "Resume",
     href: "/images/MandaakiniRaghuraman_Resume_v2.pdf",
     external: true,
-    color: "bg-blush",
+    color: "bg-lilac",
   },
 ];
 
@@ -64,7 +57,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-3">
           {links.map((link, index) => {
             const Icon = link.icon;
 
