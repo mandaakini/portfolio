@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUpRight, FileText, Mail } from "lucide-react";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 
 import SectionHeading from "./SectionHeading";
@@ -11,28 +11,29 @@ const links = [
     icon: FaLinkedinIn,
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/mandaakini-raghuraman/",
-    cardColors:
-      "border-eucalyptus/15 bg-sage-mist hover:border-eucalyptus/30",
-    iconColors:
-      "bg-porcelain/70 text-eucalyptus group-hover:bg-eucalyptus group-hover:text-porcelain",
+    external: true,
+    color: "bg-mushroom",
   },
   {
     icon: Mail,
     label: "Email",
     href: "mailto:mandaakini@gmail.com",
-    cardColors:
-      "border-rosewood/10 bg-porcelain hover:border-rosewood/25",
-    iconColors:
-      "bg-rose-mist text-rosewood group-hover:bg-rosewood group-hover:text-porcelain",
+    external: false,
+    color: "bg-porcelain",
   },
   {
     icon: FaInstagram,
     label: "Instagram",
     href: "https://www.instagram.com/mandaakini/",
-    cardColors:
-      "border-orchid/15 bg-lilac hover:border-orchid/30",
-    iconColors:
-      "bg-porcelain/65 text-rosewood group-hover:bg-rose group-hover:text-porcelain",
+    external: true,
+    color: "bg-lilac",
+  },
+  {
+    icon: FileText,
+    label: "Resume",
+    href: "/images/MandaakiniRaghuraman_Resume_v2.pdf",
+    external: true,
+    color: "bg-blush",
   },
 ];
 
@@ -40,24 +41,10 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-rose-mist py-24 sm:py-32"
+      aria-labelledby="contact-heading"
+      className="relative bg-blush py-24 sm:py-32"
     >
-      <div
-        aria-hidden="true"
-        className="absolute -left-24 top-12 h-64 w-64 rounded-full bg-porcelain/60 blur-3xl"
-      />
-
-      <div
-        aria-hidden="true"
-        className="absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-plum-mist/60 blur-3xl"
-      />
-
-      <div
-        aria-hidden="true"
-        className="absolute left-[8%] top-[28%] h-11 w-11 rounded-full border border-rose/20"
-      />
-
-      <div className="relative mx-auto max-w-8xl px-6 text-center sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-8xl px-6 text-center sm:px-8 lg:px-12">
         <SectionHeading
           eyebrow="06 — Contact"
           title="Let's build something worth paying attention to."
@@ -65,81 +52,51 @@ export default function Contact() {
         />
 
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-            amount: 0.3,
-          }}
-          transition={{
-            duration: 0.6,
-            delay: 0.15,
-          }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
           className="mt-6 flex justify-center"
         >
-          <p className="max-w-lg leading-relaxed text-charcoal">
+          <p className="max-w-lg text-charcoal">
             Open to product, analytics, and research conversations—and always
             happy to talk music.
           </p>
         </motion.div>
 
-        <div className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
+        <div className="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {links.map((link, index) => {
             const Icon = link.icon;
-            const isEmail = link.label === "Email";
 
             return (
               <motion.a
                 key={link.label}
                 href={link.href}
-                target={isEmail ? undefined : "_blank"}
-                rel={isEmail ? undefined : "noopener noreferrer"}
-                aria-label={
-                  isEmail
-                    ? "Email Mandaakini"
-                    : `Visit Mandaakini's ${link.label}`
-                }
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                  amount: 0.3,
-                }}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
+                aria-label={`${link.label} — Mandaakini Raghuraman`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{
                   duration: 0.5,
                   delay: index * 0.08,
                 }}
-                whileHover={{
-                  y: -5,
-                }}
-                className={`group flex min-h-56 flex-col items-center justify-center gap-5 rounded-3xl border px-6 py-8 shadow-softer transition-all duration-300 hover:shadow-soft ${link.cardColors}`}
+                whileHover={{ y: -6 }}
+                className={`${link.color} group flex min-h-64 flex-col items-center justify-center gap-5 rounded-4xl border border-ink/5 px-6 py-8 shadow-softer transition-shadow duration-300 hover:shadow-soft`}
               >
-                <span
-                  className={`flex h-14 w-14 items-center justify-center rounded-full transition-all duration-300 ${link.iconColors}`}
-                >
-                  <Icon size={21} aria-hidden="true" />
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-cream text-rose-deep transition-colors duration-300 group-hover:bg-rose-deep group-hover:text-cream">
+                  <Icon size={24} aria-hidden="true" />
                 </span>
 
-                <span className="relative text-center text-sm font-medium text-ink">
+                <span className="flex items-center justify-center gap-1.5 text-center text-sm font-medium text-ink">
                   {link.label}
 
-                  {!isEmail && (
+                  {link.external && (
                     <ArrowUpRight
-                      size={13}
+                      size={14}
                       aria-hidden="true"
-                      className="absolute left-full top-1/2 ml-1 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      className="opacity-0 transition-opacity group-hover:opacity-100"
                     />
                   )}
                 </span>
