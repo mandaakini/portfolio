@@ -93,8 +93,8 @@ export default function About() {
                 recognize them in a different language entirely. Whether
                 I&apos;m trying to understand the story behind a set of numbers
                 or why a particular chord progression resonates with someone,
-                I&apos;m drawn to the space between observation and
-                understanding.
+                I&apos;m drawn to the space between observation,
+                understanding, problem-solving, and application.
               </p>
 
               <p>
