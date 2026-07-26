@@ -84,7 +84,7 @@ export default function Hero() {
           </a>
 
           <a
-            href="/images/MandaakiniRaghuraman_Resume.pdf"
+            href="/images/MandaakiniRaghuraman_Resume_v2.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-full border border-rosewood/25 bg-porcelain/70 px-7 py-3.5 text-sm font-medium text-ink shadow-softer transition-all duration-300 hover:-translate-y-0.5 hover:border-rosewood hover:text-rosewood hover:shadow-soft"
