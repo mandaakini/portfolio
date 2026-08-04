@@ -190,8 +190,8 @@ export default function About() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="mt-8 border-l-2 border-rose pl-5 font-display text-xl italic leading-relaxed text-ink"
               >
-                At the heart of it all, I like paying attention—to people,
-                patterns, places, and the small details that explain something
+                At the heart of it all, I like paying attention - to people,
+                to patterns, to places, and to the small details that explain something
                 bigger.
               </motion.p>
             </motion.div>
