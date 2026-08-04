@@ -165,18 +165,24 @@ export type ExperienceItem = {
 
 
 export const skills = [
-  "Analytics",
   "SQL",
   "Python",
-  "Tableau",
   "Excel",
+  "Tableau",
   "Power BI",
-  "A/B Testing",
+  "AI Agent Development",
+  "Data Visualization",
   "Market Research",
   "Consumer Insights",
-  "Agile",
-  "Stakeholder Management",
+  "Audience Insights",
+  "Quantitative Research",
+  "Qualitative Research",
+  "Insight Synthesis",
+  "Workflow Automation",
+  "Business Transformation",
+  "Growth Strategy",
+  "Process Improvement",
   "Product Strategy",
-  "UX Research",
-  "Data Visualization",
-]; 
+  "Project Management",
+  "Stakeholder Management",
+];
