@@ -6,7 +6,45 @@ import SectionHeading from "./SectionHeading";
 
 
 const sizes = ["text-sm", "text-base", "text-lg", "text-xl"];
-const bgs = ["bg-blush/60", "bg-sage/50", "bg-cream", "bg-rose/20"];
+const technicalSkills = new Set([
+  "SQL",
+  "Python",
+  "Excel",
+  "Tableau",
+  "Power BI",
+  "Data Visualization",
+]);
+
+const researchSkills = new Set([
+  "Market Research",
+  "Consumer Insights",
+  "Audience Insights",
+  "Quantitative Research",
+  "Qualitative Research",
+  "Insight Synthesis",
+]);
+
+const automationSkills = new Set([
+  "AI Agent Development",
+  "Workflow Automation",
+  "Process Improvement",
+]);
+
+function getSkillColors(skill: string) {
+  if (technicalSkills.has(skill)) {
+    return "border-plum/15 bg-lilac/80 text-plum";
+  }
+
+  if (researchSkills.has(skill)) {
+    return "border-rose/20 bg-rose/20 text-rosewood";
+  }
+
+  if (automationSkills.has(skill)) {
+    return "border-mushroom-deep/15 bg-mushroom/80 text-ink";
+  }
+
+  return "border-rosewood/10 bg-porcelain text-ink";
+}
 
 export default function Skills() {
   return (
@@ -33,9 +71,9 @@ export default function Skills() {
               style={{
                 animationDelay: `${i * 0.2}s`,
               }}
-              className={`inline-block rounded-full border border-charcoal/10 shadow-softer px-5 py-2.5 font-medium text-ink cursor-default transition-shadow hover:shadow-soft ${
+              className={`inline-block cursor-default rounded-full border px-5 py-2.5 font-medium shadow-softer transition-shadow hover:shadow-soft ${
                 sizes[i % sizes.length]
-              } ${bgs[i % bgs.length]}`}
+              } ${getSkillColors(skill)}`}
             >
               {skill}
             </motion.span>
