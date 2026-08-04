@@ -1,16 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, FileText, Mail } from "lucide-react";
+import { FileText, Mail } from "lucide-react";
 import { FaLinkedinIn } from "react-icons/fa6";
 
-import SectionHeading from "./SectionHeading";
+import SectionHeading from "./SectionHeading"; 
 
 const links = [
   {
     icon: FaLinkedinIn,
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/mandaakini-raghuraman/",
+    href: "https://www.linkedin.com/in/mandaakini-raghuraman/", 
     external: true,
     color: "bg-mushroom",
   },
@@ -60,7 +60,6 @@ export default function Contact() {
         <div className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-3">
           {links.map((link, index) => {
             const Icon = link.icon;
-
             return (
               <motion.a
                 key={link.label}
@@ -84,14 +83,6 @@ export default function Contact() {
 
                 <span className="flex items-center justify-center gap-1.5 text-center text-sm font-medium text-ink">
                   {link.label}
-
-                  {link.external && (
-                    <ArrowUpRight
-                      size={14}
-                      aria-hidden="true"
-                      className="opacity-0 transition-opacity group-hover:opacity-100"
-                    />
-                  )}
                 </span>
               </motion.a>
             );
