@@ -4,12 +4,13 @@ import { motion } from "framer-motion";
 import { skills } from "../lib/data";
 import SectionHeading from "./SectionHeading";
 
+
 const sizes = ["text-sm", "text-base", "text-lg", "text-xl"];
 const bgs = ["bg-blush/60", "bg-sage/50", "bg-cream", "bg-rose/20"];
 
 export default function Skills() {
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden">
+    <section id="toolkit" className="relative py-24 sm:py-32 overflow-hidden">
       <div className="mx-auto max-w-8xl px-6 sm:px-8 lg:px-12">
         <SectionHeading
           eyebrow="05 — Toolkit"
