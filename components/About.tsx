@@ -133,9 +133,7 @@ export default function About() {
                   I&apos;m drawn to patterns that aren&apos;t immediately obvious.
                   Analytics gives me a way to look for those patterns in data, and
                   music has taught me to recognize them in a different language
-                  entirely. My favorite work lives between observation and
-                  understanding—where information becomes insight and insight becomes
-                  something distinctly human. Whether I&apos;m trying to understand
+                  entirely. Whether I&apos;m trying to understand
                   the story behind a set of numbers or why a particular chord
                   progression resonates with someone, I&apos;m drawn to the space
                   between observation, understanding, problem-solving, and
