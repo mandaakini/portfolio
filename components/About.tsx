@@ -123,21 +123,26 @@ export default function About() {
                   <strong className="font-semibold text-ink">
                     Music Performance
                   </strong>
-                  . They may sound unrelated, but both ask the same question:
-                  what moves people, and how can we understand why?
+                  . This sounds like two different people until you notice
+                  they&apos;re asking the same question. Both are about paying close
+                  attention to what moves someone, and having the discipline to prove
+                  it wasn&apos;t a coincidence.
                 </p>
 
                 <p>
-                  I&apos;m drawn to patterns that aren&apos;t immediately
-                  obvious. Analytics helps me find them in data; music taught me
-                  to recognize them in another language. My favorite work lives
-                  between observation and understanding—where information
-                  becomes insight and insight becomes something distinctly
-                  human.
+                  I&apos;m drawn to patterns that aren&apos;t immediately obvious.
+                  Analytics gives me a way to look for those patterns in data, and
+                  music has taught me to recognize them in a different language
+                  entirely. My favorite work lives between observation and
+                  understanding—where information becomes insight and insight becomes
+                  something distinctly human. Whether I&apos;m trying to understand
+                  the story behind a set of numbers or why a particular chord
+                  progression resonates with someone, I&apos;m drawn to the space
+                  between observation, understanding, problem-solving, and
+                  application.
                 </p>
               </div>
-
-              <div className="my-9 flex items-center gap-4">
+                            <div className="my-9 flex items-center gap-4">
                 <span className="h-px flex-1 bg-rose/25" />
 
                 <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-rosewood">
