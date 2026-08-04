@@ -106,7 +106,7 @@ export default function Hero() {
           {[0, 1, 2, 3, 4, 5, 6].map((index) => (
             <motion.span
               key={index}
-              className="w-1.5 rounded-full bg-eucalyptus/75"
+              className="w-1.5 rounded-full bg-rosewood"
               animate={{
                 height: ["30%", "100%", "50%", "80%", "30%"],
               }}
