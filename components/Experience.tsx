@@ -221,7 +221,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative overflow-hidden bg-experience py-24 text-cream sm:py-32"
+      className="relative scroll-mt-20 overflow-hidden bg-experience pb-24 pt-12 text-cream sm:pb-28 sm:pt-16"
     >
       <div
         aria-hidden="true"
@@ -401,12 +401,9 @@ export default function Experience() {
               ))}
             </div>
 
-            <p className="hidden font-mono text-[10px] uppercase tracking-widest text-cream/40 sm:block">
-              Swipe or use arrows
-            </p>
           </div>
 
-          <div className="mt-6 flex justify-center gap-3 sm:hidden">
+          <div className="mt-7 flex items-center justify-between gap-5">
             <button
               type="button"
               onClick={() => changeExperience(currentIndex - 1)}
