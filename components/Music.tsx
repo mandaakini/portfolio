@@ -50,7 +50,7 @@ export default function Music() {
       <div className="relative mx-auto max-w-8xl px-6 sm:px-8 lg:px-12">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.24em] text-cream/45">
-            04 — Music
+            05 — Music
           </p>
 
           <blockquote className="mt-5 max-w-6xl">

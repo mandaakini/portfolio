@@ -10,14 +10,16 @@ const bgs = ["bg-blush/60", "bg-sage/50", "bg-cream", "bg-rose/20"];
 
 export default function Skills() {
   return (
-    <section id="toolkit" className="relative py-24 sm:py-32 overflow-hidden">
+      <section
+        id="toolkit"
+        className="relative flex min-h-[calc(100svh-5rem)] scroll-mt-20 items-center overflow-hidden bg-blush/60 py-28 sm:py-36"
+      >
       <div className="mx-auto max-w-8xl px-6 sm:px-8 lg:px-12">
         <SectionHeading
-          eyebrow="05 — Toolkit"
+          eyebrow="04 — Toolkit"
           title="The instruments I reach for."
           align="center"
         />
-
         <div className="mt-16 flex flex-wrap justify-center gap-3 sm:gap-4 max-w-4xl mx-auto">
           {skills.map((skill, i) => (
             <motion.span
