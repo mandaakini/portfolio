@@ -77,7 +77,7 @@ export default function Nav() {
         </a>
 
         <nav
-          className="hidden items-center 8 lg:flex"
+          className="hidden items-center gap-8 lg:flex"
           aria-label="Primary navigation"
         >
           {nav.map((item) => {
