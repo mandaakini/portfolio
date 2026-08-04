@@ -95,7 +95,6 @@ export default function About() {
                     className="text-rosewood"
                     aria-hidden="true"
                   />
-                  Fueled by curiosity and coffee
                 </div>
               </motion.div>
             </div>
