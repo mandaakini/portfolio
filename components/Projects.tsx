@@ -99,7 +99,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden bg-cream py-24 sm:py-32"
+      className="relative scroll-mt-20 overflow-hidden bg-cream pb-24 pt-12 sm:pb-28 sm:pt-16"
     >
       <div
         aria-hidden="true"
