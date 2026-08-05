@@ -1,7 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { skills } from "../lib/data";
 import SectionHeading from "./SectionHeading";
 
@@ -31,139 +37,231 @@ const automationSkills = new Set([
   "Process Improvement",
 ]);
 
-const relationships: Record<string, string[]> = {
-  SQL: [
-    "Python",
-    "Tableau",
-    "Power BI",
-    "Data Visualization",
-    "Quantitative Research",
-  ],
-  Python: [
-    "SQL",
-    "AI Agent Development",
-    "Workflow Automation",
-    "Data Visualization",
-    "Quantitative Research",
-  ],
-  Excel: [
-    "Market Research",
-    "Quantitative Research",
-    "Data Visualization",
-    "Business Transformation",
-  ],
-  Tableau: [
-    "SQL",
-    "Data Visualization",
-    "Consumer Insights",
-    "Insight Synthesis",
-  ],
-  "Power BI": [
-    "SQL",
-    "Data Visualization",
-    "Business Transformation",
-    "Insight Synthesis",
-  ],
-  "Data Visualization": [
-    "SQL",
-    "Python",
-    "Tableau",
-    "Power BI",
-    "Insight Synthesis",
-  ],
-  "Market Research": [
-    "Consumer Insights",
-    "Audience Insights",
-    "Quantitative Research",
-    "Qualitative Research",
-    "Insight Synthesis",
-    "Growth Strategy",
-  ],
-  "Consumer Insights": [
-    "Market Research",
-    "Audience Insights",
-    "Qualitative Research",
-    "Insight Synthesis",
-    "Product Strategy",
-  ],
-  "Audience Insights": [
-    "Market Research",
-    "Consumer Insights",
-    "Qualitative Research",
-    "Insight Synthesis",
-    "Growth Strategy",
-  ],
-  "Quantitative Research": [
-    "SQL",
-    "Python",
-    "Excel",
-    "Market Research",
-    "Data Visualization",
-  ],
-  "Qualitative Research": [
-    "Market Research",
-    "Consumer Insights",
-    "Audience Insights",
-    "Insight Synthesis",
-  ],
-  "Insight Synthesis": [
-    "Market Research",
-    "Consumer Insights",
-    "Data Visualization",
-    "Product Strategy",
-    "Growth Strategy",
-  ],
-  "AI Agent Development": [
-    "Python",
-    "Workflow Automation",
-    "Process Improvement",
-    "Business Transformation",
-  ],
-  "Workflow Automation": [
-    "Python",
-    "AI Agent Development",
-    "Process Improvement",
-    "Business Transformation",
-  ],
-  "Process Improvement": [
-    "Workflow Automation",
-    "AI Agent Development",
-    "Business Transformation",
-    "Project Management",
-  ],
-  "Business Transformation": [
-    "AI Agent Development",
-    "Workflow Automation",
-    "Process Improvement",
-    "Project Management",
-    "Stakeholder Management",
-  ],
-  "Growth Strategy": [
-    "Market Research",
-    "Consumer Insights",
-    "Audience Insights",
-    "Product Strategy",
-    "Insight Synthesis",
-  ],
-  "Product Strategy": [
-    "Consumer Insights",
-    "Market Research",
-    "Growth Strategy",
-    "Insight Synthesis",
-    "Stakeholder Management",
-  ],
-  "Project Management": [
-    "Stakeholder Management",
-    "Process Improvement",
-    "Business Transformation",
-    "Product Strategy",
-  ],
-  "Stakeholder Management": [
-    "Project Management",
-    "Business Transformation",
-    "Product Strategy",
-    "Insight Synthesis",
-  ],
+type SkillDetail = {
+  related: string[];
+  description: string;
+};
+
+const skillDetails: Record<string, SkillDetail> = {
+  SQL: {
+    related: [
+      "Python",
+      "Tableau",
+      "Data Visualization",
+      "Quantitative Research",
+    ],
+    description:
+      "Structures complex data so patterns and decisions become easier to see.",
+  },
+
+  Python: {
+    related: [
+      "SQL",
+      "AI Agent Development",
+      "Workflow Automation",
+      "Quantitative Research",
+    ],
+    description:
+      "Turns repetitive analysis and complex workflows into scalable systems.",
+  },
+
+  Excel: {
+    related: [
+      "Market Research",
+      "Quantitative Research",
+      "Data Visualization",
+      "Business Transformation",
+    ],
+    description:
+      "Supports quick analysis, modeling, and practical decision-making.",
+  },
+
+  Tableau: {
+    related: [
+      "SQL",
+      "Data Visualization",
+      "Consumer Insights",
+      "Insight Synthesis",
+    ],
+    description:
+      "Transforms raw findings into visual stories people can act on.",
+  },
+
+  "Power BI": {
+    related: [
+      "SQL",
+      "Data Visualization",
+      "Business Transformation",
+      "Insight Synthesis",
+    ],
+    description:
+      "Connects operational data with clear, decision-ready reporting.",
+  },
+
+  "Data Visualization": {
+    related: [
+      "SQL",
+      "Tableau",
+      "Consumer Insights",
+      "Insight Synthesis",
+    ],
+    description:
+      "Makes relationships, changes, and opportunities easier to understand.",
+  },
+
+  "Market Research": {
+    related: [
+      "Consumer Insights",
+      "Qualitative Research",
+      "Quantitative Research",
+      "Growth Strategy",
+    ],
+    description:
+      "Connects what people say, do, and need with business opportunities.",
+  },
+
+  "Consumer Insights": {
+    related: [
+      "Market Research",
+      "Audience Insights",
+      "Insight Synthesis",
+      "Product Strategy",
+    ],
+    description:
+      "Reveals the motivations and behaviors behind consumer decisions.",
+  },
+
+  "Audience Insights": {
+    related: [
+      "Market Research",
+      "Consumer Insights",
+      "Insight Synthesis",
+      "Growth Strategy",
+    ],
+    description:
+      "Identifies who an audience is, what matters to them, and how to reach them.",
+  },
+
+  "Quantitative Research": {
+    related: [
+      "SQL",
+      "Python",
+      "Excel",
+      "Market Research",
+    ],
+    description:
+      "Tests assumptions and measures the strength of patterns in data.",
+  },
+
+  "Qualitative Research": {
+    related: [
+      "Market Research",
+      "Consumer Insights",
+      "Audience Insights",
+      "Insight Synthesis",
+    ],
+    description:
+      "Adds context, emotion, and meaning to the patterns behind behavior.",
+  },
+
+  "Insight Synthesis": {
+    related: [
+      "Market Research",
+      "Consumer Insights",
+      "Data Visualization",
+      "Product Strategy",
+    ],
+    description:
+      "Bridges research, data, and product decisions.",
+  },
+
+  "AI Agent Development": {
+    related: [
+      "Python",
+      "Workflow Automation",
+      "Process Improvement",
+      "Business Transformation",
+    ],
+    description:
+      "Builds intelligent workflows that make recurring work more efficient.",
+  },
+
+  "Workflow Automation": {
+    related: [
+      "Python",
+      "AI Agent Development",
+      "Process Improvement",
+      "Business Transformation",
+    ],
+    description:
+      "Reduces repetitive work so teams can focus on higher-value decisions.",
+  },
+
+  "Process Improvement": {
+    related: [
+      "Workflow Automation",
+      "AI Agent Development",
+      "Business Transformation",
+      "Project Management",
+    ],
+    description:
+      "Finds friction in a process and redesigns it for clarity and efficiency.",
+  },
+
+  "Business Transformation": {
+    related: [
+      "Process Improvement",
+      "Workflow Automation",
+      "Project Management",
+      "Stakeholder Management",
+    ],
+    description:
+      "Connects people, processes, and technology to create meaningful change.",
+  },
+
+  "Growth Strategy": {
+    related: [
+      "Market Research",
+      "Consumer Insights",
+      "Audience Insights",
+      "Product Strategy",
+    ],
+    description:
+      "Uses market and customer understanding to identify opportunities for growth.",
+  },
+
+  "Product Strategy": {
+    related: [
+      "Consumer Insights",
+      "Market Research",
+      "Insight Synthesis",
+      "Stakeholder Management",
+    ],
+    description:
+      "Turns customer understanding into focused product direction.",
+  },
+
+  "Project Management": {
+    related: [
+      "Stakeholder Management",
+      "Process Improvement",
+      "Business Transformation",
+      "Product Strategy",
+    ],
+    description:
+      "Keeps people, priorities, and execution aligned around a shared outcome.",
+  },
+
+  "Stakeholder Management": {
+    related: [
+      "Project Management",
+      "Business Transformation",
+      "Product Strategy",
+      "Insight Synthesis",
+    ],
+    description:
+      "Translates different perspectives into shared priorities and decisions.",
+  },
 };
 
 type Point = {
@@ -200,14 +298,16 @@ export default function Skills() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const skillRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
-  const relatedSkills = useMemo(() => {
-    if (!activeSkill) return new Set<string>();
+  const activeDetails = activeSkill
+    ? skillDetails[activeSkill]
+    : undefined;
 
-    return new Set(relationships[activeSkill] ?? []);
-  }, [activeSkill]);
+  const relatedSkills = useMemo(() => {
+    return new Set(activeDetails?.related ?? []);
+  }, [activeDetails]);
 
   const calculateConnections = useCallback(() => {
-    if (!activeSkill || !containerRef.current) {
+    if (!activeSkill || !containerRef.current || !activeDetails) {
       setConnections([]);
       return;
     }
@@ -222,38 +322,42 @@ export default function Skills() {
     const containerRect = containerRef.current.getBoundingClientRect();
     const activeRect = activeNode.getBoundingClientRect();
 
-    const start = {
+    const start: Point = {
       x: activeRect.left - containerRect.left + activeRect.width / 2,
       y: activeRect.top - containerRect.top + activeRect.height / 2,
     };
 
-    const nextConnections = [...relatedSkills].flatMap((relatedSkill) => {
-      const relatedNode = skillRefs.current[relatedSkill];
+    const nextConnections = activeDetails.related.flatMap(
+      (relatedSkill) => {
+        const relatedNode = skillRefs.current[relatedSkill];
 
-      if (!relatedNode) return [];
+        if (!relatedNode) {
+          return [];
+        }
 
-      const relatedRect = relatedNode.getBoundingClientRect();
+        const relatedRect = relatedNode.getBoundingClientRect();
 
-      return [
-        {
-          id: `${activeSkill}-${relatedSkill}`,
-          start,
-          end: {
-            x:
-              relatedRect.left -
-              containerRect.left +
-              relatedRect.width / 2,
-            y:
-              relatedRect.top -
-              containerRect.top +
-              relatedRect.height / 2,
+        return [
+          {
+            id: `${activeSkill}-${relatedSkill}`,
+            start,
+            end: {
+              x:
+                relatedRect.left -
+                containerRect.left +
+                relatedRect.width / 2,
+              y:
+                relatedRect.top -
+                containerRect.top +
+                relatedRect.height / 2,
+            },
           },
-        },
-      ];
-    });
+        ];
+      },
+    );
 
     setConnections(nextConnections);
-  }, [activeSkill, relatedSkills]);
+  }, [activeSkill, activeDetails]);
 
   useEffect(() => {
     calculateConnections();
@@ -264,6 +368,19 @@ export default function Skills() {
       window.removeEventListener("resize", calculateConnections);
     };
   }, [calculateConnections]);
+
+  function clearActiveSkill() {
+    setActiveSkill(null);
+    setConnections([]);
+  }
+
+  function activateSkill(skill: string) {
+    setActiveSkill(skill);
+
+    requestAnimationFrame(() => {
+      calculateConnections();
+    });
+  }
 
   function getAttraction(skill: string) {
     if (
@@ -300,11 +417,11 @@ export default function Skills() {
       return { x: 0, y: 0 };
     }
 
-    const attraction = 10;
+    const attractionDistance = 6;
 
     return {
-      x: (deltaX / distance) * attraction,
-      y: (deltaY / distance) * attraction,
+      x: (deltaX / distance) * attractionDistance,
+      y: (deltaY / distance) * attractionDistance,
     };
   }
 
@@ -321,60 +438,50 @@ export default function Skills() {
         />
 
         <p className="mx-auto mt-5 max-w-2xl text-center text-base leading-relaxed text-charcoal sm:text-lg">
-          No single tool creates insight. The interesting part is how they work
-          together.
+          No single tool creates insight. The interesting part is how they
+          work together.
         </p>
 
         <div
           ref={containerRef}
           className="relative mx-auto mt-16 max-w-4xl"
-          onMouseLeave={() => {
-            setActiveSkill(null);
-            setConnections([]);
-          }}
+          onMouseLeave={clearActiveSkill}
         >
           <svg
             className="pointer-events-none absolute inset-0 z-0 h-full w-full overflow-visible"
             aria-hidden="true"
           >
-            {connections.map((connection) => {
-              const midpointX =
-                (connection.start.x + connection.end.x) / 2;
-
-              return (
-                <motion.path
-                  key={connection.id}
-                  d={[
-                    `M ${connection.start.x} ${connection.start.y}`,
-                    `C ${midpointX} ${connection.start.y},`,
-                    `${midpointX} ${connection.end.y},`,
-                    `${connection.end.x} ${connection.end.y}`,
-                  ].join(" ")}
-                  fill="none"
-                  stroke="rgba(151, 82, 101, 0.45)"
-                  strokeWidth="1.2"
-                  strokeDasharray="5 6"
-                  initial={{
-                    pathLength: 0,
-                    opacity: 0,
-                  }}
-                  animate={{
-                    pathLength: 1,
-                    opacity: 1,
-                  }}
-                  transition={{
-                    duration: 0.4,
-                    ease: "easeOut",
-                  }}
-                />
-              );
-            })}
+            {connections.map((connection) => (
+              <motion.line
+                key={connection.id}
+                x1={connection.start.x}
+                y1={connection.start.y}
+                x2={connection.end.x}
+                y2={connection.end.y}
+                stroke="rgba(151, 82, 101, 0.4)"
+                strokeWidth="1.15"
+                strokeLinecap="round"
+                initial={{
+                  pathLength: 0,
+                  opacity: 0,
+                }}
+                animate={{
+                  pathLength: 1,
+                  opacity: 1,
+                }}
+                transition={{
+                  duration: 0.35,
+                  ease: "easeOut",
+                }}
+              />
+            ))}
           </svg>
 
           <div className="relative z-10 flex flex-wrap justify-center gap-3 sm:gap-4">
             {skills.map((skill, index) => {
               const isActive = skill === activeSkill;
               const isRelated = relatedSkills.has(skill);
+
               const isDimmed =
                 Boolean(activeSkill) && !isActive && !isRelated;
 
@@ -406,59 +513,44 @@ export default function Skills() {
                   animate={{
                     x: attraction.x,
                     y: attraction.y,
-                    opacity: isDimmed ? 0.06 : 1,
-                    scale: isActive ? 1.1 : isRelated ? 1.04 : 1,
+                    opacity: isDimmed ? 0.12 : 1,
+                    scale: isActive ? 1.07 : isRelated ? 1.025 : 1,
                     filter:
                       isActive || isRelated
-                        ? "drop-shadow(0 0 12px rgba(151, 82, 101, 0.28))"
-                        : "drop-shadow(0 0 0 rgba(0,0,0,0))",
+                        ? "drop-shadow(0 0 9px rgba(151, 82, 101, 0.22))"
+                        : "drop-shadow(0 0 0 rgba(0, 0, 0, 0))",
                   }}
                   whileHover={{
-                    scale: isDimmed ? 1 : 1.08,
-                    y: isDimmed ? 0 : -4,
+                    scale: isDimmed ? 1 : 1.06,
+                    y: isDimmed ? 0 : -2,
                   }}
-                  onMouseEnter={() => {
-                    setActiveSkill(skill);
-
-                    requestAnimationFrame(() => {
-                      calculateConnections();
-                    });
-                  }}
-                  onFocus={() => {
-                    setActiveSkill(skill);
-
-                    requestAnimationFrame(() => {
-                      calculateConnections();
-                    });
-                  }}
-                  onBlur={() => {
-                    setActiveSkill(null);
-                    setConnections([]);
-                  }}
-                  className={`relative cursor-default rounded-full border px-5 py-2.5 font-medium shadow-softer transition-colors duration-300 hover:shadow-soft ${
+                  onMouseEnter={() => activateSkill(skill)}
+                  onFocus={() => activateSkill(skill)}
+                  onBlur={clearActiveSkill}
+                  className={`relative cursor-default rounded-full border px-5 py-2.5 font-medium shadow-softer transition-colors duration-300 ${
                     sizes[index % sizes.length]
                   } ${getSkillColors(skill)}`}
                   style={{
                     pointerEvents: isDimmed ? "none" : "auto",
                   }}
-                  aria-label={`Show skills related to ${skill}`}
+                  aria-label={`Show how ${skill} connects to other skills`}
                 >
                   {skill}
 
                   {(isActive || isRelated) && (
                     <motion.span
                       aria-hidden="true"
-                      className="absolute inset-[-5px] -z-10 rounded-full border border-rosewood/20"
+                      className="absolute inset-[-4px] -z-10 rounded-full border border-rosewood/15"
                       initial={{
                         opacity: 0,
-                        scale: 0.9,
+                        scale: 0.94,
                       }}
                       animate={{
-                        opacity: isActive ? 0.8 : 0.4,
+                        opacity: isActive ? 0.65 : 0.28,
                         scale: 1,
                       }}
                       transition={{
-                        duration: 0.25,
+                        duration: 0.2,
                       }}
                     />
                   )}
@@ -467,19 +559,32 @@ export default function Skills() {
             })}
           </div>
 
-          <motion.p
-            aria-live="polite"
-            animate={{
-              opacity: activeSkill ? 1 : 0.6,
-            }}
-            className="mt-10 min-h-6 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-rosewood"
-          >
-            {activeSkill
-              ? `${activeSkill} connects with ${[
-                  ...relatedSkills,
-                ].join(" · ")}`
-              : "Hover over an instrument to reveal its connections"}
-          </motion.p>
+          <div className="mx-auto mt-10 min-h-[3rem] max-w-xl text-center">
+            <motion.p
+              key={activeSkill ?? "default"}
+              initial={{
+                opacity: 0,
+                y: 5,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.25,
+              }}
+              aria-live="polite"
+              className={
+                activeSkill
+                  ? "text-sm leading-relaxed text-charcoal sm:text-base"
+                  : "font-mono text-[10px] uppercase tracking-[0.18em] text-rosewood"
+              }
+            >
+              {activeSkill && activeDetails
+                ? activeDetails.description
+                : "Hover over an instrument to reveal how it works with the others"}
+            </motion.p>
+          </div>
         </div>
       </div>
     </section>
