@@ -1,0 +1,292 @@
+.harmony-explorer {
+  --harmony-ink: #2b2522;
+  --harmony-muted: #8d7f79;
+  --harmony-rose: #a86577;
+  --harmony-rose-light: #ead8dd;
+  --harmony-cream: #f8f2e9;
+  --harmony-line: rgba(168, 101, 119, 0.24);
+
+  width: min(100%, 470px);
+  color: var(--harmony-ink);
+}
+
+.harmony-explorer__topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--harmony-muted);
+  font-family: monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.harmony-explorer__topline span:first-child {
+  color: var(--harmony-rose);
+}
+
+.harmony-constellation {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.harmony-constellation::before,
+.harmony-constellation::after {
+  position: absolute;
+  border: 1px solid var(--harmony-line);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.harmony-constellation::before {
+  inset: 8%;
+  border-style: dashed;
+  opacity: 0.5;
+}
+
+.harmony-constellation::after {
+  inset: 29%;
+  opacity: 0.35;
+}
+
+.harmony-constellation__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.harmony-constellation__lines line {
+  stroke: var(--harmony-rose);
+  stroke-width: 0.35;
+  opacity: 0.52;
+  stroke-dasharray: 1.2 1.8;
+  animation: harmony-line-in 500ms ease;
+}
+
+.harmony-note {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  width: 2.4rem;
+  height: 2.4rem;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: rgba(248, 242, 233, 0.62);
+  color: var(--harmony-muted);
+  cursor: pointer;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.86rem;
+  transform: translate(-50%, -50%);
+  transition:
+    width 220ms ease,
+    height 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease,
+    color 220ms ease,
+    opacity 220ms ease,
+    transform 220ms ease;
+  animation: harmony-float 5s ease-in-out infinite;
+}
+
+.harmony-note:hover,
+.harmony-note:focus-visible {
+  width: 2.7rem;
+  height: 2.7rem;
+  border-color: var(--harmony-rose);
+  color: var(--harmony-rose);
+  outline: none;
+}
+
+.harmony-note--active {
+  border-color: var(--harmony-line);
+  background: var(--harmony-rose-light);
+  color: var(--harmony-rose);
+}
+
+.harmony-note--root {
+  width: 2.9rem;
+  height: 2.9rem;
+  border-color: var(--harmony-rose);
+  background: var(--harmony-rose);
+  color: var(--harmony-cream);
+}
+
+.harmony-center {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  width: 9.8rem;
+  height: 9.8rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.35rem;
+  border: 1px solid var(--harmony-line);
+  border-radius: 50%;
+  background: rgba(248, 242, 233, 0.92);
+  color: var(--harmony-ink);
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition:
+    background 250ms ease,
+    border-color 250ms ease,
+    transform 250ms ease;
+}
+
+.harmony-center:hover,
+.harmony-center:focus-visible {
+  border-color: var(--harmony-rose);
+  outline: none;
+  transform: translate(-50%, -50%) scale(1.025);
+}
+
+.harmony-center--playing {
+  border-color: var(--harmony-rose);
+  background: var(--harmony-rose-light);
+  animation: harmony-pulse 1.2s ease;
+}
+
+.harmony-center__chord {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.55rem;
+}
+
+.harmony-center__notes {
+  color: var(--harmony-muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+}
+
+.harmony-center__descriptor {
+  color: var(--harmony-rose);
+  font-family: monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.harmony-center__play {
+  margin-top: 0.25rem;
+  color: var(--harmony-muted);
+  font-family: monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.harmony-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+}
+
+.harmony-control {
+  border: 1px solid var(--harmony-line);
+  border-radius: 999px;
+  background: rgba(255, 252, 247, 0.58);
+  color: var(--harmony-muted);
+  cursor: pointer;
+  font-size: 0.72rem;
+  padding: 0.42rem 0.78rem;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.harmony-control:hover,
+.harmony-control:focus-visible {
+  border-color: var(--harmony-rose);
+  color: var(--harmony-rose);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.harmony-control--active {
+  border-color: var(--harmony-rose);
+  background: var(--harmony-rose);
+  color: var(--harmony-cream);
+}
+
+@keyframes harmony-float {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: -4px;
+  }
+}
+
+@keyframes harmony-line-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.52;
+  }
+}
+
+@keyframes harmony-pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  35% {
+    transform: translate(-50%, -50%) scale(1.045);
+  }
+}
+
+@media (max-width: 900px) {
+  .harmony-explorer {
+    width: min(100%, 410px);
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .harmony-explorer__topline {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .harmony-center {
+    width: 8.6rem;
+    height: 8.6rem;
+  }
+
+  .harmony-note {
+    width: 2.1rem;
+    height: 2.1rem;
+    font-size: 0.75rem;
+  }
+
+  .harmony-note--root {
+    width: 2.55rem;
+    height: 2.55rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .harmony-note,
+  .harmony-center,
+  .harmony-constellation__lines line {
+    animation: none;
+    transition: none;
+  }
+}
