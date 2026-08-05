@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import "./HarmonyExplorer.module.css";
 
 type ChordType = "maj7" | "min7" | "dominant7" | "sus2";
 

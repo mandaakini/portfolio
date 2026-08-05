@@ -1,6 +1,9 @@
+@import "../components/HarmonyExplorer/HarmonyExplorer.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 :root {
   --color-cream: #f7f1e8;
