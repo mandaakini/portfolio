@@ -34,10 +34,9 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             variants={fadeUp}
-            className="mb-6 max-w-4xl font-mono text-[11px] uppercase tracking-[0.25em] text-rose sm:text-xs"
+            className="mb-5 font-mono text-[10px] uppercase tracking-[0.28em] text-rose sm:text-[11px]"
           >
-            Business Analytics · Consumer Insights · Product Strategy · Market
-            Research · Music
+            Data · Business Strategy · Music
           </motion.p>
 
           <motion.h1
@@ -45,7 +44,7 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             variants={fadeUp}
-            className="text-balance font-display text-[13vw] font-semibold leading-[1.02] text-ink sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-8xl"
+            className="text-balance font-display text-[12vw] font-semibold leading-[0.98] text-ink sm:text-6xl md:text-7xl lg:text-[4.65rem] xl:text-[5.6rem]"
           >
             Mandaakini
             <br />
@@ -53,14 +52,14 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p
-            custom={2}
+            custom={3}
             initial="hidden"
             animate="show"
             variants={fadeUp}
-            className="mt-8 max-w-xl text-base leading-relaxed text-charcoal sm:text-lg"
+            className="mt-4 max-w-lg text-base leading-relaxed text-charcoal"
           >
             I explore the intersection of data, creativity, and human behavior
-            to build products and experiences people genuinely connect with.
+            to find patterns behind what people feel and how they connect.
           </motion.p>
 
           <motion.div
