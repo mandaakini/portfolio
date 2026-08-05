@@ -23,26 +23,45 @@ const spaceMono = Space_Mono({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Mandaakini — Business Analytics × Consumer Insights × Product Strategy × Music",
+  export const metadata: Metadata = {
+  metadataBase: new URL("https://mandaakini-raghuraman.vercel.app"),
+
+  title: {
+    default: "Mandaakini Raghuraman",
+    template: "%s | Mandaakini Raghuraman",
+  },
+
   description:
-    "Portfolio of Mandaakini, a Business Analytics graduate exploring the intersection of data, creativity, and human behavior — through consumer research, product strategy, and music.",
+    "Portfolio of Mandaakini Raghuraman, a Business Analytics graduate focused on consumer insights, market research, product strategy, and music.",
+
   keywords: [
-    "Mandaakini",
+    "Mandaakini Raghuraman",
     "Business Analytics",
     "Consumer Insights",
+    "Market Research",
     "Product Strategy",
     "Product Management",
     "Music Performance",
     "Portfolio",
   ],
+
   openGraph: {
-    title: "Mandaakini — Data, Strategy & Music",
+    title: "Mandaakini Raghuraman",
     description:
-      "Exploring the intersection of data, creativity, and human behavior to build products and experiences people genuinely connect with.",
+      "Business Analytics, consumer insights, market research, product strategy, and music.",
+    url: "https://mandaakini-raghuraman.vercel.app",
+    siteName: "Mandaakini Raghuraman",
     type: "website",
   },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Mandaakini Raghuraman",
+    description:
+      "Business Analytics, consumer insights, market research, product strategy, and music.",
+  },
 };
+
 
 export default function RootLayout({
   children,
