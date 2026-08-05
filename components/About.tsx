@@ -20,19 +20,19 @@ const personalNotes = [
   {
     icon: Music2,
     title: "Usually playing",
-    text: "Piano, guitar, flute, or a DJ set—depending on what is stuck in my head.",
+    text: "Piano, guitar, flute, or a DJ set - depending on what is stuck in my head.",
     color: "bg-blush",
   },
   {
     icon: MapPin,
     title: "Out exploring",
-    text: "New cities, cafés, restaurants, and quiet places outdoors in the PNW.",
+    text: "New cities, cafés, restaurants, and quiet places outdoors in the PNW with friends.",
     color: "bg-mushroom/70",
   },
   {
     icon: Puzzle,
     title: "Slow afternoons",
-    text: "A 5,000-piece puzzle, baking, coffee, family, and a movie in the background.",
+    text: "A 5000-piece puzzle, baking, coffee, family, and a movie in the background.",
     color: "bg-porcelain",
   },
 ];
@@ -125,7 +125,7 @@ export default function About() {
                   </strong>
                   . This sounds like two different people until you notice
                   they&apos;re asking the same question. Both are about paying close
-                  attention to what moves someone, and having the discipline to prove
+                  attention to what moves someone and having the discipline to prove
                   it wasn&apos;t a coincidence.
                 </p>
 
