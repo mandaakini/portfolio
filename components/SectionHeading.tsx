@@ -2,34 +2,42 @@
 
 import { motion } from "framer-motion";
 
+interface SectionHeadingProps {
+  eyebrow: string;
+  title: string;
+  align?: "left" | "center";
+  light?: boolean;
+}
+
 export default function SectionHeading({
   eyebrow,
   title,
   align = "left",
   light = false,
-}: {
-  eyebrow: string;
-  title: string;
-  align?: "left" | "center";
-  light?: boolean;
-}) {
+}: SectionHeadingProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{
+        duration: 0.75,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       className={align === "center" ? "text-center" : "text-left"}
     >
       <p
-        className={`font-mono text-[11px] sm:text-xs tracking-[0.25em] uppercase mb-4 ${
-          light ? "text-cream/60" : "text-rose-deep"
+        className={`mb-2 font-mono text-[11px] uppercase tracking-[0.32em] ${
+          light
+            ? "text-cream/60"
+            : "text-rosewood/75"
         }`}
       >
         {eyebrow}
       </p>
+
       <h2
-        className={`font-display font-semibold text-3xl sm:text-4xl md:text-5xl leading-[1.1] text-balance ${
+        className={`font-display text-balance text-3xl font-semibold leading-[1.03] sm:text-4xl md:text-5xl ${
           light ? "text-cream" : "text-ink"
         }`}
       >

@@ -428,7 +428,7 @@ export default function Skills() {
   return (
     <section
       id="toolkit"
-      className="relative flex min-h-[calc(100svh-5rem)] scroll-mt-20 items-center overflow-hidden bg-blush/60 py-28 sm:py-36"
+      className="relative flex min-h-[calc(100svh-5rem)] scroll-mt-16 items-center overflow-hidden bg-blush/60 pt-20 pb-28 sm:pt-24 sm:pb-36"
     >
       <div className="mx-auto w-full max-w-8xl px-6 sm:px-8 lg:px-12">
         <SectionHeading
