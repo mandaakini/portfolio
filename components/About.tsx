@@ -8,7 +8,7 @@ const fieldNotes = [
     label: "Always learning",
     items: [
       "Learning my eighth language",
-      "Literature and books that challenge me",
+      "Literature and books",
       "New perspectives, places, and ideas",
     ],
   },
@@ -16,7 +16,7 @@ const fieldNotes = [
     label: "Always creating",
     items: [
       "Piano, Guitar, and Flute",
-      "DJing and discovering new music",
+      "DJing",
       "Cooking and baking",
     ],
   },
@@ -24,7 +24,7 @@ const fieldNotes = [
     label: "Off the clock",
     items: [
       "New cities, cafés, and restaurants",
-      "PNW lakes and afternoons with friends",
+      "PNW nature and afternoons with friends",
       "5,000-piece puzzles, family, and films",
     ],
   },
@@ -44,9 +44,7 @@ export default function About() {
             01 — About
           </p>
 
-          <p className="hidden font-mono text-[9px] uppercase tracking-[0.24em] text-charcoal/40 sm:block">
-            Data · People · Music
-          </p>
+        
         </div>
 
         <div className="mt-8 grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
@@ -81,11 +79,7 @@ export default function About() {
                 Music Performance
               </span>
 
-              <span className="text-right font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-rosewood">
-                Research
                 <br />
-                Strategy
-              </span>
             </figcaption>
           </motion.figure>
 
@@ -105,7 +99,7 @@ export default function About() {
               id="about-heading"
               className="mt-4 max-w-3xl text-balance font-editorial text-4xl leading-[1.02] text-ink sm:text-5xl lg:text-[3.6rem]"
             >
-              I look for the patterns beneath the obvious.
+              I look for patterns beneath the obvious.
             </h2>
 
             {/* Professional story */}
@@ -124,8 +118,7 @@ export default function About() {
                   Music Performance
                 </strong>
                 . They may sound like two different disciplines, but both ask
-                the same question: what moves someone, and how can we understand
-                it with rigor?
+                the same question: what moves someone?
               </p>
 
               <p>
@@ -203,7 +196,7 @@ export default function About() {
 
             {/* Closing statement */}
             <p className="mt-4 max-w-3xl border-l border-rose pl-5 font-display text-lg italic leading-relaxed text-ink">
-              At the heart of it all, I pay attention—to people, patterns,
+              At the heart of it all, I pay attention — to people, patterns,
               places, and the small details that explain something bigger.
             </p>
           </motion.div>
