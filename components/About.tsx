@@ -5,16 +5,28 @@ import { motion } from "framer-motion";
 
 const fieldNotes = [
   {
-    label: "Based in",
-    value: "The Pacific Northwest",
-  },
-  {
     label: "Always learning",
-    value: "Eight languages and counting",
+    items: [
+      "Learning my eighth language",
+      "Literature and books that challenge me",
+      "New perspectives, places, and ideas",
+    ],
   },
   {
-    label: "Usually playing",
-    value: "Piano · guitar · flute · DJ sets",
+    label: "Always creating",
+    items: [
+      "Piano, Guitar, and Flute",
+      "DJing and discovering new music",
+      "Cooking and baking",
+    ],
+  },
+  {
+    label: "Off the clock",
+    items: [
+      "New cities, cafés, and restaurants",
+      "PNW lakes and afternoons with friends",
+      "5,000-piece puzzles, family, and films",
+    ],
   },
 ];
 
@@ -33,7 +45,7 @@ export default function About() {
           </p>
 
           <p className="hidden font-mono text-[9px] uppercase tracking-[0.24em] text-charcoal/40 sm:block">
-            Profile / 2026
+            Data · People · Music
           </p>
         </div>
 
@@ -44,7 +56,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7 }}
-            className="mx-auto w-full max-w-[430px] lg:col-span-5 lg:mx-0"
+            className="mx-auto w-full max-w-[400px] lg:col-span-5 lg:mx-0"
           >
             <div className="relative aspect-[4/5] overflow-hidden border border-mushroom bg-cream">
               <Image
@@ -52,7 +64,7 @@ export default function About() {
                 alt="Mandaakini Raghuraman at her graduation"
                 fill
                 priority
-                sizes="(max-width: 1024px) 90vw, 430px"
+                sizes="(max-width: 1024px) 90vw, 400px"
                 className="object-cover object-center"
               />
 
@@ -70,9 +82,9 @@ export default function About() {
               </span>
 
               <span className="text-right font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-rosewood">
-                Oregon State
+                Research
                 <br />
-                Class of 2026
+                Strategy
               </span>
             </figcaption>
           </motion.figure>
@@ -91,59 +103,108 @@ export default function About() {
 
             <h2
               id="about-heading"
-              className="mt-4 max-w-3xl text-balance font-editorial text-4xl leading-[1.02] text-ink sm:text-5xl lg:text-[3.8rem]"
+              className="mt-4 max-w-3xl text-balance font-editorial text-4xl leading-[1.02] text-ink sm:text-5xl lg:text-[3.6rem]"
             >
               I look for the patterns beneath the obvious.
             </h2>
 
-            <div className="mt-7 grid gap-6 border-y border-mushroom/70 py-6 text-[15px] leading-7 text-charcoal/75 sm:grid-cols-2 sm:text-base">
+            {/* Professional story */}
+            <div className="mt-6 grid gap-6 border-y border-mushroom/70 py-5 text-[14px] leading-6 text-charcoal/75 sm:grid-cols-2 sm:text-[15px]">
               <p>
                 I&apos;m a{" "}
                 <strong className="font-semibold text-ink">
                   Business Analytics
                 </strong>{" "}
-                graduate concentrating in{" "}
+                graduate with a concentration in{" "}
                 <strong className="font-semibold text-ink">
                   Market Research &amp; Consumer Analytics
-                </strong>
-                , with a minor in{" "}
+                </strong>{" "}
+                and a minor in{" "}
                 <strong className="font-semibold text-ink">
                   Music Performance
                 </strong>
-                . The two disciplines ask the same question: what moves people,
-                and how can we understand it with rigor?
+                . They may sound like two different disciplines, but both ask
+                the same question: what moves someone, and how can we understand
+                it with rigor?
               </p>
 
               <p>
-                Analytics gives me a way to find patterns in data; music taught
-                me to recognize them in another language. My favorite work
-                lives between observation and understanding—where information
-                becomes insight, and insight becomes something distinctly
-                human.
+                I&apos;m drawn to patterns that aren&apos;t immediately
+                obvious. Analytics helps me find them in data; music taught me
+                to recognize them in another language. Whether I&apos;m
+                interpreting numbers or a chord progression, my favorite work
+                lives between observation, understanding, problem-solving, and
+                application.
               </p>
             </div>
 
-            {/* Skimmable personal details */}
-            <div className="mt-6 grid gap-5 sm:grid-cols-3">
-              {fieldNotes.map((note) => (
-                <div
-                  key={note.label}
-                  className="border-t border-mushroom/80 pt-3"
-                >
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-rosewood">
-                    {note.label}
-                  </p>
+            {/* Personal details */}
+            <div className="mt-5">
+              <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-rosewood">
+                Beyond the work
+              </p>
 
-                  <p className="mt-2 text-sm leading-6 text-charcoal/75">
-                    {note.value}
-                  </p>
-                </div>
-              ))}
+              <div className="mt-3 grid gap-5 sm:grid-cols-3">
+                {fieldNotes.map((note) => (
+                  <div
+                    key={note.label}
+                    className="border-t border-mushroom/80 pt-3"
+                  >
+                    <h3 className="font-editorial text-lg text-ink">
+                      {note.label}
+                    </h3>
+
+                    <ul className="mt-2 space-y-1.5">
+                      {note.items.map((item) => (
+                        <li
+                          key={item}
+                          className="flex gap-2 text-[13px] leading-5 text-charcoal/70"
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="mt-[9px] h-px w-3 shrink-0 bg-rosewood/60"
+                          />
+
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <p className="mt-7 max-w-2xl border-l border-rose pl-5 font-display text-lg italic leading-relaxed text-ink sm:text-xl">
-              At heart, I pay attention—to people, patterns, places, and the
-              small details that explain something bigger.
+            {/* Performance booking */}
+            <div className="mt-5 flex flex-col gap-3 border-y border-mushroom/70 py-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-rosewood">
+                  Performance inquiries
+                </p>
+
+                <p className="mt-1 text-sm text-charcoal/70">
+                  Available for select DJ sets and piano performances.
+                </p>
+              </div>
+
+              <a
+                href="mailto:mandaakini@gmail.com?subject=Performance%20Booking%20Inquiry"
+                className="group inline-flex w-fit items-center gap-2 border-b border-ink/40 pb-1 text-sm font-medium text-ink transition-colors hover:border-rosewood hover:text-rosewood"
+              >
+                Inquire about a booking
+
+                <span
+                  aria-hidden="true"
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  →
+                </span>
+              </a>
+            </div>
+
+            {/* Closing statement */}
+            <p className="mt-4 max-w-3xl border-l border-rose pl-5 font-display text-lg italic leading-relaxed text-ink">
+              At the heart of it all, I pay attention—to people, patterns,
+              places, and the small details that explain something bigger.
             </p>
           </motion.div>
         </div>
