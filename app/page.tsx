@@ -1,5 +1,4 @@
 import Loader from "@/components/Loader";
-import CustomCursor from "@/components/CustomCursor";
 import Nav from "@/components/Nav";
 import HarmonySection from "@/components/HarmonySection"; 
 import Hero from "@/components/Hero";
@@ -15,7 +14,6 @@ export default function Home() {
   return (
     <>
       <Loader />
-      <CustomCursor />
       <Nav />
       <main>
         <Hero />

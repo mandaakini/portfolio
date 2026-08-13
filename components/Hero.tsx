@@ -33,7 +33,7 @@ export default function Hero() {
           initial="hidden"
           animate="show"
           variants={fadeUp}
-          className="mb-7 flex items-center justify-center gap-4"
+          className="mb-5 flex items-center justify-center gap-4"
         >
           <span
             aria-hidden="true"
@@ -56,11 +56,10 @@ export default function Hero() {
           initial="hidden"
           animate="show"
           variants={fadeUp}
-          className="text-balance font-display text-[12.5vw] font-semibold leading-[0.91] tracking-[-0.04em] text-ink sm:text-6xl md:text-7xl lg:text-[6.25rem] xl:text-[7rem]"
+          className="font-display text-left text-[12vw] font-medium leading-none tracking-[-0.035em] text-ink sm:text-6xl md:text-7xl lg:text-[5.75rem] xl:text-[6.5rem]"
         >
-          Mandaakini
-          <br />
-          Raghuraman
+          <span className="block">Mandaakini</span>
+          <span className="mt-3 block sm:mt-4">Raghuraman</span>
         </motion.h1>
 
         {/* Positioning statement */}
@@ -69,7 +68,7 @@ export default function Hero() {
           initial="hidden"
           animate="show"
           variants={fadeUp}
-          className="mt-8 max-w-xl text-base leading-relaxed text-charcoal sm:text-lg"
+          className="mt-10 max-w-xl text-base leading-relaxed text-charcoal sm:text-lg"
         >
           I turn data, research, and complex business questions into clear
           insights and decisions.
