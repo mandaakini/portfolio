@@ -290,3 +290,78 @@
     transition: none;
   }
 }
+
+/* Compact harmony interlude */
+.harmony-explorer {
+  width: min(100%, 360px);
+}
+
+.harmony-explorer__topline {
+  margin-bottom: 0.35rem;
+  font-size: 0.55rem;
+}
+
+.harmony-center {
+  width: 7.8rem;
+  height: 7.8rem;
+  gap: 0.2rem;
+}
+
+.harmony-center__chord {
+  font-size: 1.25rem;
+}
+
+.harmony-center__notes {
+  font-size: 0.58rem;
+}
+
+.harmony-center__descriptor {
+  font-size: 0.5rem;
+}
+
+.harmony-note {
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.72rem;
+}
+
+.harmony-note:hover,
+.harmony-note:focus-visible {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.harmony-note--root {
+  width: 2.45rem;
+  height: 2.45rem;
+}
+
+.harmony-controls {
+  margin-top: 0.4rem;
+}
+
+.harmony-control {
+  padding: 0.32rem 0.65rem;
+  font-size: 0.65rem;
+}
+
+@media (max-width: 520px) {
+  .harmony-explorer {
+    width: min(100%, 320px);
+  }
+
+  .harmony-center {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  .harmony-note {
+    width: 1.85rem;
+    height: 1.85rem;
+  }
+
+  .harmony-note--root {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+}

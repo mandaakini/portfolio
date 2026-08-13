@@ -8,119 +8,87 @@ export default function HarmonySection() {
   return (
     <section
       id="harmony"
-      className="relative scroll-mt-20 overflow-hidden bg-oxblood px-6 py-28 text-porcelain sm:px-8 sm:py-36 lg:py-44"
+      className="relative flex min-h-[calc(100svh-5rem)] scroll-mt-20 items-center overflow-hidden bg-oxblood px-6 py-10 text-porcelain sm:px-8 sm:py-12"
     >
-      {/* Restrained dotted texture */}
+      {/* Subtle dotted texture */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.045]"
+        className="pointer-events-none absolute inset-0 opacity-[0.035]"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 1px 1px, #F7F1E8 1px, transparent 0)",
-          backgroundSize: "28px 28px",
+            "radial-gradient(circle at 1px 1px, #F8F4EF 1px, transparent 0)",
+          backgroundSize: "30px 30px",
         }}
       />
 
-      {/* Very subtle glow behind the interaction */}
+      {/* Restrained atmospheric glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-[62%] h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-rose/10 blur-[100px] sm:h-96 sm:w-96"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-wine/10 blur-[110px]"
       />
 
       <div className="relative mx-auto max-w-6xl">
-        <header className="mx-auto mb-14 max-w-5xl text-center sm:mb-20">
-          {/* Section label */}
+        <header className="mx-auto mb-5 max-w-4xl text-center">
           <motion.div
-            initial={{ opacity: 0, y: 14 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.65 }}
             className="flex items-center justify-center gap-4"
           >
             <span
               aria-hidden="true"
-              className="h-px w-7 bg-rose/45 sm:w-10"
+              className="h-px w-8 bg-rose/40"
             />
 
-            <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-rose sm:text-[10px]">
+            <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-rose">
               00 — An Interlude
             </p>
 
             <span
               aria-hidden="true"
-              className="h-px w-7 bg-rose/45 sm:w-10"
+              className="h-px w-8 bg-rose/40"
             />
           </motion.div>
 
-          {/* Heading */}
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{
-              duration: 0.8,
+              duration: 0.75,
               delay: 0.08,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="mt-7 text-balance font-display text-5xl font-semibold leading-[1.02] tracking-[-0.035em] text-porcelain sm:text-6xl lg:text-7xl"
+            className="mt-4 text-balance font-editorial text-3xl font-medium leading-[1.05] tracking-[-0.03em] text-porcelain sm:text-4xl lg:text-5xl"
           >
             Patterns aren&apos;t always numbers.
           </motion.h2>
 
-          {/* Secondary thought */}
           <motion.p
-            initial={{ opacity: 0, y: 14 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
-            transition={{
-              duration: 0.7,
-              delay: 0.16,
-            }}
-            className="mt-4 font-display text-2xl italic text-porcelain/55 sm:text-3xl"
+            transition={{ duration: 0.65, delay: 0.15 }}
+            className="mt-1 font-display text-lg italic text-porcelain/50 sm:text-xl"
           >
             Some are heard.
           </motion.p>
         </header>
 
-        {/* Harmony interaction */}
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 28,
-            scale: 0.98,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            scale: 1,
-          }}
-          viewport={{
-            once: true,
-            amount: 0.2,
-          }}
+          initial={{ opacity: 0, y: 22, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{
-            duration: 0.9,
-            delay: 0.18,
+            duration: 0.85,
+            delay: 0.16,
             ease: [0.22, 1, 0.36, 1],
           }}
           className="flex justify-center"
         >
           <HarmonyExplorer />
         </motion.div>
-
-        {/* Minimal instruction */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.7,
-            delay: 0.35,
-          }}
-          className="mt-9 text-center font-mono text-[8px] uppercase tracking-[0.25em] text-porcelain/30 sm:text-[9px]"
-        >
-          Move through the sound
-        </motion.p>
       </div>
     </section>
   );
