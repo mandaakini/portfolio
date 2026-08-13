@@ -54,7 +54,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7 }}
-            className="mx-auto w-full max-w-[400px] lg:col-span-5 lg:mx-0"
+            className="mx-auto w-full max-w-[360px] lg:col-span-5 lg:mx-0"
           >
             <div className="relative aspect-[4/5] overflow-hidden border border-mushroom bg-cream">
               <Image
@@ -151,7 +151,7 @@ export default function About() {
                       {note.items.map((item) => (
                         <li
                           key={item}
-                          className="flex gap-2 text-[13px] leading-5 text-charcoal/70"
+                          className="flex gap-2 text-[13px] leading-5 text-charcoal/75"
                         >
                           <span
                             aria-hidden="true"
@@ -174,7 +174,7 @@ export default function About() {
                   Performance inquiries
                 </p>
 
-                <p className="mt-1 text-sm text-charcoal/70">
+                <p className="mt-1 text-sm text-charcoal/75">
                   Available for select DJ sets and piano performances.
                 </p>
               </div>
