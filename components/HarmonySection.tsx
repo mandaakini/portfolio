@@ -8,7 +8,7 @@ export default function HarmonySection() {
   return (
     <section
       id="harmony"
-      className="relative flex min-h-[calc(100svh-5rem)] scroll-mt-20 items-center overflow-hidden bg-oxblood px-6 py-10 text-porcelain sm:px-8 sm:py-12"
+      className="relative -mt-6 flex min-h-screen scroll-mt-20 items-center overflow-hidden bg-oxblood px-6 pb-10 pt-16 text-porcelain sm:px-8 sm:pb-12 sm:pt-20"
     >
       {/* Subtle dotted texture */}
       <div
