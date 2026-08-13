@@ -1,20 +1,19 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { ArrowDown, FileText } from "lucide-react";
-import HarmonyExplorer from "./HarmonyExplorer/HarmonyExplorer";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 
 const fadeUp: Variants = {
   hidden: {
     opacity: 0,
-    y: 28,
+    y: 24,
   },
 
   show: (index: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.15 + index * 0.12,
+      delay: 0.12 + index * 0.11,
       duration: 0.8,
       ease: [0.22, 1, 0.36, 1],
     },
@@ -25,163 +24,108 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] items-center overflow-hidden bg-cream pb-20 pt-28 sm:pt-32"
+      className="relative flex min-h-[100svh] scroll-mt-20 items-center justify-center overflow-hidden bg-cream px-6 pb-24 pt-28 sm:px-8 sm:pt-32"
     >
-      <div className="relative mx-auto grid w-full max-w-8xl grid-cols-1 items-center gap-14 px-6 sm:px-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,0.85fr)] lg:gap-10 lg:px-12 xl:gap-16">
-        <div className="relative z-10">
-          <motion.p
-            custom={0}
-            initial="hidden"
-            animate="show"
-            variants={fadeUp}
-            className="mb-5 font-mono text-[10px] uppercase tracking-[0.28em] text-rose sm:text-[11px]"
-          >
-            Data · Business Strategy · Music
-          </motion.p>
-
-          <motion.h1
-            custom={1}
-            initial="hidden"
-            animate="show"
-            variants={fadeUp}
-            className="text-balance font-display text-[12vw] font-semibold leading-[0.98] text-ink sm:text-6xl md:text-7xl lg:text-[4.65rem] xl:text-[5.6rem]"
-          >
-            Mandaakini
-            <br />
-            <span>Raghuraman</span>
-          </motion.h1>
-
-          <motion.p
-            custom={3}
-            initial="hidden"
-            animate="show"
-            variants={fadeUp}
-            className="mt-4 max-w-lg text-base leading-relaxed text-charcoal"
-          >
-            I explore the intersection of data, creativity, and human behavior
-            to find patterns behind what people feel and how they connect.
-          </motion.p>
-
-          <motion.div
-            custom={3}
-            initial="hidden"
-            animate="show"
-            variants={fadeUp}
-            className="mt-10 flex flex-wrap items-center gap-4"
-          >
-            <a
-              href="#contact"
-              className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-deep-espresso px-7 py-3.5 text-sm font-medium text-cream shadow-softer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-soft"
-            >
-              <span className="absolute inset-0 translate-y-full bg-rosewood transition-transform duration-300 ease-out group-hover:translate-y-0" />
-
-              <span className="relative">
-                Let&apos;s Connect
-              </span>
-            </a>
-
-            <a
-              href="/images/MandaakiniRaghuraman_Resume_v2.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-rosewood/25 bg-porcelain/70 px-7 py-3.5 text-sm font-medium text-ink shadow-softer transition-all duration-300 hover:-translate-y-0.5 hover:border-rosewood hover:text-rosewood hover:shadow-soft"
-            >
-              <FileText size={16} aria-hidden="true" />
-              View Resume
-            </a>
-          </motion.div>
-
-          <motion.div
-            custom={4}
-            initial="hidden"
-            animate="show"
-            variants={fadeUp}
-            className="mt-16 flex h-8 items-end gap-1.5"
-            aria-hidden="true"
-          >
-            {[0, 1, 2, 3, 4, 5, 6].map((index) => (
-              <motion.span
-                key={index}
-                className="w-1.5 rounded-full bg-rosewood"
-                animate={{
-                  height: ["30%", "100%", "50%", "80%", "30%"],
-                }}
-                transition={{
-                  duration: 2.4 + index * 0.15,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: index * 0.12,
-                }}
-              />
-            ))}
-          </motion.div>
-        </div>
-
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
+        {/* Editorial label */}
         <motion.div
-          initial={{
-            opacity: 0,
-            scale: 0.96,
-            x: 28,
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-            x: 0,
-          }}
-          transition={{
-            delay: 0.65,
-            duration: 1,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="relative hidden justify-center lg:flex"
+          custom={0}
+          initial="hidden"
+          animate="show"
+          variants={fadeUp}
+          className="mb-7 flex items-center justify-center gap-4"
         >
-          <HarmonyExplorer />
+          <span
+            aria-hidden="true"
+            className="h-px w-7 bg-rosewood/45 sm:w-10"
+          />
+
+          <p className="font-mono text-[9px] uppercase tracking-[0.26em] text-rosewood sm:text-[11px] sm:tracking-[0.3em]">
+            Analytics · Strategy · Consumer Insights
+          </p>
+
+          <span
+            aria-hidden="true"
+            className="h-px w-7 bg-rosewood/45 sm:w-10"
+          />
         </motion.div>
 
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 24,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            delay: 0.65,
-            duration: 0.8,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="relative flex justify-center lg:hidden"
+        {/* Name */}
+        <motion.h1
+          custom={1}
+          initial="hidden"
+          animate="show"
+          variants={fadeUp}
+          className="text-balance font-display text-[15vw] font-semibold leading-[0.88] tracking-[-0.045em] text-ink sm:text-7xl md:text-8xl lg:text-[7.5rem] xl:text-[8.5rem]"
         >
-          <HarmonyExplorer />
+          Mandaakini
+          <br />
+          Raghuraman
+        </motion.h1>
+
+        {/* Positioning statement */}
+        <motion.p
+          custom={2}
+          initial="hidden"
+          animate="show"
+          variants={fadeUp}
+          className="mt-9 max-w-2xl text-base leading-relaxed text-charcoal/75 sm:text-lg"
+        >
+          I turn data, research, and complex business questions into clear
+          insights and decisions.
+        </motion.p>
+
+        {/* Links */}
+        <motion.div
+          custom={3}
+          initial="hidden"
+          animate="show"
+          variants={fadeUp}
+          className="mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-4"
+        >
+          <a
+            href="#projects"
+            className="border-b border-ink pb-1 text-sm font-medium text-ink transition-opacity duration-300 hover:opacity-55"
+          >
+            View Selected Work
+          </a>
+
+          <a
+            href="/images/MandaakiniRaghuraman_Resume_v2.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 border-b border-transparent pb-1 text-sm font-medium text-charcoal/75 transition-all duration-300 hover:border-charcoal/60 hover:text-ink"
+          >
+            Résumé
+            <ArrowUpRight size={14} aria-hidden="true" />
+          </a>
         </motion.div>
       </div>
 
+      {/* Scroll cue */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
-          delay: 1.4,
-          duration: 1,
+          delay: 1.15,
+          duration: 0.8,
         }}
         aria-hidden="true"
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-charcoal/60 sm:flex"
+        className="absolute bottom-7 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-charcoal/35"
       >
-        <span className="font-mono text-[10px] uppercase tracking-[0.2em]">
-          Scroll
+        <span className="font-mono text-[8px] uppercase tracking-[0.25em] sm:text-[9px]">
+          Explore
         </span>
 
         <motion.div
-          animate={{
-            y: [0, 6, 0],
-          }}
+          animate={{ y: [0, 5, 0] }}
           transition={{
-            duration: 1.6,
+            duration: 1.8,
             repeat: Infinity,
+            ease: "easeInOut",
           }}
         >
-          <ArrowDown size={16} />
+          <ArrowDown size={15} />
         </motion.div>
       </motion.div>
     </section>
