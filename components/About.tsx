@@ -91,9 +91,7 @@ export default function About() {
             transition={{ duration: 0.7, delay: 0.08 }}
             className="lg:col-span-7"
           >
-            <p className="font-mono text-[9px] uppercase tracking-[0.26em] text-rosewood sm:text-[10px]">
-              Observation · Understanding · Application
-            </p>
+      
 
             <h2
               id="about-heading"
