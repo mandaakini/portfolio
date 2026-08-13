@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter, Space_Mono } from "next/font/google";
+import { Bodoni_Moda, Playfair_Display, Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -13,6 +13,13 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  variable: "--font-bodoni",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -71,7 +78,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${inter.variable} ${spaceMono.variable}`}
+      className={`${playfair.variable} ${inter.variable} ${spaceMono.variable} ${bodoni.variable}`}
     >
       <body className="bg-cream text-charcoal font-body antialiased overflow-x-hidden">
         {children}

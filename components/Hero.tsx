@@ -26,7 +26,7 @@ export default function Hero() {
       id="home"
       className="relative flex min-h-[100svh] scroll-mt-20 items-center justify-center overflow-hidden bg-bone px-6 pb-24 pt-28 sm:px-8 sm:pt-32"
     >
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
+      <div className="mx-auto flex w-full max-w-6xl -translate-y-4 flex-col items-center text-center sm:-translate-y-6">
         {/* Editorial label */}
         <motion.div
           custom={0}
@@ -56,10 +56,10 @@ export default function Hero() {
           initial="hidden"
           animate="show"
           variants={fadeUp}
-          className="font-display text-left text-[12vw] font-medium leading-none tracking-[-0.035em] text-ink sm:text-6xl md:text-7xl lg:text-[5.75rem] xl:text-[6.5rem]"
+          className="font-editorial text-center text-[11vw] font-medium leading-[0.96] tracking-[-0.035em] text-ink sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.25rem]"
         >
           <span className="block">Mandaakini</span>
-          <span className="mt-3 block sm:mt-4">Raghuraman</span>
+          <span className="mt-2 block sm:mt-3">Raghuraman</span>
         </motion.h1>
 
         {/* Positioning statement */}

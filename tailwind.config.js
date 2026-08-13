@@ -52,6 +52,7 @@ module.exports = {
 
       fontFamily: {
         display: ["var(--font-playfair)", "serif"],
+        editorial: ["var(--font-bodoni)", "serif"],
         body: ["var(--font-inter)", "sans-serif"],
         mono: ["var(--font-space-mono)", "monospace"],
       },
