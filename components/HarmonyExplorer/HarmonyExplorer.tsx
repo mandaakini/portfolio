@@ -11,20 +11,31 @@ type NoteNode = {
   y: number;
 };
 
-const NOTES: NoteNode[] = [
-  { label: "C", midi: 60, x: 50, y: 10 },
-  { label: "G", midi: 67, x: 74, y: 16 },
-  { label: "D", midi: 62, x: 89, y: 34 },
-  { label: "A", midi: 69, x: 92, y: 59 },
-  { label: "E", midi: 64, x: 76, y: 82 },
-  { label: "B", midi: 71, x: 53, y: 91 },
-  { label: "F♯", midi: 66, x: 29, y: 83 },
-  { label: "D♭", midi: 61, x: 11, y: 63 },
-  { label: "A♭", midi: 68, x: 10, y: 38 },
-  { label: "E♭", midi: 63, x: 26, y: 18 },
-  { label: "B♭", midi: 70, x: 17, y: 50 },
-  { label: "F", midi: 65, x: 50, y: 48 },
+const CIRCLE_OF_FIFTHS = [
+  { label: "C", midi: 60 },
+  { label: "G", midi: 67 },
+  { label: "D", midi: 62 },
+  { label: "A", midi: 69 },
+  { label: "E", midi: 64 },
+  { label: "B", midi: 71 },
+  { label: "F♯", midi: 66 },
+  { label: "D♭", midi: 61 },
+  { label: "A♭", midi: 68 },
+  { label: "E♭", midi: 63 },
+  { label: "B♭", midi: 70 },
+  { label: "F", midi: 65 },
 ];
+
+const NOTES: NoteNode[] = CIRCLE_OF_FIFTHS.map((note, index) => {
+  const angle = (index * 30 - 90) * (Math.PI / 180);
+  const radius = 40;
+
+  return {
+    ...note,
+    x: 50 + radius * Math.cos(angle),
+    y: 50 + radius * Math.sin(angle),
+  };
+});
 
 const CHORDS: Record<
   ChordType,
@@ -102,7 +113,9 @@ export default function HarmonyExplorer() {
     });
   }, [activeNote, chord]);
 
-  const activePitchClasses = chordNotes.map((note) => note.pitchClass);
+  const activePitchClasses = chordNotes.map(
+    (note) => note.pitchClass,
+  );
 
   const activeNodes = NOTES.filter((note) =>
     activePitchClasses.includes(pitchClass(note.midi)),
@@ -126,17 +139,22 @@ export default function HarmonyExplorer() {
 
   useEffect(() => {
     return () => {
-      if (playingTimerRef.current) {
+      if (playingTimerRef.current !== null) {
         window.clearTimeout(playingTimerRef.current);
       }
 
-      audioContextRef.current?.close();
+      void audioContextRef.current?.close();
     };
   }, []);
 
   function selectNote(note: NoteNode) {
     setHasInteracted(true);
     setActiveNote(note);
+  }
+
+  function selectChordType(type: ChordType) {
+    setHasInteracted(true);
+    setChordType(type);
   }
 
   async function playChord() {
@@ -173,12 +191,16 @@ export default function HarmonyExplorer() {
       const gain = context.createGain();
 
       oscillator.type = index === 0 ? "sine" : "triangle";
+
       oscillator.frequency.setValueAtTime(
         frequencyFromMidi(note.midi),
         now,
       );
 
-      gain.gain.setValueAtTime(index === 0 ? 0.75 : 0.42, now);
+      gain.gain.setValueAtTime(
+        index === 0 ? 0.75 : 0.42,
+        now,
+      );
 
       oscillator.connect(gain);
       gain.connect(master);
@@ -189,7 +211,7 @@ export default function HarmonyExplorer() {
 
     setIsPlaying(true);
 
-    if (playingTimerRef.current) {
+    if (playingTimerRef.current !== null) {
       window.clearTimeout(playingTimerRef.current);
     }
 
@@ -201,11 +223,11 @@ export default function HarmonyExplorer() {
   return (
     <section
       className="harmony-explorer"
-      aria-label="Interactive harmony explorer"
+      aria-label="Interactive circle of fifths harmony explorer"
     >
       <div className="harmony-explorer__topline">
         <span>Harmony Explorer</span>
-        <span>Hover to find the pattern</span>
+        <span>Circle of fifths · click a note</span>
       </div>
 
       <div className="harmony-constellation">
@@ -215,7 +237,8 @@ export default function HarmonyExplorer() {
           aria-hidden="true"
         >
           {activeNodes.map((node, index) => {
-            const next = activeNodes[(index + 1) % activeNodes.length];
+            const next =
+              activeNodes[(index + 1) % activeNodes.length];
 
             return (
               <line
@@ -260,7 +283,7 @@ export default function HarmonyExplorer() {
                 selectNote(note);
                 void playChord();
               }}
-              aria-label={`Play ${note.label}${chord.label}`}
+              aria-label={`Select and play ${note.label}${chord.label}`}
             >
               {note.label}
             </button>
@@ -284,7 +307,9 @@ export default function HarmonyExplorer() {
           </span>
 
           <span className="harmony-center__notes">
-            {chordNotes.map((note) => note.label).join(" · ")}
+            {chordNotes
+              .map((note) => note.label)
+              .join(" · ")}
           </span>
 
           <span className="harmony-center__descriptor">
@@ -310,10 +335,8 @@ export default function HarmonyExplorer() {
                 ? "harmony-control harmony-control--active"
                 : "harmony-control"
             }
-            onClick={() => {
-              setHasInteracted(true);
-              setChordType(type);
-            }}
+            onClick={() => selectChordType(type)}
+            aria-pressed={chordType === type}
           >
             {CHORDS[type].label}
           </button>
