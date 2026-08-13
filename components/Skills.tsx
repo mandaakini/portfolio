@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 import {
   useCallback,
   useEffect,
-  useMemo,
+  useLayoutEffect,
   useRef,
   useState,
 } from "react";
+
 import { skills } from "../lib/data";
 import SectionHeading from "./SectionHeading";
 
@@ -19,7 +20,6 @@ const technicalSkills = new Set([
   "Excel",
   "Tableau",
   "Power BI",
-  "Data Visualization",
 ]);
 
 const researchSkills = new Set([
@@ -37,230 +37,187 @@ const automationSkills = new Set([
   "Process Improvement",
 ]);
 
-type SkillDetail = {
-  related: string[];
-  description: string;
-};
-
-const skillDetails: Record<string, SkillDetail> = {
+const skillDetails: Record<
+  string,
+  {
+    line: string;
+    connectsTo: string[];
+  }
+> = {
   SQL: {
-    related: [
-      "Python",
-      "Tableau",
-      "Data Visualization",
-      "Quantitative Research",
-    ],
-    description:
-      "Structures complex data so patterns and decisions become easier to see.",
+    line: "Used to query, structure, and investigate complex datasets.",
+    connectsTo: ["Python", "Excel", "Tableau", "Power BI"],
   },
-
   Python: {
-    related: [
+    line: "Used for analysis, automation, modeling, and AI-enabled workflows.",
+    connectsTo: [
       "SQL",
       "AI Agent Development",
       "Workflow Automation",
-      "Quantitative Research",
+      "Data Visualization",
     ],
-    description:
-      "Turns repetitive analysis and complex workflows into scalable systems.",
   },
-
   Excel: {
-    related: [
+    line: "Used for flexible analysis, modeling, validation, and reporting.",
+    connectsTo: [
+      "SQL",
       "Market Research",
       "Quantitative Research",
       "Data Visualization",
-      "Business Transformation",
     ],
-    description:
-      "Supports quick analysis, modeling, and practical decision-making.",
   },
-
   Tableau: {
-    related: [
+    line: "Used to translate complex analysis into accessible visual stories.",
+    connectsTo: [
       "SQL",
       "Data Visualization",
       "Consumer Insights",
       "Insight Synthesis",
     ],
-    description:
-      "Transforms raw findings into visual stories people can act on.",
   },
-
   "Power BI": {
-    related: [
+    line: "Used to build interactive reports and decision-ready dashboards.",
+    connectsTo: [
       "SQL",
       "Data Visualization",
       "Business Transformation",
-      "Insight Synthesis",
+      "Stakeholder Management",
     ],
-    description:
-      "Connects operational data with clear, decision-ready reporting.",
   },
-
+  "AI Agent Development": {
+    line: "Used to build systems that automate research and business workflows.",
+    connectsTo: [
+      "Python",
+      "Workflow Automation",
+      "Process Improvement",
+      "Business Transformation",
+    ],
+  },
   "Data Visualization": {
-    related: [
-      "SQL",
+    line: "Used to make patterns, comparisons, and decisions easier to understand.",
+    connectsTo: [
       "Tableau",
-      "Consumer Insights",
+      "Power BI",
       "Insight Synthesis",
+      "Stakeholder Management",
     ],
-    description:
-      "Makes relationships, changes, and opportunities easier to understand.",
   },
-
   "Market Research": {
-    related: [
+    line: "Used to understand markets, audiences, behavior, and unmet needs.",
+    connectsTo: [
       "Consumer Insights",
-      "Qualitative Research",
+      "Audience Insights",
       "Quantitative Research",
-      "Growth Strategy",
+      "Qualitative Research",
     ],
-    description:
-      "Connects what people say, do, and need with business opportunities.",
   },
-
   "Consumer Insights": {
-    related: [
+    line: "Used to turn customer behavior and feedback into strategic direction.",
+    connectsTo: [
       "Market Research",
       "Audience Insights",
       "Insight Synthesis",
       "Product Strategy",
     ],
-    description:
-      "Reveals the motivations and behaviors behind consumer decisions.",
   },
-
   "Audience Insights": {
-    related: [
-      "Market Research",
+    line: "Used to understand how distinct groups engage, respond, and connect.",
+    connectsTo: [
       "Consumer Insights",
-      "Insight Synthesis",
+      "Market Research",
       "Growth Strategy",
+      "Product Strategy",
     ],
-    description:
-      "Identifies who an audience is, what matters to them, and how to reach them.",
   },
-
   "Quantitative Research": {
-    related: [
+    line: "Used to measure patterns, test relationships, and validate decisions.",
+    connectsTo: [
       "SQL",
-      "Python",
       "Excel",
       "Market Research",
-    ],
-    description:
-      "Tests assumptions and measures the strength of patterns in data.",
-  },
-
-  "Qualitative Research": {
-    related: [
-      "Market Research",
-      "Consumer Insights",
-      "Audience Insights",
-      "Insight Synthesis",
-    ],
-    description:
-      "Adds context, emotion, and meaning to the patterns behind behavior.",
-  },
-
-  "Insight Synthesis": {
-    related: [
-      "Market Research",
-      "Consumer Insights",
       "Data Visualization",
+    ],
+  },
+  "Qualitative Research": {
+    line: "Used to uncover the motivations and context behind observed behavior.",
+    connectsTo: [
+      "Market Research",
+      "Consumer Insights",
+      "Insight Synthesis",
       "Product Strategy",
     ],
-    description:
-      "Bridges research, data, and product decisions.",
   },
-
-  "AI Agent Development": {
-    related: [
-      "Python",
-      "Workflow Automation",
-      "Process Improvement",
-      "Business Transformation",
-    ],
-    description:
-      "Builds intelligent workflows that make recurring work more efficient.",
-  },
-
-  "Workflow Automation": {
-    related: [
-      "Python",
-      "AI Agent Development",
-      "Process Improvement",
-      "Business Transformation",
-    ],
-    description:
-      "Reduces repetitive work so teams can focus on higher-value decisions.",
-  },
-
-  "Process Improvement": {
-    related: [
-      "Workflow Automation",
-      "AI Agent Development",
-      "Business Transformation",
-      "Project Management",
-    ],
-    description:
-      "Finds friction in a process and redesigns it for clarity and efficiency.",
-  },
-
-  "Business Transformation": {
-    related: [
-      "Process Improvement",
-      "Workflow Automation",
-      "Project Management",
+  "Insight Synthesis": {
+    line: "Used to connect evidence across sources into a clear point of view.",
+    connectsTo: [
+      "Consumer Insights",
+      "Qualitative Research",
+      "Data Visualization",
       "Stakeholder Management",
     ],
-    description:
-      "Connects people, processes, and technology to create meaningful change.",
   },
-
+  "Workflow Automation": {
+    line: "Used to reduce repetitive work and create more reliable processes.",
+    connectsTo: [
+      "Python",
+      "AI Agent Development",
+      "Process Improvement",
+      "Business Transformation",
+    ],
+  },
+  "Business Transformation": {
+    line: "Used to redesign operations, capabilities, and ways of working.",
+    connectsTo: [
+      "AI Agent Development",
+      "Process Improvement",
+      "Growth Strategy",
+      "Stakeholder Management",
+    ],
+  },
   "Growth Strategy": {
-    related: [
-      "Market Research",
+    line: "Used to identify opportunities for acquisition, retention, and expansion.",
+    connectsTo: [
+      "Audience Insights",
+      "Consumer Insights",
+      "Business Transformation",
+      "Product Strategy",
+    ],
+  },
+  "Process Improvement": {
+    line: "Used to simplify workflows and improve consistency and efficiency.",
+    connectsTo: [
+      "Workflow Automation",
+      "AI Agent Development",
+      "Business Transformation",
+      "Project Management",
+    ],
+  },
+  "Product Strategy": {
+    line: "Used to connect user needs, business goals, and product decisions.",
+    connectsTo: [
       "Consumer Insights",
       "Audience Insights",
-      "Product Strategy",
+      "Growth Strategy",
+      "Project Management",
     ],
-    description:
-      "Uses market and customer understanding to identify opportunities for growth.",
   },
-
-  "Product Strategy": {
-    related: [
-      "Consumer Insights",
-      "Market Research",
-      "Insight Synthesis",
-      "Stakeholder Management",
-    ],
-    description:
-      "Turns customer understanding into focused product direction.",
-  },
-
   "Project Management": {
-    related: [
-      "Stakeholder Management",
-      "Process Improvement",
-      "Business Transformation",
+    line: "Used to move ideas from ambiguity through execution.",
+    connectsTo: [
       "Product Strategy",
+      "Process Improvement",
+      "Stakeholder Management",
+      "Business Transformation",
     ],
-    description:
-      "Keeps people, priorities, and execution aligned around a shared outcome.",
   },
-
   "Stakeholder Management": {
-    related: [
+    line: "Used to build alignment and turn insight into coordinated action.",
+    connectsTo: [
+      "Insight Synthesis",
       "Project Management",
       "Business Transformation",
-      "Product Strategy",
-      "Insight Synthesis",
+      "Data Visualization",
     ],
-    description:
-      "Translates different perspectives into shared priorities and decisions.",
   },
 };
 
@@ -271,24 +228,24 @@ type Point = {
 
 type Connection = {
   id: string;
-  start: Point;
-  end: Point;
+  from: Point;
+  to: Point;
 };
 
 function getSkillColors(skill: string) {
   if (technicalSkills.has(skill)) {
-    return "border-plum/15 bg-lilac/80 text-plum";
+    return "border-wine/10 bg-mushroom/70 text-ink";
   }
 
   if (researchSkills.has(skill)) {
-    return "border-rose/20 bg-rose/20 text-rosewood";
+    return "border-wine/10 bg-blush/80 text-wine";
   }
 
   if (automationSkills.has(skill)) {
-    return "border-mushroom-deep/15 bg-mushroom/80 text-ink";
+    return "border-wine/15 bg-rose/25 text-wine";
   }
 
-  return "border-rosewood/10 bg-porcelain text-ink";
+  return "border-wine/10 bg-cream text-ink";
 }
 
 export default function Skills() {
@@ -298,148 +255,99 @@ export default function Skills() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const skillRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
-  const activeDetails = activeSkill
-    ? skillDetails[activeSkill]
-    : undefined;
-
-  const relatedSkills = useMemo(() => {
-    return new Set(activeDetails?.related ?? []);
-  }, [activeDetails]);
-
   const calculateConnections = useCallback(() => {
-    if (!activeSkill || !containerRef.current || !activeDetails) {
+    if (!activeSkill || !containerRef.current) {
       setConnections([]);
       return;
     }
 
-    const activeNode = skillRefs.current[activeSkill];
+    const sourceElement = skillRefs.current[activeSkill];
 
-    if (!activeNode) {
+    if (!sourceElement) {
       setConnections([]);
       return;
     }
 
     const containerRect = containerRef.current.getBoundingClientRect();
-    const activeRect = activeNode.getBoundingClientRect();
+    const sourceRect = sourceElement.getBoundingClientRect();
 
-    const start: Point = {
-      x: activeRect.left - containerRect.left + activeRect.width / 2,
-      y: activeRect.top - containerRect.top + activeRect.height / 2,
+    const sourcePoint = {
+      x: sourceRect.left - containerRect.left + sourceRect.width / 2,
+      y: sourceRect.top - containerRect.top + sourceRect.height / 2,
     };
 
-    const nextConnections = activeDetails.related.flatMap(
-      (relatedSkill) => {
-        const relatedNode = skillRefs.current[relatedSkill];
+    const nextConnections =
+      skillDetails[activeSkill]?.connectsTo
+        .map((targetSkill) => {
+          const targetElement = skillRefs.current[targetSkill];
 
-        if (!relatedNode) {
-          return [];
-        }
+          if (!targetElement) {
+            return null;
+          }
 
-        const relatedRect = relatedNode.getBoundingClientRect();
+          const targetRect = targetElement.getBoundingClientRect();
 
-        return [
-          {
-            id: `${activeSkill}-${relatedSkill}`,
-            start,
-            end: {
-              x:
-                relatedRect.left -
-                containerRect.left +
-                relatedRect.width / 2,
-              y:
-                relatedRect.top -
-                containerRect.top +
-                relatedRect.height / 2,
+          return {
+            id: `${activeSkill}-${targetSkill}`,
+            from: sourcePoint,
+            to: {
+              x: targetRect.left - containerRect.left + targetRect.width / 2,
+              y: targetRect.top - containerRect.top + targetRect.height / 2,
             },
-          },
-        ];
-      },
-    );
+          };
+        })
+        .filter((connection): connection is Connection =>
+          Boolean(connection),
+        ) ?? [];
 
     setConnections(nextConnections);
-  }, [activeSkill, activeDetails]);
+  }, [activeSkill]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     calculateConnections();
-
-    window.addEventListener("resize", calculateConnections);
-
-    return () => {
-      window.removeEventListener("resize", calculateConnections);
-    };
   }, [calculateConnections]);
 
-  function clearActiveSkill() {
+  useEffect(() => {
+    if (!activeSkill) {
+      return;
+    }
+
+    const updateConnections = () => calculateConnections();
+
+    window.addEventListener("resize", updateConnections);
+    window.addEventListener("scroll", updateConnections, true);
+
+    return () => {
+      window.removeEventListener("resize", updateConnections);
+      window.removeEventListener("scroll", updateConnections, true);
+    };
+  }, [activeSkill, calculateConnections]);
+
+  const relatedSkills = activeSkill
+    ? skillDetails[activeSkill]?.connectsTo ?? []
+    : [];
+
+  const clearActiveSkill = () => {
     setActiveSkill(null);
     setConnections([]);
-  }
-
-  function activateSkill(skill: string) {
-    setActiveSkill(skill);
-
-    requestAnimationFrame(() => {
-      calculateConnections();
-    });
-  }
-
-  function getAttraction(skill: string) {
-    if (
-      !activeSkill ||
-      skill === activeSkill ||
-      !relatedSkills.has(skill)
-    ) {
-      return { x: 0, y: 0 };
-    }
-
-    const activeNode = skillRefs.current[activeSkill];
-    const relatedNode = skillRefs.current[skill];
-
-    if (!activeNode || !relatedNode) {
-      return { x: 0, y: 0 };
-    }
-
-    const activeRect = activeNode.getBoundingClientRect();
-    const relatedRect = relatedNode.getBoundingClientRect();
-
-    const deltaX =
-      activeRect.left +
-      activeRect.width / 2 -
-      (relatedRect.left + relatedRect.width / 2);
-
-    const deltaY =
-      activeRect.top +
-      activeRect.height / 2 -
-      (relatedRect.top + relatedRect.height / 2);
-
-    const distance = Math.hypot(deltaX, deltaY);
-
-    if (!distance) {
-      return { x: 0, y: 0 };
-    }
-
-    const attractionDistance = 6;
-
-    return {
-      x: (deltaX / distance) * attractionDistance,
-      y: (deltaY / distance) * attractionDistance,
-    };
-  }
+  };
 
   return (
     <section
       id="toolkit"
-      className="relative flex min-h-[calc(100svh-5rem)] scroll-mt-16 items-center overflow-hidden bg-blush/60 pt-20 pb-28 sm:pt-24 sm:pb-36"
+      aria-labelledby="toolkit-heading"
+      className="relative overflow-hidden bg-porcelain py-24 sm:py-32"
     >
-      <div className="mx-auto w-full max-w-8xl px-6 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-8xl px-6 sm:px-8 lg:px-12">
         <SectionHeading
           eyebrow="04 — Toolkit"
           title="The instruments I think with."
           align="center"
         />
 
-        <p className="mx-auto mt-5 max-w-2xl text-center text-base leading-relaxed text-charcoal sm:text-lg">
-          No single tool creates insight. The interesting part is how they
-          work together.
+        <p className="mx-auto mt-5 max-w-2xl text-center leading-relaxed text-charcoal/65">
+          No single tool creates insight. The interesting part is how they work
+          together.
         </p>
 
         <div
@@ -448,29 +356,23 @@ export default function Skills() {
           onMouseLeave={clearActiveSkill}
         >
           <svg
-            className="pointer-events-none absolute inset-0 z-0 h-full w-full overflow-visible"
             aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-0 h-full w-full overflow-visible"
           >
             {connections.map((connection) => (
               <motion.line
                 key={connection.id}
-                x1={connection.start.x}
-                y1={connection.start.y}
-                x2={connection.end.x}
-                y2={connection.end.y}
-                stroke="rgba(151, 82, 101, 0.4)"
-                strokeWidth="1.15"
-                strokeLinecap="round"
-                initial={{
-                  pathLength: 0,
-                  opacity: 0,
-                }}
-                animate={{
-                  pathLength: 1,
-                  opacity: 1,
-                }}
+                x1={connection.from.x}
+                y1={connection.from.y}
+                x2={connection.to.x}
+                y2={connection.to.y}
+                stroke="rgba(196, 135, 145, 0.62)"
+                strokeWidth="1.5"
+                strokeDasharray="5 7"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 1 }}
                 transition={{
-                  duration: 0.35,
+                  duration: 0.38,
                   ease: "easeOut",
                 }}
               />
@@ -479,111 +381,89 @@ export default function Skills() {
 
           <div className="relative z-10 flex flex-wrap justify-center gap-3 sm:gap-4">
             {skills.map((skill, index) => {
-              const isActive = skill === activeSkill;
-              const isRelated = relatedSkills.has(skill);
-
+              const isActive = activeSkill === skill;
+              const isRelated = relatedSkills.includes(skill);
               const isDimmed =
                 Boolean(activeSkill) && !isActive && !isRelated;
-
-              const attraction = getAttraction(skill);
 
               return (
                 <motion.button
                   key={skill}
-                  ref={(node) => {
-                    skillRefs.current[skill] = node;
+                  ref={(element) => {
+                    skillRefs.current[skill] = element;
                   }}
                   type="button"
-                  initial={{
-                    opacity: 0,
-                    scale: 0.85,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    scale: 1,
-                  }}
-                  viewport={{
-                    once: true,
-                    margin: "-40px",
-                  }}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "-40px" }}
                   transition={{
-                    duration: 0.5,
-                    delay: index * 0.04,
+                    duration: 0.45,
+                    delay: index * 0.035,
                   }}
-                  animate={{
-                    x: attraction.x,
-                    y: attraction.y,
-                    opacity: isDimmed ? 0.12 : 1,
-                    scale: isActive ? 1.07 : isRelated ? 1.025 : 1,
-                    filter:
-                      isActive || isRelated
-                        ? "drop-shadow(0 0 9px rgba(151, 82, 101, 0.22))"
-                        : "drop-shadow(0 0 0 rgba(0, 0, 0, 0))",
-                  }}
-                  whileHover={{
-                    scale: isDimmed ? 1 : 1.06,
-                    y: isDimmed ? 0 : -2,
-                  }}
-                  onMouseEnter={() => activateSkill(skill)}
-                  onFocus={() => activateSkill(skill)}
+                  onMouseEnter={() => setActiveSkill(skill)}
+                  onFocus={() => setActiveSkill(skill)}
                   onBlur={clearActiveSkill}
-                  className={`relative cursor-default rounded-full border px-5 py-2.5 font-medium shadow-softer transition-colors duration-300 ${
-                    sizes[index % sizes.length]
-                  } ${getSkillColors(skill)}`}
+                  onClick={() =>
+                    setActiveSkill((current) =>
+                      current === skill ? null : skill,
+                    )
+                  }
+                  aria-pressed={isActive}
                   style={{
-                    pointerEvents: isDimmed ? "none" : "auto",
+                    opacity: isDimmed ? 0.28 : 1,
+                    filter: isDimmed
+                      ? "saturate(0.25)"
+                      : "drop-shadow(0 8px 18px rgba(111, 51, 70, 0.12))",
                   }}
-                  aria-label={`Show how ${skill} connects to other skills`}
+                  className={`relative inline-block rounded-full border px-5 py-2.5 font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine/30 ${
+                    sizes[index % sizes.length]
+                  } ${getSkillColors(skill)} ${
+                    isActive
+                      ? "z-20 scale-[1.08] border-wine bg-wine text-cream"
+                      : isRelated
+                        ? "z-10 scale-[1.03] border-rose/60 bg-rose/45 text-wine"
+                        : ""
+                  }`}
                 >
                   {skill}
-
-                  {(isActive || isRelated) && (
-                    <motion.span
-                      aria-hidden="true"
-                      className="absolute inset-[-4px] -z-10 rounded-full border border-rosewood/15"
-                      initial={{
-                        opacity: 0,
-                        scale: 0.94,
-                      }}
-                      animate={{
-                        opacity: isActive ? 0.65 : 0.28,
-                        scale: 1,
-                      }}
-                      transition={{
-                        duration: 0.2,
-                      }}
-                    />
-                  )}
                 </motion.button>
               );
             })}
           </div>
 
-          <div className="mx-auto mt-10 min-h-[3rem] max-w-xl text-center">
-            <motion.p
-              key={activeSkill ?? "default"}
-              initial={{
-                opacity: 0,
-                y: 5,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.25,
-              }}
-              aria-live="polite"
-              className={
-                activeSkill
-                  ? "text-sm leading-relaxed text-charcoal sm:text-base"
-                  : "font-mono text-[10px] uppercase tracking-[0.18em] text-rosewood"
-              }
-            >
-              {activeSkill && activeDetails
-                ? activeDetails.description
-                : "Hover over an instrument to reveal how it works with the others"}
-            </motion.p>
+          <div
+            aria-hidden="true"
+            className={`pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[82%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-wine/15 transition-opacity duration-300 ${
+              activeSkill ? "opacity-100" : "opacity-0"
+            }`}
+          />
+
+          <div className="mt-12 min-h-[7.5rem] text-center">
+            {activeSkill ? (
+              <motion.div
+                key={activeSkill}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mx-auto max-w-2xl border-y border-wine/15 py-5"
+              >
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-wine/70">
+                  {activeSkill}
+                </p>
+
+                <p className="mt-3 font-display text-xl text-ink sm:text-2xl">
+                  {skillDetails[activeSkill]?.line}
+                </p>
+
+                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-charcoal/45">
+                  Connects with {relatedSkills.join(" · ")}
+                </p>
+              </motion.div>
+            ) : (
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-wine/65">
+                Hover or tap an instrument to reveal how it works with the
+                others
+              </p>
+            )}
           </div>
         </div>
       </div>
