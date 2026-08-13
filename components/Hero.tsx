@@ -24,7 +24,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] scroll-mt-20 items-center justify-center overflow-hidden bg-cream px-6 pb-24 pt-28 sm:px-8 sm:pt-32"
+      className="relative flex min-h-[100svh] scroll-mt-20 items-center justify-center overflow-hidden bg-bone px-6 pb-24 pt-28 sm:px-8 sm:pt-32"
     >
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
         {/* Editorial label */}
@@ -37,16 +37,16 @@ export default function Hero() {
         >
           <span
             aria-hidden="true"
-            className="h-px w-7 bg-rosewood/45 sm:w-10"
+            className="h-px w-7 bg-wine/50 sm:w-10"
           />
 
-          <p className="font-mono text-[9px] uppercase tracking-[0.26em] text-rosewood sm:text-[11px] sm:tracking-[0.3em]">
+          <p className="font-mono text-[9px] uppercase tracking-[0.26em] text-wine sm:text-[11px] sm:tracking-[0.3em]">
             Analytics · Strategy · Consumer Insights
           </p>
 
           <span
             aria-hidden="true"
-            className="h-px w-7 bg-rosewood/45 sm:w-10"
+            className="h-px w-7 bg-wine/50 sm:w-10"
           />
         </motion.div>
 
@@ -56,7 +56,7 @@ export default function Hero() {
           initial="hidden"
           animate="show"
           variants={fadeUp}
-          className="text-balance font-display text-[15vw] font-semibold leading-[0.88] tracking-[-0.045em] text-ink sm:text-7xl md:text-8xl lg:text-[7.5rem] xl:text-[8.5rem]"
+          className="text-balance font-display text-[12.5vw] font-semibold leading-[0.91] tracking-[-0.04em] text-ink sm:text-6xl md:text-7xl lg:text-[6.25rem] xl:text-[7rem]"
         >
           Mandaakini
           <br />
@@ -69,7 +69,7 @@ export default function Hero() {
           initial="hidden"
           animate="show"
           variants={fadeUp}
-          className="mt-9 max-w-2xl text-base leading-relaxed text-charcoal/75 sm:text-lg"
+          className="mt-8 max-w-xl text-base leading-relaxed text-charcoal sm:text-lg"
         >
           I turn data, research, and complex business questions into clear
           insights and decisions.
@@ -94,7 +94,7 @@ export default function Hero() {
             href="/images/MandaakiniRaghuraman_Resume_v2.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 border-b border-transparent pb-1 text-sm font-medium text-charcoal/75 transition-all duration-300 hover:border-charcoal/60 hover:text-ink"
+            className="inline-flex items-center gap-1.5 border-b border-transparent pb-1 text-sm font-medium text-charcoal transition-all duration-300 hover:border-charcoal/60 hover:text-ink"
           >
             Résumé
             <ArrowUpRight size={14} aria-hidden="true" />

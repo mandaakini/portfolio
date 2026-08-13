@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         // Primary surfaces
         cream: "#F7F1E8",
+        bone: "#EEE8E0", 
         porcelain: "#FCF8F3",
 
         // Pink and rose
@@ -43,8 +44,11 @@ module.exports = {
         "deep-espresso": "#211F1D",
         charcoal: "#6F6762",
         taupe: "#6F6762",
-},
-  
+
+        burgundy: "#4A1F2D", 
+        oxblood: "#351820",
+        wine: "#6F3346", 
+      },
 
       fontFamily: {
         display: ["var(--font-playfair)", "serif"],

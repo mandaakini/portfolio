@@ -8,7 +8,7 @@ export default function HarmonySection() {
   return (
     <section
       id="harmony"
-      className="relative scroll-mt-20 overflow-hidden bg-ink px-6 py-28 text-cream sm:px-8 sm:py-36 lg:py-44"
+      className="relative scroll-mt-20 overflow-hidden bg-oxblood px-6 py-28 text-porcelain sm:px-8 sm:py-36 lg:py-44"
     >
       {/* Restrained dotted texture */}
       <div
@@ -24,7 +24,7 @@ export default function HarmonySection() {
       {/* Very subtle glow behind the interaction */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-[62%] h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-rosewood/10 blur-[100px] sm:h-96 sm:w-96"
+        className="pointer-events-none absolute left-1/2 top-[62%] h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-rose/10 blur-[100px] sm:h-96 sm:w-96"
       />
 
       <div className="relative mx-auto max-w-6xl">
@@ -62,7 +62,7 @@ export default function HarmonySection() {
               delay: 0.08,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="mt-7 text-balance font-display text-5xl font-semibold leading-[1.02] tracking-[-0.035em] text-cream sm:text-6xl lg:text-7xl"
+            className="mt-7 text-balance font-display text-5xl font-semibold leading-[1.02] tracking-[-0.035em] text-porcelain sm:text-6xl lg:text-7xl"
           >
             Patterns aren&apos;t always numbers.
           </motion.h2>
@@ -76,7 +76,7 @@ export default function HarmonySection() {
               duration: 0.7,
               delay: 0.16,
             }}
-            className="mt-4 font-display text-2xl italic text-cream/55 sm:text-3xl"
+            className="mt-4 font-display text-2xl italic text-porcelain/55 sm:text-3xl"
           >
             Some are heard.
           </motion.p>
@@ -117,7 +117,7 @@ export default function HarmonySection() {
             duration: 0.7,
             delay: 0.35,
           }}
-          className="mt-9 text-center font-mono text-[8px] uppercase tracking-[0.25em] text-cream/30 sm:text-[9px]"
+          className="mt-9 text-center font-mono text-[8px] uppercase tracking-[0.25em] text-porcelain/30 sm:text-[9px]"
         >
           Move through the sound
         </motion.p>
