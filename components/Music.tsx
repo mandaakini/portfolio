@@ -43,13 +43,13 @@ export default function Music() {
             05 — Music
           </p>
 
-          <blockquote className="mt-6 max-w-3xl">
-            <p className="font-editorial text-2xl font-normal leading-[1.25] tracking-[-0.01em] text-cream/85 sm:text-3xl lg:text-[2.5rem]">
+          <blockquote className="mt-6 max-w-7xl">
+            <p className="font-display text-2xl font-normal leading-[1.2] text-cream/95 sm:text-3xl lg:text-[2.15rem]">
               If we understood the world, we would realize that there is a logic
               of harmony underlying its manifold apparent dissonances.
             </p>
 
-            <footer className="mt-4 font-body text-xs font-medium uppercase tracking-[0.16em] text-rose/80">
+            <footer className="mt-4 font-body text-xs font-medium uppercase tracking-[0.16em] text-rose">
               Jean Sibelius
             </footer>
           </blockquote>
@@ -81,16 +81,16 @@ export default function Music() {
                   }}
                   className="flex gap-5"
                 >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cream/10 bg-transparent text-rose/80">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cream/10 bg-cream/[0.06] text-rose">
                     <Icon size={18} aria-hidden="true" />
                   </span>
 
                   <div>
-                    <h3 className="mb-1.5 font-editorial text-xl font-normal text-cream/90">
+                    <h3 className="mb-1.5 font-display text-xl font-normal text-cream">
                       {pillar.title}
                     </h3>
 
-                    <p className="max-w-xl text-sm leading-relaxed text-cream/55 sm:text-[15px]">
+                    <p className="max-w-xl text-sm leading-relaxed text-cream/65 sm:text-[15px]">
                       {pillar.body}
                     </p>
                   </div>
@@ -115,7 +115,7 @@ export default function Music() {
             transition={{
               duration: 0.7,
             }}
-            className="rounded-4xl border border-cream/10 bg-cream/[0.035] p-6 shadow-none backdrop-blur-sm sm:p-8 lg:-mt-12"
+            className="rounded-4xl border border-cream/10 bg-cream/[0.035] p-6 shadow-none backdrop-blur-sm sm:p-8"
           >
             <div className="mb-6 flex items-center justify-between gap-5">
               <div>
@@ -123,7 +123,7 @@ export default function Music() {
                   Now Playing
                 </p>
 
-                <p className="mt-1 font-editorial text-lg font-normal text-cream/90">
+                <p className="mt-1 font-display text-lg font-normal text-cream/90">
                   Mandaakini&apos;s Recent Listens
                 </p>
               </div>
