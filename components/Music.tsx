@@ -25,7 +25,7 @@ export default function Music() {
   return (
     <section
       id="music"
-      className="relative overflow-hidden bg-deep-espresso py-20 text-cream sm:py-24"
+      className="relative overflow-hidden bg-deep-espresso py-12 text-cream sm:py-14"
     >
       <div
         aria-hidden="true"
@@ -43,20 +43,20 @@ export default function Music() {
             05 — Music
           </p>
 
-          <blockquote className="mt-6 max-w-7xl">
+          <blockquote className="mt-4 max-w-7xl">
             <p className="font-display text-2xl font-normal leading-[1.2] text-cream/95 sm:text-3xl lg:text-[2.15rem]">
               If we understood the world, we would realize that there is a logic
               of harmony underlying its manifold apparent dissonances.
             </p>
 
-            <footer className="mt-4 font-body text-xs font-medium uppercase tracking-[0.16em] text-rose">
+            <footer className="mt-3 font-body text-xs font-medium uppercase tracking-[0.16em] text-rose">
               Jean Sibelius
             </footer>
           </blockquote>
         </div>
 
-        <div className="mt-10 grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
-          <div className="space-y-8">
+        <div className="mt-8 grid items-start gap-8 lg:grid-cols-2 lg:gap-14">
+          <div className="space-y-6">
             {pillars.map((pillar, index) => {
               const Icon = pillar.icon;
 
@@ -115,9 +115,9 @@ export default function Music() {
             transition={{
               duration: 0.7,
             }}
-            className="rounded-4xl border border-cream/10 bg-cream/[0.035] p-6 shadow-none backdrop-blur-sm sm:p-8"
+            className="rounded-4xl border border-cream/10 bg-cream/[0.035] p-5 shadow-none backdrop-blur-sm sm:p-6"
           >
-            <div className="mb-6 flex items-center justify-between gap-5">
+            <div className="mb-4 flex items-center justify-between gap-5">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-cream/35">
                   Now Playing
@@ -152,7 +152,7 @@ export default function Music() {
                 title="Mandaakini's Spotify playlist"
                 src="https://open.spotify.com/embed/playlist/4EMwcuCioKUZkoaJ5XGqrA?utm_source=generator&theme=0"
                 width="100%"
-                height="352"
+                height="320"
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
                 allowFullScreen
