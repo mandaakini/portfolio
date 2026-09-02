@@ -12,21 +12,18 @@ const links = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/mandaakini-raghuraman/",
     external: true,
-    color: "bg-burgundy",
   },
   {
     icon: Mail,
     label: "Email",
     href: "mailto:mandaakini@gmail.com",
     external: false,
-    color: "bg-burgundy",
   },
   {
     icon: FileText,
     label: "Resume",
     href: "/images/MandaakiniRaghuraman_Resume_v2.pdf",
     external: true,
-    color: "bg-burgundy",
   },
 ];
 
@@ -77,13 +74,13 @@ export default function Contact() {
                   delay: index * 0.08,
                 }}
                 whileHover={{ y: -6 }}
-                className={`${link.color} group flex min-h-64 flex-col items-center justify-center gap-5 rounded-4xl border border-burgundy/10 px-6 py-8 shadow-softer transition-colors duration-300 hover:bg-oxblood hover:shadow-soft`}
+                className="group flex min-h-64 flex-col items-center justify-center gap-5 rounded-4xl border-2 border-wine bg-cream px-6 py-8 transition-all duration-300 hover:bg-rose-mist hover:shadow-soft"
               >
-                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-cream/10 text-rose transition-colors duration-300 group-hover:bg-rose group-hover:text-cream">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-wine text-cream transition-colors duration-300 group-hover:bg-oxblood">
                   <Icon size={24} aria-hidden="true" />
                 </span>
 
-                <span className="flex items-center justify-center gap-1.5 text-center text-sm font-medium text-cream">
+                <span className="flex items-center justify-center gap-1.5 text-center text-sm font-medium text-wine">
                   {link.label}
                 </span>
               </motion.a>
