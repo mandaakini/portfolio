@@ -37,30 +37,20 @@ export default function Music() {
         }}
       />
 
-      <div
-        aria-hidden="true"
-        className="absolute -left-32 top-1/3 h-72 w-72 rounded-full bg-plum/15 blur-3xl"
-      />
-
-      <div
-        aria-hidden="true"
-        className="absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-rosewood/10 blur-3xl"
-      />
-
       <div className="relative mx-auto max-w-8xl px-6 sm:px-8 lg:px-12">
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.24em] text-cream/45">
+          <p className="font-mono text-xs uppercase tracking-[0.24em] text-cream/40">
             05 — Music
           </p>
 
-          <blockquote className="mt-5 max-w-4xl">
-            <p className="font-body text-2xl font-light leading-[1.35] tracking-[-0.02em] text-cream/90 sm:text-3xl lg:text-[2rem]">
+          <blockquote className="mt-6 max-w-3xl">
+            <p className="font-editorial text-2xl font-normal leading-[1.25] tracking-[-0.01em] text-cream/85 sm:text-3xl lg:text-[2.5rem]">
               If we understood the world, we would realize that there is a logic
               of harmony underlying its manifold apparent dissonances.
             </p>
 
-            <footer className="mt-4 font-body text-sm font-medium tracking-wide text-rose">
-              — Jean Sibelius
+            <footer className="mt-4 font-body text-xs font-medium uppercase tracking-[0.16em] text-rose/80">
+              Jean Sibelius
             </footer>
           </blockquote>
         </div>
@@ -91,16 +81,16 @@ export default function Music() {
                   }}
                   className="flex gap-5"
                 >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-cream/5 bg-cream/[0.08] text-rose">
-                    <Icon size={20} aria-hidden="true" />
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cream/10 bg-transparent text-rose/80">
+                    <Icon size={18} aria-hidden="true" />
                   </span>
 
                   <div>
-                    <h3 className="mb-1.5 font-display text-xl font-semibold text-cream">
+                    <h3 className="mb-1.5 font-editorial text-xl font-normal text-cream/90">
                       {pillar.title}
                     </h3>
 
-                    <p className="text-sm leading-relaxed text-[#B9B0A9] sm:text-base">
+                    <p className="max-w-xl text-sm leading-relaxed text-cream/55 sm:text-[15px]">
                       {pillar.body}
                     </p>
                   </div>
@@ -125,15 +115,15 @@ export default function Music() {
             transition={{
               duration: 0.7,
             }}
-            className="rounded-4xl border border-wine/30 bg-wine/10 p-6 shadow-soft backdrop-blur-sm sm:p-8 lg:-mt-12"
+            className="rounded-4xl border border-cream/10 bg-cream/[0.035] p-6 shadow-none backdrop-blur-sm sm:p-8 lg:-mt-12"
           >
             <div className="mb-6 flex items-center justify-between gap-5">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-cream/40">
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-cream/35">
                   Now Playing
                 </p>
 
-                <p className="mt-1 font-display text-lg text-cream">
+                <p className="mt-1 font-editorial text-lg font-normal text-cream/90">
                   Mandaakini&apos;s Recent Listens
                 </p>
               </div>
@@ -142,7 +132,7 @@ export default function Music() {
                 {[0, 1, 2, 3, 4].map((index) => (
                   <motion.span
                     key={index}
-                    className="w-1 rounded-full bg-rose"
+                    className="w-1 rounded-full bg-rose/80"
                     animate={{
                       height: ["30%", "100%", "50%", "80%", "30%"],
                     }}
@@ -157,7 +147,7 @@ export default function Music() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-[20px] bg-deep-espresso shadow-soft">
+            <div className="overflow-hidden rounded-[20px] bg-deep-espresso">
               <iframe
                 title="Mandaakini's Spotify playlist"
                 src="https://open.spotify.com/embed/playlist/4EMwcuCioKUZkoaJ5XGqrA?utm_source=generator&theme=0"
