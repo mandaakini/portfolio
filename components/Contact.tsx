@@ -32,7 +32,7 @@ export default function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative bg-cream py-20 text-ink sm:py-24 [&_h2]:text-ink"
+      className="relative bg-cream py-24 text-ink sm:py-32 [&_h2]:text-ink"
     >
       <div className="mx-auto max-w-8xl px-6 text-center sm:px-8 lg:px-12">
         <SectionHeading
@@ -55,7 +55,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-3">
+        <div className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-3">
           {links.map((link, index) => {
             const Icon = link.icon;
 
@@ -74,10 +74,10 @@ export default function Contact() {
                   delay: index * 0.08,
                 }}
                 whileHover={{ y: -6 }}
-                className="group flex min-h-48 flex-col items-center justify-center gap-4 rounded-3xl border border-wine/50 bg-cream px-6 py-7 transition-all duration-300 hover:border-wine hover:bg-rose-mist hover:shadow-soft"
+                className="group flex min-h-64 flex-col items-center justify-center gap-5 rounded-4xl border-2 border-wine bg-cream px-6 py-8 transition-all duration-300 hover:bg-rose-mist hover:shadow-soft"
               >
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-wine text-cream transition-colors duration-300 group-hover:bg-oxblood">
-                  <Icon size={22} aria-hidden="true" />
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-wine text-cream transition-colors duration-300 group-hover:bg-oxblood">
+                  <Icon size={24} aria-hidden="true" />
                 </span>
 
                 <span className="flex items-center justify-center gap-1.5 text-center text-sm font-medium text-wine">
