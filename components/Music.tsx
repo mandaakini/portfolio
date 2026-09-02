@@ -53,13 +53,13 @@ export default function Music() {
             05 — Music
           </p>
 
-          <blockquote className="mt-5 max-w-6xl">
-            <p className="font-display text-3xl font-semibold leading-[1.05] text-cream sm:text-4xl lg:text-5xl">
+          <blockquote className="mt-5 max-w-5xl">
+            <p className="font-display text-2xl font-medium leading-[1.15] text-cream sm:text-3xl lg:text-4xl">
               If we understood the world, we would realize that there is a logic
               of harmony underlying its manifold apparent dissonances.
             </p>
 
-            <footer className="mt-4 font-display text-lg italic text-[#C98E99] sm:text-xl">
+            <footer className="mt-3 font-display text-base italic text-[#C98E99] sm:text-lg">
               — Jean Sibelius
             </footer>
           </blockquote>
@@ -138,10 +138,7 @@ export default function Music() {
                 </p>
               </div>
 
-              <div
-                className="flex h-8 items-end gap-1"
-                aria-hidden="true"
-              >
+              <div className="flex h-8 items-end gap-1" aria-hidden="true">
                 {[0, 1, 2, 3, 4].map((index) => (
                   <motion.span
                     key={index}
