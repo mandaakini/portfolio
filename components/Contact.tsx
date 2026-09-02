@@ -12,21 +12,21 @@ const links = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/mandaakini-raghuraman/",
     external: true,
-    color: "bg-cream",
+    color: "bg-burgundy",
   },
   {
     icon: Mail,
     label: "Email",
     href: "mailto:mandaakini@gmail.com",
     external: false,
-    color: "bg-cream",
+    color: "bg-burgundy",
   },
   {
     icon: FileText,
     label: "Resume",
     href: "/images/MandaakiniRaghuraman_Resume_v2.pdf",
     external: true,
-    color: "bg-cream",
+    color: "bg-burgundy",
   },
 ];
 
@@ -35,7 +35,7 @@ export default function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative bg-burgundy py-24 text-cream sm:py-32 [&_h2]:text-cream"
+      className="relative bg-cream py-24 text-ink sm:py-32 [&_h2]:text-ink"
     >
       <div className="mx-auto max-w-8xl px-6 text-center sm:px-8 lg:px-12">
         <SectionHeading
@@ -51,7 +51,7 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="mt-6 flex justify-center"
         >
-          <p className="max-w-lg text-bone/75">
+          <p className="max-w-lg text-charcoal">
             Whether it's a new opportunity, an ambitious question, or a
             discussion about music, I'm always open to a thoughtful
             conversation.
@@ -77,13 +77,13 @@ export default function Contact() {
                   delay: index * 0.08,
                 }}
                 whileHover={{ y: -6 }}
-                className={`${link.color} group flex min-h-64 flex-col items-center justify-center gap-5 rounded-4xl border border-cream/10 px-6 py-8 shadow-softer transition-shadow duration-300 hover:border-rose/60 hover:shadow-soft`}
+                className={`${link.color} group flex min-h-64 flex-col items-center justify-center gap-5 rounded-4xl border border-burgundy/10 px-6 py-8 shadow-softer transition-colors duration-300 hover:bg-oxblood hover:shadow-soft`}
               >
-                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-rose text-cream transition-colors duration-300 group-hover:bg-rose-deep">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-cream/10 text-rose transition-colors duration-300 group-hover:bg-rose group-hover:text-cream">
                   <Icon size={24} aria-hidden="true" />
                 </span>
 
-                <span className="flex items-center justify-center gap-1.5 text-center text-sm font-medium text-ink">
+                <span className="flex items-center justify-center gap-1.5 text-center text-sm font-medium text-cream">
                   {link.label}
                 </span>
               </motion.a>
