@@ -97,7 +97,7 @@ export default function About() {
               id="about-heading"
               className="mt-4 max-w-3xl text-balance font-editorial text-4xl leading-[1.02] text-ink sm:text-5xl lg:text-[3.6rem]"
             >
-              I look for patterns beneath the obvious.
+              I turn observations into understanding.
             </h2>
 
             {/* Professional story */}
