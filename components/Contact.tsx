@@ -74,13 +74,13 @@ export default function Contact() {
                   delay: index * 0.08,
                 }}
                 whileHover={{ y: -6 }}
-                className="group flex min-h-64 flex-col items-center justify-center gap-5 rounded-4xl border-2 border-wine bg-cream px-6 py-8 transition-all duration-300 hover:bg-rose-mist hover:shadow-soft"
+                className="group flex min-h-64 flex-col items-center justify-center gap-5 rounded-4xl border border-wine/20 bg-bone px-6 py-8 shadow-softer transition-all duration-300 hover:border-wine/40 hover:bg-blush hover:shadow-soft"
               >
-                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-wine text-cream transition-colors duration-300 group-hover:bg-oxblood">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-wine text-cream transition-colors duration-300 group-hover:bg-rose-deep">
                   <Icon size={24} aria-hidden="true" />
                 </span>
 
-                <span className="flex items-center justify-center gap-1.5 text-center text-sm font-medium text-wine">
+                <span className="flex items-center justify-center gap-1.5 text-center text-sm font-medium text-ink">
                   {link.label}
                 </span>
               </motion.a>
