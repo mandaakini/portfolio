@@ -25,7 +25,7 @@ export default function Music() {
   return (
     <section
       id="music"
-      className="relative overflow-hidden bg-deep-espresso py-12 text-cream sm:py-14"
+      className="relative overflow-hidden bg-deep-espresso pb-20 pt-12 text-cream sm:pb-24 sm:pt-14"
     >
       <div
         aria-hidden="true"
@@ -152,7 +152,7 @@ export default function Music() {
                 title="Mandaakini's Spotify playlist"
                 src="https://open.spotify.com/embed/playlist/4EMwcuCioKUZkoaJ5XGqrA?utm_source=generator&theme=0"
                 width="100%"
-                height="320"
+                height="352"
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
                 allowFullScreen
