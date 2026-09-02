@@ -32,7 +32,7 @@ export default function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative bg-cream py-24 text-ink sm:py-32 [&_h2]:text-ink"
+      className="relative bg-bone py-24 text-ink sm:py-32 [&_h2]:text-ink"
     >
       <div className="mx-auto max-w-8xl px-6 text-center sm:px-8 lg:px-12">
         <SectionHeading
@@ -76,7 +76,7 @@ export default function Contact() {
                 whileHover={{ y: -6 }}
                 className="group flex min-h-64 flex-col items-center justify-center gap-5 rounded-4xl border border-wine/20 bg-bone px-6 py-8 shadow-softer transition-all duration-300 hover:border-wine/40 hover:bg-blush hover:shadow-soft"
               >
-                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-wine text-cream transition-colors duration-300 group-hover:bg-rose-deep">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-wine text-bone transition-colors duration-300 group-hover:bg-rose-deep">
                   <Icon size={24} aria-hidden="true" />
                 </span>
 
