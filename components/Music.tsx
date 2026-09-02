@@ -25,7 +25,7 @@ export default function Music() {
   return (
     <section
       id="music"
-      className="relative overflow-hidden bg-[#231F22] py-20 text-cream sm:py-24"
+      className="relative overflow-hidden bg-deep-espresso py-20 text-cream sm:py-24"
     >
       <div
         aria-hidden="true"
@@ -53,13 +53,13 @@ export default function Music() {
             05 — Music
           </p>
 
-          <blockquote className="mt-5 max-w-5xl">
-            <p className="font-display text-2xl font-medium leading-[1.15] text-cream sm:text-3xl lg:text-4xl">
+          <blockquote className="mt-5 max-w-4xl">
+            <p className="font-body text-2xl font-light leading-[1.35] tracking-[-0.02em] text-cream/90 sm:text-3xl lg:text-[2rem]">
               If we understood the world, we would realize that there is a logic
               of harmony underlying its manifold apparent dissonances.
             </p>
 
-            <footer className="mt-3 font-display text-base italic text-[#C98E99] sm:text-lg">
+            <footer className="mt-4 font-body text-sm font-medium tracking-wide text-rose">
               — Jean Sibelius
             </footer>
           </blockquote>
@@ -91,7 +91,7 @@ export default function Music() {
                   }}
                   className="flex gap-5"
                 >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-cream/5 bg-cream/[0.08] text-[#C98E99]">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-cream/5 bg-cream/[0.08] text-rose">
                     <Icon size={20} aria-hidden="true" />
                   </span>
 
@@ -125,7 +125,7 @@ export default function Music() {
             transition={{
               duration: 0.7,
             }}
-            className="rounded-4xl border border-cream/10 bg-cream/[0.055] p-6 shadow-soft backdrop-blur-sm sm:p-8 lg:-mt-12"
+            className="rounded-4xl border border-wine/30 bg-wine/10 p-6 shadow-soft backdrop-blur-sm sm:p-8 lg:-mt-12"
           >
             <div className="mb-6 flex items-center justify-between gap-5">
               <div>
@@ -142,7 +142,7 @@ export default function Music() {
                 {[0, 1, 2, 3, 4].map((index) => (
                   <motion.span
                     key={index}
-                    className="w-1 rounded-full bg-[#C98E99]"
+                    className="w-1 rounded-full bg-rose"
                     animate={{
                       height: ["30%", "100%", "50%", "80%", "30%"],
                     }}
