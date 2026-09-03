@@ -7,7 +7,7 @@ const pillars = [
   {
     icon: Piano,
     title: "Classical Foundations",
-    body: "Trained in classical piano, Carnatic singing, Kuchipudi, and Bharatanatyam, these disciplines shaped how I understand rhythm, expression, and storytelling.",
+    body: "Trained in classical piano, Carnatic vocal, Kuchipudi, and Bharatanatyam, these disciplines shaped how I understand rhythm, expression, and storytelling.",
   },
   {
     icon: Headphones,
