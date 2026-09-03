@@ -7,17 +7,17 @@ const pillars = [
   {
     icon: Piano,
     title: "Classical Foundations",
-    body: "My training includes classical piano, Carnatic singing, and the Indian classical dance forms Kuchipudi and Bharatanatyam—disciplines that shaped how I understand rhythm, expression, and storytelling.",
+    body: "My training includes classical piano, Carnatic singing, Kuchipudi, and Bharatanatyam — disciplines that shaped how I understand rhythm, expression, and storytelling.",
   },
   {
     icon: Headphones,
     title: "Performance & DJing",
-    body: "From live performance to DJ sets, I’m drawn to the balance between preparation, improvisation, and responding to the energy of a room.",
+    body: "From live performances to DJ sets, I’m drawn to the balance between preparation, improvisation, and responding to the energy of a room.",
   },
   {
     icon: Sliders,
     title: "Production & Technology",
-    body: "I’m exploring arrangement, mixing, and the technologies that shape how music is created, experienced, and shared.",
+    body: "I’m well-versed in arrangement, mixing, and the technologies that shape how music is created, experienced, and shared.",
   },
 ];
 
