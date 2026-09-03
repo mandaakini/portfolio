@@ -28,6 +28,8 @@ export default function Projects() {
     });
   };
 
+  const hasMultiplePages = projects.length > 3;
+
   return (
     <section
       id="projects"
@@ -40,25 +42,27 @@ export default function Projects() {
             title="Things I've built to answer real questions."
           />
 
-          <div className="hidden shrink-0 items-center gap-3 sm:flex">
-            <button
-              type="button"
-              onClick={() => scrollProjects("left")}
-              aria-label="View previous projects"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-wine/20 bg-bone text-ink shadow-softer transition-all duration-300 hover:-translate-y-0.5 hover:border-wine hover:text-wine hover:shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
-            >
-              <ArrowLeft size={19} aria-hidden="true" />
-            </button>
+          {hasMultiplePages && (
+            <div className="hidden shrink-0 items-center gap-3 sm:flex">
+              <button
+                type="button"
+                onClick={() => scrollProjects("left")}
+                aria-label="View previous projects"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-wine/20 bg-bone text-ink shadow-softer transition-all duration-300 hover:-translate-y-0.5 hover:border-wine hover:text-wine hover:shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
+              >
+                <ArrowLeft size={19} aria-hidden="true" />
+              </button>
 
-            <button
-              type="button"
-              onClick={() => scrollProjects("right")}
-              aria-label="View more projects"
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-wine text-cream shadow-softer transition-all duration-300 hover:-translate-y-0.5 hover:bg-oxblood hover:shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
-            >
-              <ArrowRight size={19} aria-hidden="true" />
-            </button>
-          </div>
+              <button
+                type="button"
+                onClick={() => scrollProjects("right")}
+                aria-label="View more projects"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-wine text-cream shadow-softer transition-all duration-300 hover:-translate-y-0.5 hover:bg-oxblood hover:shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
+              >
+                <ArrowRight size={19} aria-hidden="true" />
+              </button>
+            </div>
+          )}
         </div>
 
         <div className="relative flex flex-1 items-center">
@@ -69,7 +73,9 @@ export default function Projects() {
 
             <div
               ref={carouselRef}
-              className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-8 pt-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              className={`flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-8 pt-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${
+                projects.length <= 3 ? "lg:justify-center" : ""
+              }`}
             >
               {projects.map((project, index) => (
                 <motion.button
@@ -85,11 +91,11 @@ export default function Projects() {
                     delay: (index % 3) * 0.08,
                   }}
                   whileHover={{ y: -6 }}
-                  className="group relative flex aspect-[3/2] w-full shrink-0 snap-start items-center justify-center overflow-hidden rounded-4xl border border-wine/15 bg-bone p-7 text-center shadow-softer transition-colors duration-500 hover:border-wine/35 hover:bg-blush hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-offset-4 focus-visible:ring-offset-cream sm:basis-[calc((100%-1.5rem)/2)] sm:p-8 lg:basis-[calc((100%-3rem)/3)]"
+                  className="group relative flex aspect-[3/2] w-full shrink-0 snap-start items-center justify-center overflow-hidden rounded-4xl border border-wine/20 bg-bone p-7 text-center shadow-softer transition-colors duration-500 hover:border-wine/35 hover:bg-blush hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-offset-4 focus-visible:ring-offset-cream sm:basis-[calc((100%-1.5rem)/2)] sm:p-8 lg:basis-[calc((100%-3rem)/3)]"
                 >
                   <span
                     aria-hidden="true"
-                    className="absolute right-6 top-4 font-display text-4xl text-wine/[0.08] transition-colors duration-300 group-hover:text-wine/[0.13]"
+                    className="absolute right-6 top-4 font-display text-4xl text-wine/[0.12] transition-colors duration-300 group-hover:text-wine/[0.18]"
                   >
                     {String(index + 1).padStart(2, "0")}
                   </span>
@@ -111,25 +117,27 @@ export default function Projects() {
               ))}
             </div>
 
-            <div className="mt-3 flex items-center justify-center gap-3 sm:hidden">
-              <button
-                type="button"
-                onClick={() => scrollProjects("left")}
-                aria-label="View previous project"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-wine/20 bg-bone text-ink shadow-softer transition-colors hover:border-wine hover:text-wine focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
-              >
-                <ArrowLeft size={18} aria-hidden="true" />
-              </button>
+            {hasMultiplePages && (
+              <div className="mt-3 flex items-center justify-center gap-3 sm:hidden">
+                <button
+                  type="button"
+                  onClick={() => scrollProjects("left")}
+                  aria-label="View previous project"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-wine/20 bg-bone text-ink shadow-softer transition-colors hover:border-wine hover:text-wine focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
+                >
+                  <ArrowLeft size={18} aria-hidden="true" />
+                </button>
 
-              <button
-                type="button"
-                onClick={() => scrollProjects("right")}
-                aria-label="View next project"
-                className="flex h-11 w-11 items-center justify-center rounded-full bg-wine text-cream shadow-softer transition-colors hover:bg-oxblood focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
-              >
-                <ArrowRight size={18} aria-hidden="true" />
-              </button>
-            </div>
+                <button
+                  type="button"
+                  onClick={() => scrollProjects("right")}
+                  aria-label="View next project"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-wine text-cream shadow-softer transition-colors hover:bg-oxblood focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
+                >
+                  <ArrowRight size={18} aria-hidden="true" />
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
