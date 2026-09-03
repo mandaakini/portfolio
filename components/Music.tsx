@@ -7,7 +7,7 @@ const pillars = [
   {
     icon: Piano,
     title: "Classical Foundations",
-    body: "My training includes classical piano, Carnatic singing, Kuchipudi, and Bharatanatyam — disciplines that shaped how I understand rhythm, expression, and storytelling.",
+    body: "Trained in classical piano, Carnatic singing, Kuchipudi, and Bharatanatyam, these disciplines shaped how I understand rhythm, expression, and storytelling.",
   },
   {
     icon: Headphones,
@@ -124,7 +124,7 @@ export default function Music() {
                 </p>
 
                 <p className="mt-1 font-display text-lg font-normal text-cream/90">
-                  Mandaakini&apos;s Recent Listens
+                  Mandaakini&apos;s Current Rotation
                 </p>
               </div>
 
