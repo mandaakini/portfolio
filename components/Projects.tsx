@@ -63,6 +63,10 @@ export default function Projects() {
 
         <div className="relative flex flex-1 items-center">
           <div className="mx-auto w-full max-w-6xl">
+            <p className="mb-4 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/60">
+              Select a project to explore
+            </p>
+
             <div
               ref={carouselRef}
               className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-8 pt-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
