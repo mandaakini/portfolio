@@ -24,131 +24,54 @@ export type Project = {
   longDescription: string;
   stack: string[];
   results: string[];
-  palette: string; // tailwind gradient classes
+  palette: string;
 };
 
 export const projects: Project[] = [
   {
-    id: "consumer-research-dashboard",
-    title: "Consumer Research Dashboard",
-    category: "Consumer Analytics",
+    id: "spotify-listener-insights",
+    title: "Spotify Listener Insights",
+    category: "Music Analytics",
     description:
-      "An interactive dashboard turning raw survey data into a live read on consumer sentiment.",
+      "An analysis of more than 5,000 Spotify tracks exploring how audio features relate to popularity and listener engagement.",
     longDescription:
-      "Built to replace a static quarterly slide deck, this dashboard pulls together survey responses, NPS trends, and open-text feedback into a single interactive view. The goal was speed of insight: instead of waiting on a report, a stakeholder can filter by segment and see how sentiment is actually moving, week over week.",
-    stack: ["Tableau", "SQL", "Excel"],
-    results: [
-      "Cut reporting turnaround from 5 days to same-day",
-      "Surfaced 3 previously invisible churn signals",
-      "Adopted as the team's weekly standup reference",
+      "Using Python and pandas, I analyzed more than 5,000 Spotify tracks to explore relationships between audio features and song popularity. I applied statistical analysis, regression, and data visualization to identify potential drivers of listener engagement and translate the findings into clear, interpretable insights.",
+    stack: [
+      "Python",
+      "pandas",
+      "Regression",
+      "Statistical Analysis",
+      "Data Visualization",
     ],
-    palette: "from-blush via-cream to-sage",
+    results: [
+      "Analyzed more than 5,000 tracks across audio features and popularity metrics",
+      "Used regression and statistical analysis to investigate drivers of listener engagement",
+      "Created visualizations that made model findings easier to interpret",
+    ],
+    palette: "from-rose-mist via-porcelain to-wine/20",
   },
   {
-    id: "market-research-project",
-    title: "Market Research Project",
-    category: "Market Research",
+    id: "detecting-fake-yelp-reviews",
+    title: "Detecting Fake Yelp Reviews",
+    category: "NLP & Machine Learning",
     description:
-      "A segmentation study identifying which customer personas actually drive repeat purchase.",
+      "An end-to-end NLP and machine-learning pipeline designed to identify potentially fraudulent five-star reviews.",
     longDescription:
-      "Designed and fielded a mixed-methods study — a quantitative survey paired with follow-up interviews — to understand why certain customer segments returned and others churned after one purchase. The output was a persona framework the client's marketing team used to reallocate acquisition spend.",
-    stack: ["Qualtrics", "Excel", "Statistical Testing"],
-    results: [
-      "Identified 4 distinct customer personas from 600+ responses",
-      "Reallocated recommendation lifted projected retention 12%",
-      "Presented findings directly to marketing leadership",
+      "I developed an end-to-end machine-learning and NLP pipeline to identify potentially fraudulent Yelp reviews. The project combined sentiment analysis, LDA topic modeling, K-Means clustering, and logistic regression to uncover linguistic patterns and classify suspicious reviews.",
+    stack: [
+      "Python",
+      "NLP",
+      "Sentiment Analysis",
+      "LDA",
+      "K-Means",
+      "Logistic Regression",
     ],
-    palette: "from-sage via-cream to-blush",
-  },
-  {
-    id: "sql-analysis",
-    title: "SQL Cohort Analysis",
-    category: "Data Analysis",
-    description:
-      "Cohort and retention analysis written in SQL to find where users actually drop off.",
-    longDescription:
-      "Wrote a set of cohort retention queries against a multi-table transactional database to map user behavior across their first 90 days. Rather than relying on an aggregate retention number, this broke retention down by acquisition channel and first-week activity, which is where the real story was.",
-    stack: ["SQL", "PostgreSQL", "Excel"],
     results: [
-      "Pinpointed a single onboarding step causing 40% of early drop-off",
-      "Query set adopted into the team's recurring reporting pipeline",
+      "Built a complete pipeline from text analysis through classification",
+      "Combined sentiment, topic, and clustering methods to identify review patterns",
+      "Achieved 99% model accuracy",
     ],
-    palette: "from-cream via-blush to-sage",
-  },
-  {
-    id: "tableau-dashboard",
-    title: "Executive KPI Dashboard",
-    category: "Data Visualization",
-    description:
-      "A single-page executive dashboard designed to be read in under 30 seconds.",
-    longDescription:
-      "Executives don't have time to explore a dashboard — they need the answer on the first screen. This project focused as much on information hierarchy and visual restraint as on the underlying data model, using a strict top-line-metrics-first layout with drill-down available but never required.",
-    stack: ["Tableau", "Power BI", "SQL"],
-    results: [
-      "Reduced exec review meetings from 45 to 20 minutes",
-      "Became the standing template for monthly business reviews",
-    ],
-    palette: "from-blush via-sage to-cream",
-  },
-  {
-    id: "python-analytics",
-    title: "Python Churn Model",
-    category: "Predictive Analytics",
-    description:
-      "A logistic regression model predicting which customers are likely to churn next month.",
-    longDescription:
-      "Built an end-to-end pipeline in Python — cleaning transactional and behavioral data, engineering features like usage recency and support-ticket frequency, and training a logistic regression model to flag at-risk accounts. The focus was on interpretability: the business team needed to understand why a customer was flagged, not just that they were.",
-    stack: ["Python", "pandas", "scikit-learn"],
-    results: [
-      "78% precision identifying at-risk accounts 30 days out",
-      "Findings translated into a proactive outreach playbook",
-    ],
-    palette: "from-sage via-blush to-cream",
-  },
-  {
-    id: "ai-insight-summarizer",
-    title: "AI Consumer Insight Summarizer",
-    category: "Applied AI",
-    description:
-      "A tool that reads thousands of open-ended survey responses and returns themed summaries.",
-    longDescription:
-      "Open-text survey data is where the richest insight lives and the least gets read. This project used an LLM-based pipeline to cluster and summarize thousands of open-ended responses into themed, human-readable summaries with representative quotes, cutting a week of manual coding down to an afternoon of review.",
-    stack: ["Python", "OpenAI API", "pandas"],
-    results: [
-      "Reduced manual response coding time by roughly 85%",
-      "Surfaced themes a manual read of a 200-response sample had missed",
-    ],
-    palette: "from-cream via-sage to-blush",
-  },
-  {
-    id: "product-case-study",
-    title: "Onboarding Redesign Case Study",
-    category: "Product Strategy",
-    description:
-      "A feature-prioritization case study rethinking first-time-user onboarding for a streaming app.",
-    longDescription:
-      "A self-directed case study examining a music-streaming app's first-session experience. Combined usability heuristics, competitive teardown, and a lightweight RICE prioritization framework to propose a redesigned onboarding flow aimed at getting users to their 'first great song' faster.",
-    stack: ["Figma", "RICE Framework", "UX Research"],
-    results: [
-      "Proposed flow projected to cut time-to-first-play by 35%",
-      "Framework reused across two subsequent case studies",
-    ],
-    palette: "from-blush via-cream to-sage-deep",
-  },
-  {
-    id: "music-industry-strategy",
-    title: "Music Industry Strategy Project",
-    category: "Music Strategy",
-    description:
-      "An analysis of playlist placement and streaming royalty structures for independent artists.",
-    longDescription:
-      "Bringing the analytics lens to the music side: this project modeled how playlist placement, release-day timing, and catalog depth interact with streaming royalty structures for independent artists, and proposed a release strategy designed to compound playlist momentum instead of resetting it with every single.",
-    stack: ["Excel", "Spotify for Artists Data", "Market Research"],
-    results: [
-      "Modeled royalty impact across 3 hypothetical release strategies",
-      "Framework since used to plan an independent artist's EP rollout",
-    ],
-    palette: "from-sage-deep via-blush to-cream",
+    palette: "from-bone via-porcelain to-rose-mist",
   },
 ];
 
@@ -160,9 +83,6 @@ export type ExperienceItem = {
   summary: string;
   points: string[];
 };
-
-
-
 
 export const skills = [
   "SQL",
