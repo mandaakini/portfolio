@@ -6,70 +6,6 @@ import { CheckCircle2, X } from "lucide-react";
 
 import { type Project } from "../lib/data";
 
-function getProjectPalette(project: Project) {
-  const category = project.category.toLowerCase();
-
-  if (
-    category.includes("consumer") ||
-    category.includes("market")
-  ) {
-    return "from-sage-mist via-porcelain to-rose-mist";
-  }
-
-  if (
-    category.includes("data") ||
-    category.includes("predictive") ||
-    category.includes("ai")
-  ) {
-    return "from-plum-mist via-porcelain to-plum/25";
-  }
-
-  if (
-    category.includes("product") ||
-    category.includes("strategy")
-  ) {
-    return "from-rose-mist via-porcelain to-rosewood/25";
-  }
-
-  if (category.includes("music")) {
-    return "from-deep-espresso via-plum to-rosewood";
-  }
-
-  return "from-sage-mist via-porcelain to-rose-mist";
-}
-
-function getCategoryColors(project: Project) {
-  const category = project.category.toLowerCase();
-
-  if (
-    category.includes("consumer") ||
-    category.includes("market")
-  ) {
-    return "border-eucalyptus/20 bg-sage-mist/90 text-sage-deep";
-  }
-
-  if (
-    category.includes("data") ||
-    category.includes("predictive") ||
-    category.includes("ai")
-  ) {
-    return "border-plum/15 bg-plum-mist/90 text-plum";
-  }
-
-  if (
-    category.includes("product") ||
-    category.includes("strategy")
-  ) {
-    return "border-rose/20 bg-rose-mist/90 text-rosewood";
-  }
-
-  if (category.includes("music")) {
-    return "border-cream/15 bg-deep-espresso/80 text-cream";
-  }
-
-  return "border-eucalyptus/20 bg-sage-mist/90 text-sage-deep";
-}
-
 export default function ProjectModal({
   project,
   onClose,
@@ -132,50 +68,25 @@ export default function ProjectModal({
               damping: 30,
               stiffness: 300,
             }}
-            className="relative max-h-[90vh] w-full overflow-y-auto rounded-t-4xl border border-cream/10 bg-porcelain shadow-lift sm:max-w-2xl sm:rounded-4xl"
+            className="relative max-h-[90vh] w-full overflow-y-auto rounded-t-4xl border border-wine/15 border-t-4 border-t-wine bg-porcelain shadow-lift sm:max-w-2xl sm:rounded-4xl"
           >
-            <div
-              className={`relative h-40 overflow-hidden bg-gradient-to-br sm:h-48 ${getProjectPalette(
-                project,
-              )}`}
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Close project details"
+              className="absolute right-5 top-5 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-wine/15 bg-cream text-ink shadow-softer transition-all duration-300 hover:rotate-90 hover:border-wine/30 hover:bg-wine hover:text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-offset-2 focus-visible:ring-offset-porcelain"
             >
-              <div
-                aria-hidden="true"
-                className="absolute -right-10 -top-12 h-40 w-40 rounded-full border border-espresso/10"
-              />
+              <X size={18} aria-hidden="true" />
+            </button>
 
-              <div
-                aria-hidden="true"
-                className="absolute bottom-8 right-24 h-20 w-20 rotate-12 rounded-3xl border border-espresso/10"
-              />
-
-              <div
-                aria-hidden="true"
-                className="absolute left-1/3 top-6 h-24 w-24 rounded-full bg-porcelain/25 blur-2xl"
-              />
-
-              <button
-                type="button"
-                onClick={onClose}
-                aria-label="Close project details"
-                className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full bg-porcelain/85 text-ink shadow-softer backdrop-blur-sm transition-all duration-300 hover:rotate-90 hover:bg-porcelain hover:text-rosewood"
-              >
-                <X size={18} aria-hidden="true" />
-              </button>
-
-              <span
-                className={`absolute bottom-5 left-6 rounded-full border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] backdrop-blur-sm ${getCategoryColors(
-                  project,
-                )}`}
-              >
+            <div className="p-7 pt-16 sm:p-10 sm:pt-14">
+              <span className="inline-flex rounded-full border border-wine/15 bg-bone px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-wine">
                 {project.category}
               </span>
-            </div>
 
-            <div className="p-7 sm:p-10">
               <h3
                 id={`project-title-${project.id}`}
-                className="mb-4 font-display text-2xl font-semibold text-ink sm:text-3xl"
+                className="mb-4 mt-6 font-display text-2xl font-semibold text-ink sm:text-3xl"
               >
                 {project.title}
               </h3>
@@ -185,7 +96,7 @@ export default function ProjectModal({
               </p>
 
               <div className="mb-9">
-                <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-rosewood">
+                <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-wine">
                   Tech Stack
                 </p>
 
@@ -193,7 +104,7 @@ export default function ProjectModal({
                   {project.stack.map((item) => (
                     <span
                       key={item}
-                      className="rounded-full border border-eucalyptus/15 bg-sage-mist px-3 py-1.5 font-mono text-xs uppercase tracking-wide text-sage-deep"
+                      className="rounded-full border border-wine/10 bg-bone px-3 py-1.5 font-mono text-xs uppercase tracking-wide text-mushroom-deep"
                     >
                       {item}
                     </span>
@@ -202,7 +113,7 @@ export default function ProjectModal({
               </div>
 
               <div>
-                <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-rosewood">
+                <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-wine">
                   Results
                 </p>
 
@@ -215,7 +126,7 @@ export default function ProjectModal({
                       <CheckCircle2
                         size={17}
                         aria-hidden="true"
-                        className="mt-0.5 shrink-0 text-eucalyptus"
+                        className="mt-0.5 shrink-0 text-wine"
                       />
 
                       <span>{result}</span>
