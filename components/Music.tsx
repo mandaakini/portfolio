@@ -1,23 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mic2, Piano, Sliders } from "lucide-react";
+import { Headphones, Piano, Sliders } from "lucide-react";
 
 const pillars = [
   {
     icon: Piano,
-    title: "Piano & Performance",
-    body: "Classically trained, now more interested in what a chord progression does to a room than in playing it perfectly.",
+    title: "Classical Foundations",
+    body: "My training includes classical piano, Carnatic singing, and the Indian classical dance forms Kuchipudi and Bharatanatyam—disciplines that shaped how I understand rhythm, expression, and storytelling.",
+  },
+  {
+    icon: Headphones,
+    title: "Performance & DJing",
+    body: "From live performance to DJ sets, I’m drawn to the balance between preparation, improvisation, and responding to the energy of a room.",
   },
   {
     icon: Sliders,
-    title: "Production",
-    body: "Learning the other side of the glass—arrangement, mixing, and the small decisions that make a track feel finished.",
-  },
-  {
-    icon: Mic2,
-    title: "Why It Matters to Product",
-    body: "Music taught me that timing, repetition, and restraint are what make people feel something. I bring that same ear to product and research work.",
+    title: "Production & Technology",
+    body: "I’m exploring arrangement, mixing, and the technologies that shape how music is created, experienced, and shared.",
   },
 ];
 
