@@ -32,9 +32,9 @@ export default function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative bg-cream py-24 text-ink sm:py-32 [&_h2]:text-ink"
+      className="relative flex min-h-[calc(100svh-9.5rem)] scroll-mt-20 items-center bg-cream py-12 text-ink sm:py-14 [&_h2]:text-ink"
     >
-      <div className="mx-auto max-w-8xl px-6 text-center sm:px-8 lg:px-12">
+      <div className="mx-auto w-full max-w-8xl px-6 text-center sm:px-8 lg:px-12">
         <SectionHeading
           eyebrow="06 — Contact"
           title="I'd love to hear from you."
@@ -46,16 +46,16 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-6 flex justify-center"
+          className="mt-5 flex justify-center"
         >
-          <p className="max-w-lg text-charcoal">
+          <p className="max-w-lg leading-relaxed text-charcoal">
             Whether it's a new opportunity, an ambitious question, or a
             discussion about music, I'm always open to a thoughtful
             conversation.
           </p>
         </motion.div>
 
-        <div className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-3">
+        <div className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-3">
           {links.map((link, index) => {
             const Icon = link.icon;
 
@@ -74,13 +74,13 @@ export default function Contact() {
                   delay: index * 0.08,
                 }}
                 whileHover={{ y: -6 }}
-                className="group flex min-h-64 flex-col items-center justify-center gap-5 rounded-4xl border border-wine/20 bg-bone px-6 py-8 shadow-softer transition-all duration-300 hover:border-wine/40 hover:bg-blush hover:shadow-soft"
+                className="group flex min-h-56 flex-col items-center justify-center gap-5 rounded-4xl border border-wine/20 bg-bone px-6 py-7 shadow-softer transition-all duration-300 hover:border-wine/40 hover:bg-blush hover:shadow-soft"
               >
-                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-wine text-bone transition-colors duration-300 group-hover:bg-rose-deep">
-                  <Icon size={24} aria-hidden="true" />
+                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-wine text-bone transition-colors duration-300 group-hover:bg-rose-deep">
+                  <Icon size={22} aria-hidden="true" />
                 </span>
 
-                <span className="flex items-center justify-center gap-1.5 text-center text-sm font-medium text-ink">
+                <span className="text-center text-sm font-medium text-ink">
                   {link.label}
                 </span>
               </motion.a>
