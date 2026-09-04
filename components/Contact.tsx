@@ -32,7 +32,7 @@ export default function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative flex min-h-[calc(100svh-9.5rem)] scroll-mt-20 items-center bg-cream py-12 text-ink sm:py-14 [&_h2]:text-ink"
+      className="relative flex min-h-[calc(100svh-9.5rem)] scroll-mt-[78px] items-center bg-cream py-12 text-ink sm:py-14 [&_h2]:text-ink"
     >
       <div className="mx-auto w-full max-w-8xl px-6 text-center sm:px-8 lg:px-12">
         <SectionHeading
