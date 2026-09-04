@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-cream/10 bg-deep-espresso py-6 text-cream">
+    <footer className="relative overflow-hidden border-t border-cream/10 bg-deep-espresso py-4 text-cream">
       <div
         aria-hidden="true"
         className="absolute -bottom-20 left-1/4 h-40 w-40 rounded-full bg-plum/10 blur-3xl"
