@@ -63,7 +63,7 @@ export default function Nav() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-20 max-w-8xl items-center justify-between px-6 sm:px-8 lg:px-12">
+      <div className="relative mx-auto flex h-20 max-w-8xl items-center justify-between px-6 sm:px-8 lg:px-12">
         <a
           href="#home"
           aria-label="Return to home"
@@ -78,7 +78,7 @@ export default function Nav() {
         </a>
 
         <nav
-          className="hidden items-center gap-8 lg:flex"
+          className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 lg:flex"
           aria-label="Primary navigation"
         >
           {nav.map((item) => {
